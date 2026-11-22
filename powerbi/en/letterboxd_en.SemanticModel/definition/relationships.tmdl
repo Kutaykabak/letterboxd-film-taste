@@ -1,0 +1,14 @@
+relationship 9501dee5-1411-425c-9773-db3d89d7eb94
+	joinOnDateBehavior: datePartOnly
+	fromColumn: films.rated_date
+	toColumn: LocalDateTable_77da11d1-b78c-4cef-b8a6-70879d86e0ea.Date
+
+relationship AutoDetected_b1557bab-8d1d-4eb1-9916-1244a3f882b5
+	crossFilteringBehavior: bothDirections
+	fromColumn: film_genres.film_id
+	toColumn: films.film_id
+
+relationship AutoDetected_1aa6b306-e413-4a9d-9a93-297766acb842
+	fromColumn: film_genres.genre
+	toColumn: genres.genre
+

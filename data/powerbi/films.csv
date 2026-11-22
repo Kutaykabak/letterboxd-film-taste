@@ -1,0 +1,356 @@
+﻿film_id,name,year,decade,decade_label,decade_label_en,rating,loved,liked,rated_date,rated_year,tmdb_rating,tmdb_votes,popularity,runtime,original_language,language_group,primary_country,director,n_genres,genres,expected_from_tmdb,predicted_rating,diff_from_crowd,prediction_error,abs_error
+1,Knives Out,2019,2010,2010'ler,2010s,4.5,1,1,2023-08-31,2023,7.84,14847,17.62,131.0,en,English,US,Rian Johnson,3,Comedy|Crime|Mystery,3.99,3.81,0.51,-0.69,0.69
+2,Se7en,1995,1990,1990'ler,1990s,5.0,1,1,2022-12-05,2022,8.38,24275,27.75,127.0,en,English,US,David Fincher,3,Crime|Mystery|Thriller,4.44,4.21,0.56,-0.79,0.79
+3,Inception,2010,2010,2010'ler,2010s,4.0,1,0,2022-12-06,2022,8.37,40804,55.42,148.0,en,English,GB,Christopher Nolan,3,Action|Science Fiction|Crime,4.43,4.06,-0.43,0.06,0.06
+4,2001: A Space Odyssey,1968,1960,1970 ve öncesi,1970s and earlier,4.0,1,0,2022-12-06,2022,8.04,13183,20.73,149.0,en,English,GB,Stanley Kubrick,3,Science Fiction|Mystery|Adventure,4.15,4.18,-0.15,0.18,0.18
+5,Blade Runner 2049,2017,2010,2010'ler,2010s,4.0,1,0,2023-07-04,2023,7.62,16067,31.77,164.0,en,English,CA,Denis Villeneuve,2,Science Fiction|Drama,3.79,3.9,0.21,-0.1,0.1
+6,Mad Max: Fury Road,2015,2010,2010'ler,2010s,4.0,1,1,2024-06-05,2024,7.64,24995,20.82,121.0,en,English,AU,George Miller,3,Action|Adventure|Science Fiction,3.82,3.65,0.18,-0.35,0.35
+7,Lady Bird,2017,2010,2010'ler,2010s,3.0,0,0,2022-12-09,2022,7.25,9294,8.55,94.0,en,English,US,Greta Gerwig,2,Drama|Comedy,3.48,3.38,-0.48,0.38,0.38
+8,Interstellar: Nolan's Odyssey,2014,2010,2010'ler,2010s,4.0,1,0,2022-12-09,2022,7.8,188,1.45,23.0,en,English,GB,Dan Storey,2,Documentary|TV Movie,3.95,3.87,0.05,-0.13,0.13
+9,Ending the Knight,2012,2010,2010'ler,2010s,4.0,1,0,2022-12-09,2022,7.09,35,1.13,111.0,en,English,,Jason Hillhouse,1,Documentary,3.35,3.68,0.65,-0.32,0.32
+10,Tenet,2020,2020,2020'ler,2020s,2.5,0,0,2023-11-27,2023,7.17,11814,21.58,150.0,en,English,GB,Christopher Nolan,3,Action|Thriller|Science Fiction,3.42,3.02,-0.92,0.52,0.52
+11,Memento,2000,2000,2000'ler,2000s,4.5,1,1,2023-11-19,2023,8.18,17084,16.85,113.0,en,English,US,Christopher Nolan,2,Mystery|Thriller,4.27,4.3,0.23,-0.2,0.2
+12,The Prestige,2006,2000,2000'ler,2000s,5.0,1,1,2022-12-09,2022,8.21,18511,19.37,131.0,en,English,GB,Christopher Nolan,3,Drama|Mystery|Science Fiction,4.3,4.19,0.7,-0.81,0.81
+13,The Devil All the Time,2020,2020,2020'ler,2020s,3.5,0,0,2023-01-03,2023,7.16,3852,6.54,138.0,en,English,US,Antonio Campos,3,Crime|Drama|Thriller,3.41,3.38,0.09,-0.12,0.12
+14,Cars,2006,2000,2000'ler,2000s,5.0,1,1,2022-12-09,2022,7.06,15763,13.72,117.0,en,English,US,John Lasseter,4,Animation|Adventure|Comedy|Family,3.33,3.37,1.67,-1.63,1.63
+15,Toy Story,1995,1990,1990'ler,1990s,4.0,1,0,2022-12-09,2022,7.99,20865,27.12,81.0,en,English,US,John Lasseter,4,Family|Comedy|Animation|Adventure,4.11,4.35,-0.11,0.35,0.35
+16,WALL·E,2008,2000,2000'ler,2000s,4.0,1,0,2022-12-09,2022,8.13,21231,22.22,98.0,en,English,US,Andrew Stanton,3,Animation|Family|Science Fiction,4.23,4.25,-0.23,0.25,0.25
+17,Spider-Man: Into the Spider-Verse,2018,2010,2010'ler,2010s,4.0,1,0,2023-08-19,2023,8.4,18297,25.03,117.0,en,English,US,Bob Persichetti,4,Animation|Action|Adventure|Science Fiction,4.46,3.81,-0.46,-0.19,0.19
+18,Spirited Away,2001,2000,2000'ler,2000s,4.0,1,0,2022-12-09,2022,8.54,19268,45.99,125.0,ja,Other,JP,Hayao Miyazaki,3,Animation|Family|Fantasy,4.57,4.23,-0.57,0.23,0.23
+19,Howl's Moving Castle,2004,2000,2000'ler,2000s,4.0,1,0,2022-12-09,2022,8.39,11695,35.15,119.0,ja,Other,JP,Hayao Miyazaki,3,Fantasy|Animation|Adventure,4.45,4.23,-0.45,0.23,0.23
+20,Fight Club,1999,1990,1990'ler,1990s,5.0,1,1,2022-12-09,2022,8.44,33411,35.54,139.0,en,English,DE,David Fincher,2,Drama|Thriller,4.49,4.11,0.51,-0.89,0.89
+21,Zodiac,2007,2000,2000'ler,2000s,4.0,1,0,2023-12-10,2023,7.54,12165,12.41,157.0,en,English,US,David Fincher,3,Crime|Mystery|Thriller,3.73,3.7,0.27,-0.3,0.3
+22,The Curious Case of Benjamin Button,2008,2000,2000'ler,2000s,3.5,0,0,2023-09-29,2023,7.61,14274,14.1,166.0,en,English,US,David Fincher,3,Drama|Fantasy|Romance,3.79,3.86,-0.29,0.36,0.36
+23,Gone Girl,2014,2010,2010'ler,2010s,4.5,1,1,2024-06-04,2024,7.89,20726,22.69,149.0,en,English,US,David Fincher,3,Mystery|Thriller|Drama,4.03,4.07,0.47,-0.43,0.43
+24,The Game,1997,1990,1990'ler,1990s,3.0,0,0,2023-08-19,2023,7.58,7775,9.94,129.0,en,English,US,David Fincher,3,Drama|Thriller|Mystery,3.77,3.97,-0.77,0.97,0.97
+25,Mank,2020,2020,2020'ler,2020s,3.0,0,0,2022-12-09,2022,6.67,1873,3.27,132.0,en,English,US,David Fincher,2,Drama|History,2.99,2.72,0.01,-0.28,0.28
+26,The Social Network,2010,2010,2010'ler,2010s,3.0,0,0,2022-12-09,2022,7.38,13799,13.87,121.0,en,English,US,David Fincher,1,Drama,3.59,3.61,-0.59,0.61,0.61
+27,Split,2016,2010,2010'ler,2010s,4.0,1,1,2024-06-04,2024,7.34,18849,10.04,117.0,en,English,US,M. Night Shyamalan,2,Horror|Thriller,3.56,3.45,0.44,-0.55,0.55
+28,Glass,2019,2010,2010'ler,2010s,3.0,0,0,2024-06-06,2024,6.66,9395,7.61,129.0,en,English,US,M. Night Shyamalan,3,Thriller|Drama|Science Fiction,2.99,2.57,0.01,-0.43,0.43
+29,The Sixth Sense,1999,1990,1990'ler,1990s,4.0,1,0,2022-12-09,2022,7.96,13650,15.66,107.0,en,English,US,M. Night Shyamalan,3,Mystery|Thriller|Drama,4.08,4.17,-0.08,0.17,0.17
+30,The Invisible Man,2020,2020,2020'ler,2020s,3.0,0,0,2022-12-09,2022,7.08,6575,6.8,124.0,en,English,AU,Leigh Whannell,3,Thriller|Science Fiction|Horror,3.34,3.07,-0.34,0.07,0.07
+31,Us,2019,2010,2010'ler,2010s,3.5,0,0,2023-01-03,2023,6.93,8434,7.09,116.0,en,English,US,Jordan Peele,2,Horror|Thriller,3.22,3.17,0.28,-0.33,0.33
+32,Get Out,2017,2010,2010'ler,2010s,4.5,1,1,2023-08-19,2023,7.62,19684,16.92,104.0,en,English,US,Jordan Peele,3,Mystery|Thriller|Horror,3.8,3.88,0.7,-0.62,0.62
+33,The Lighthouse,2019,2010,2010'ler,2010s,4.5,1,1,2022-12-09,2022,7.46,5931,10.97,109.0,en,English,BR,Robert Eggers,3,Drama|Fantasy|Thriller,3.66,3.62,0.84,-0.88,0.88
+34,Noah,2014,2010,2010'ler,2010s,2.0,0,0,2022-12-09,2022,5.71,6874,7.27,138.0,en,English,US,Darren Aronofsky,2,Drama|Adventure,2.18,2.64,-0.18,0.64,0.64
+35,The Shawshank Redemption,1994,1990,1990'ler,1990s,4.0,1,0,2022-12-09,2022,8.74,31914,48.12,142.0,en,English,US,Frank Darabont,2,Drama|Crime,4.74,4.29,-0.74,0.29,0.29
+36,Forrest Gump,1994,1990,1990'ler,1990s,3.0,0,0,2022-12-09,2022,8.46,30951,30.82,142.0,en,English,US,Robert Zemeckis,3,Comedy|Drama|Romance,4.51,4.42,-1.51,1.42,1.42
+37,The Lord of the Rings: The Fellowship of the Ring,2001,2000,2000'ler,2000s,4.5,1,0,2022-12-09,2022,8.45,28939,40.46,179.0,en,English,NZ,Peter Jackson,3,Adventure|Fantasy|Action,4.5,4.2,0.0,-0.3,0.3
+38,The Lord of the Rings: The Two Towers,2002,2000,2000'ler,2000s,4.5,1,0,2022-12-26,2022,8.43,25041,28.83,179.0,en,English,NZ,Peter Jackson,3,Adventure|Fantasy|Action,4.49,4.24,0.01,-0.26,0.26
+39,The Dark Knight,2008,2000,2000'ler,2000s,4.5,1,1,2023-01-06,2023,8.54,37462,49.13,152.0,en,English,GB,Christopher Nolan,3,Action|Thriller|Crime,4.57,4.12,-0.07,-0.38,0.38
+40,The Godfather,1972,1970,1970 ve öncesi,1970s and earlier,5.0,1,1,2024-06-04,2024,8.69,24036,45.06,175.0,en,English,US,Francis Ford Coppola,2,Drama|Crime,4.7,4.31,0.3,-0.69,0.69
+41,The Green Mile,1999,1990,1990'ler,1990s,3.0,0,0,2022-12-09,2022,8.5,20182,25.88,189.0,en,English,US,Frank Darabont,3,Fantasy|Drama|Crime,4.54,4.56,-1.54,1.56,1.56
+42,Life Is Beautiful,1997,1990,1990'ler,1990s,4.5,1,1,2023-08-11,2023,8.43,14430,15.47,116.0,it,Other,IT,Roberto Benigni,2,Comedy|Drama,4.49,4.35,0.01,-0.15,0.15
+43,Psycho,1960,1960,1970 ve öncesi,1970s and earlier,4.5,1,1,2022-12-09,2022,8.4,11471,16.46,109.0,en,English,US,Alfred Hitchcock,3,Horror|Thriller|Mystery,4.46,4.45,0.04,-0.05,0.05
+44,Vertigo,1958,1950,1970 ve öncesi,1970s and earlier,4.0,1,0,2022-12-09,2022,8.1,6638,8.98,128.0,en,English,US,Alfred Hitchcock,3,Mystery|Romance|Thriller,4.2,4.32,-0.2,0.32,0.32
+45,The Birds,1963,1960,1970 ve öncesi,1970s and earlier,4.0,1,0,2022-12-09,2022,7.5,4658,5.58,119.0,en,English,US,Alfred Hitchcock,2,Horror|Thriller,3.7,3.89,0.3,-0.11,0.11
+46,Léon: The Professional,1994,1990,1990'ler,1990s,4.0,1,0,2023-09-07,2023,8.29,16830,20.5,111.0,fr,Other,FR,Luc Besson,3,Crime|Drama|Action,4.36,4.44,-0.36,0.44,0.44
+47,The Pianist,2002,2000,2000'ler,2000s,4.5,1,1,2024-06-04,2024,8.37,10662,20.3,150.0,en,English,FR,Roman Polanski,2,Drama|War,4.43,4.34,0.07,-0.16,0.16
+48,Jurassic Park,1993,1990,1990'ler,1990s,3.5,0,0,2022-12-09,2022,8.0,18652,10.55,127.0,en,English,US,Steven Spielberg,2,Adventure|Science Fiction,4.12,4.14,-0.62,0.64,0.64
+49,Schindler's List,1993,1990,1990'ler,1990s,4.5,1,1,2023-08-13,2023,8.57,18224,26.07,195.0,en,English,US,Steven Spielberg,3,Drama|History|War,4.6,4.16,-0.1,-0.34,0.34
+50,Orphan,2009,2000,2000'ler,2000s,2.5,0,0,2022-12-09,2022,6.99,5860,7.23,123.0,en,English,US,Jaume Collet-Serra,2,Horror|Thriller,3.27,3.48,-0.77,0.98,0.98
+51,Ex Machina,2015,2010,2010'ler,2010s,4.0,1,0,2024-06-04,2024,7.57,14830,10.94,108.0,en,English,GB,Alex Garland,2,Drama|Science Fiction,3.75,3.56,0.25,-0.44,0.44
+52,Annihilation,2018,2010,2010'ler,2010s,3.0,0,0,2023-09-07,2023,6.45,9795,9.54,115.0,en,English,GB,Alex Garland,2,Science Fiction|Horror,2.81,2.6,0.19,-0.4,0.4
+53,Her,2013,2010,2010'ler,2010s,3.5,0,0,2023-12-08,2023,7.83,15868,12.23,126.0,en,English,US,Spike Jonze,3,Romance|Science Fiction|Drama,3.98,3.89,-0.48,0.39,0.39
+54,The Machinist,2004,2000,2000'ler,2000s,4.5,1,1,2022-12-09,2022,7.52,6506,6.63,102.0,en,English,ES,Brad Anderson,2,Thriller|Drama,3.71,3.68,0.79,-0.82,0.82
+55,La La Land,2016,2010,2010'ler,2010s,4.5,1,1,2023-08-11,2023,7.89,18767,20.93,129.0,en,English,US,Damien Chazelle,3,Comedy|Drama|Romance,4.03,3.94,0.47,-0.56,0.56
+56,Dune,2021,2020,2020'ler,2020s,4.0,1,0,2022-12-09,2022,7.79,16022,43.87,155.0,en,English,US,Denis Villeneuve,2,Science Fiction|Adventure,3.94,3.81,0.06,-0.19,0.19
+57,The Shining,1980,1980,1980'ler,1980s,4.0,1,0,2023-08-11,2023,8.2,19729,21.53,144.0,en,English,GB,Stanley Kubrick,2,Horror|Thriller,4.29,4.37,-0.29,0.37,0.37
+58,American Psycho,2000,2000,2000'ler,2000s,3.0,0,0,2022-12-09,2022,7.4,13036,14.66,102.0,en,English,CA,Mary Harron,3,Thriller|Drama|Crime,3.61,4.01,-0.61,1.01,1.01
+59,The Silence of the Lambs,1991,1990,1990'ler,1990s,4.5,1,1,2022-12-09,2022,8.35,18903,6.26,119.0,en,English,US,Jonathan Demme,3,Crime|Thriller|Drama,4.41,4.29,0.09,-0.21,0.21
+60,Little Women,2019,2010,2010'ler,2010s,3.5,0,0,2022-12-22,2022,7.85,7159,15.78,135.0,en,English,US,Greta Gerwig,2,Drama|Romance,4.0,3.82,-0.5,0.32,0.32
+61,Coco,2017,2010,2010'ler,2010s,4.5,1,1,2022-12-09,2022,8.21,21920,57.87,105.0,en,English,US,Lee Unkrich,4,Family|Animation|Music|Adventure,4.29,3.92,0.21,-0.58,0.58
+62,Marriage Story,2019,2010,2010'ler,2010s,2.5,0,0,2022-12-09,2022,7.74,7653,7.09,137.0,en,English,GB,Noah Baumbach,1,Drama,3.89,3.69,-1.39,1.19,1.19
+63,A Quiet Place,2018,2010,2010'ler,2010s,3.0,0,0,2022-12-09,2022,7.39,15973,12.07,91.0,en,English,US,John Krasinski,3,Horror|Drama|Science Fiction,3.61,3.4,-0.61,0.4,0.4
+64,Nightcrawler,2014,2010,2010'ler,2010s,3.5,0,0,2022-12-09,2022,7.71,12302,15.42,118.0,en,English,US,Dan Gilroy,3,Crime|Drama|Thriller,3.87,3.93,-0.37,0.43,0.43
+65,It,2017,2010,2010'ler,2010s,4.0,1,0,2022-12-09,2022,7.24,20910,12.68,135.0,en,English,US,Andy Muschietti,3,Horror|Thriller|Drama,3.48,3.5,0.52,-0.5,0.5
+66,The Shape of Water,2017,2010,2010'ler,2010s,3.5,0,0,2022-12-21,2022,7.23,13240,10.06,123.0,en,English,US,Guillermo del Toro,3,Drama|Fantasy|Romance,3.46,3.3,0.04,-0.2,0.2
+67,There Will Be Blood,2007,2000,2000'ler,2000s,5.0,1,1,2024-06-04,2024,8.06,7915,10.7,158.0,en,English,US,Paul Thomas Anderson,1,Drama,4.17,4.07,0.83,-0.93,0.93
+68,Eternals,2021,2020,2020'ler,2020s,2.0,0,0,2023-08-11,2023,6.74,9598,13.02,156.0,en,English,US,Chloé Zhao,3,Science Fiction|Action|Adventure,3.05,2.54,-1.05,0.54,0.54
+69,Atonement,2007,2000,2000'ler,2000s,4.0,1,0,2025-06-27,2025,7.63,4917,8.3,123.0,en,English,FR,Joe Wright,2,Drama|Romance,3.81,3.88,0.19,-0.12,0.12
+70,Burning Days,2022,2020,2020'ler,2020s,4.0,1,0,2023-08-19,2023,6.86,152,0.91,131.0,tr,Turkish,HR,Emin Alper,2,Drama|Thriller,3.16,3.26,0.84,-0.74,0.74
+71,(500) Days of Summer,2009,2000,2000'ler,2000s,4.0,1,0,2022-12-25,2022,7.31,11464,11.69,95.0,en,English,US,Marc Webb,3,Comedy|Drama|Romance,3.54,3.26,0.46,-0.74,0.74
+72,The Lord of the Rings: The Return of the King,2003,2000,2000'ler,2000s,4.5,1,0,2022-12-26,2022,8.51,27892,36.21,201.0,en,English,NZ,Peter Jackson,3,Adventure|Fantasy|Action,4.55,4.22,-0.05,-0.28,0.28
+73,Pirates of the Caribbean: The Curse of the Black Pearl,2003,2000,2000'ler,2000s,4.0,1,0,2022-12-26,2022,7.84,23137,22.98,143.0,en,English,US,Gore Verbinski,3,Adventure|Fantasy|Action,3.98,4.04,0.02,0.04,0.04
+74,The Water Diviner,2014,2010,2010'ler,2010s,3.0,0,0,2022-12-26,2022,6.78,1378,4.09,112.0,en,English,AU,Russell Crowe,2,War|Drama,3.09,3.14,-0.09,0.14,0.14
+75,The Butterfly's Dream,2013,2010,2010'ler,2010s,5.0,1,1,2023-01-20,2023,7.2,164,1.0,138.0,tr,Turkish,TR,Yılmaz Erdoğan,2,Drama|History,3.44,3.71,1.56,-1.29,1.29
+76,Arif V 216,2018,2010,2010'ler,2010s,2.5,0,0,2022-12-26,2022,6.25,234,0.57,125.0,tr,Turkish,TR,Kıvanç Baruönü,3,Adventure|Comedy|Science Fiction,2.64,2.26,-0.14,-0.24,0.24
+77,Cars of the Revolution,2008,2000,2000'ler,2000s,3.5,0,0,2022-12-26,2022,7.8,88,0.52,115.0,tr,Turkish,TR,Tolga Örnek,1,Drama,3.95,4.29,-0.45,0.79,0.79
+78,Prisoners,2013,2010,2010'ler,2010s,4.5,1,1,2024-06-04,2024,8.1,13798,15.91,153.0,en,English,US,Denis Villeneuve,3,Drama|Thriller|Crime,4.21,4.14,0.29,-0.36,0.36
+79,Manchester by the Sea,2016,2010,2010'ler,2010s,4.5,1,1,2023-01-07,2023,7.55,6679,9.91,138.0,en,English,US,Kenneth Lonergan,1,Drama,3.74,3.76,0.76,-0.74,0.74
+80,Nope,2022,2020,2020'ler,2020s,2.0,0,0,2025-11-05,2025,6.83,5348,8.35,130.0,en,English,US,Jordan Peele,3,Horror|Science Fiction|Thriller,3.13,2.82,-1.13,0.82,0.82
+81,Guardians of the Galaxy,2014,2010,2010'ler,2010s,3.5,0,0,2023-01-06,2023,7.91,30703,13.62,121.0,en,English,US,James Gunn,3,Action|Science Fiction|Adventure,4.04,3.77,-0.54,0.27,0.27
+82,The Wolf of Wall Street,2013,2010,2010'ler,2010s,4.0,1,1,2023-01-06,2023,8.03,26995,24.69,180.0,en,English,US,Martin Scorsese,3,Crime|Drama|Comedy,4.14,3.97,-0.14,-0.03,0.03
+83,Alone,2008,2000,2000'ler,2000s,2.0,0,0,2023-11-19,2023,7.5,13100,2.76,103.0,en,English,US,Chris Columbus,2,Comedy|Family,3.7,3.93,-1.7,1.93,1.93
+84,Hereditary,2018,2010,2010'ler,2010s,4.5,1,1,2024-06-04,2024,7.3,9130,13.22,128.0,en,English,US,Ari Aster,3,Horror|Mystery|Thriller,3.53,3.62,0.97,-0.88,0.88
+85,Midsommar,2019,2010,2010'ler,2010s,4.5,1,1,2024-06-04,2024,7.14,8657,13.42,147.0,en,English,SE,Ari Aster,3,Horror|Drama|Mystery,3.39,3.19,1.11,-1.31,1.31
+86,We're the Millers,2013,2010,2010'ler,2010s,2.5,0,0,2023-06-30,2023,6.84,9799,8.8,110.0,en,English,GB,Rawson Marshall Thurber,2,Comedy|Crime,3.14,3.3,-0.64,0.8,0.8
+87,Joker,2019,2010,2010'ler,2010s,3.5,0,0,2024-06-04,2024,8.11,28746,26.24,122.0,en,English,CA,Todd Phillips,3,Crime|Thriller|Drama,4.21,4.06,-0.71,0.56,0.56
+88,Upgrade,2018,2010,2010'ler,2010s,4.0,1,0,2023-08-19,2023,7.52,5395,6.72,100.0,en,English,AU,Leigh Whannell,3,Action|Thriller|Science Fiction,3.71,3.41,0.29,-0.59,0.59
+89,Drive,2011,2010,2010'ler,2010s,4.5,1,1,2023-07-04,2023,7.58,14277,12.78,100.0,en,English,US,Nicolas Winding Refn,3,Drama|Thriller|Crime,3.77,3.71,0.73,-0.79,0.79
+90,Blue Valentine,2010,2010,2010'ler,2010s,3.5,0,0,2023-07-06,2023,6.98,3672,4.71,112.0,en,English,US,Derek Cianfrance,2,Drama|Romance,3.25,3.44,0.25,-0.06,0.06
+91,Gladiator,2000,2000,2000'ler,2000s,4.5,1,1,2024-06-04,2024,8.23,21922,26.0,155.0,en,English,GB,Ridley Scott,3,Action|Drama|Adventure,4.32,4.26,0.18,-0.24,0.24
+92,The Martian,2015,2010,2010'ler,2010s,3.5,0,0,2023-07-07,2023,7.71,22171,17.58,141.0,en,English,US,Ridley Scott,3,Science Fiction|Drama|Adventure,3.88,3.91,-0.38,0.41,0.41
+93,A Beautiful Mind,2001,2000,2000'ler,2000s,4.0,1,0,2023-08-30,2023,7.86,11602,25.91,136.0,en,English,US,Ron Howard,2,Drama|Romance,4.0,4.13,0.0,0.13,0.13
+94,Troy,2004,2000,2000'ler,2000s,3.0,0,0,2023-07-07,2023,7.2,11760,21.47,163.0,en,English,GB,Wolfgang Petersen,2,Action|Adventure,3.44,3.48,-0.44,0.48,0.48
+95,Five Feet Apart,2019,2010,2010'ler,2010s,3.0,0,0,2023-07-07,2023,8.21,6031,6.04,116.0,en,English,US,Justin Baldoni,2,Romance|Drama,4.3,3.68,-1.3,0.68,0.68
+96,Me Before You,2016,2010,2010'ler,2010s,3.5,0,0,2024-06-04,2024,7.93,13734,14.45,110.0,en,English,US,Thea Sharrock,2,Drama|Romance,4.06,3.88,-0.56,0.38,0.38
+97,"Crazy, Stupid, Love.",2011,2010,2010'ler,2010s,3.0,0,0,2023-09-01,2023,7.28,9685,10.62,118.0,en,English,US,Glenn Ficarra,3,Comedy|Drama|Romance,3.51,3.47,-0.51,0.47,0.47
+98,Guardians of the Galaxy Vol. 3,2023,2020,2020'ler,2020s,4.0,1,0,2023-08-11,2023,7.93,9147,25.22,150.0,en,English,US,James Gunn,3,Science Fiction|Adventure|Action,4.06,3.64,-0.06,-0.36,0.36
+99,Guardians of the Galaxy Vol. 2,2017,2010,2010'ler,2010s,3.0,0,0,2023-08-11,2023,7.61,23787,18.6,137.0,en,English,US,James Gunn,3,Science Fiction|Adventure|Action,3.79,3.66,-0.79,0.66,0.66
+100,Spider-Man: No Way Home,2021,2020,2020'ler,2020s,3.5,0,0,2023-08-11,2023,7.94,23613,40.07,148.0,en,English,US,Jon Watts,3,Action|Adventure|Science Fiction,4.07,3.88,-0.57,0.38,0.38
+101,Avengers: Infinity War,2018,2010,2010'ler,2010s,4.0,1,0,2023-08-11,2023,8.25,33462,47.51,149.0,en,English,US,Joe Russo,3,Adventure|Action|Science Fiction,4.33,3.92,-0.33,-0.08,0.08
+102,Avengers: Endgame,2019,2010,2010'ler,2010s,3.5,0,0,2023-08-11,2023,8.2,29481,73.8,181.0,en,English,US,Anthony Russo,3,Adventure|Science Fiction|Action,4.29,3.78,-0.79,0.28,0.28
+103,Thor: Love and Thunder,2022,2020,2020'ler,2020s,2.5,0,0,2023-08-11,2023,6.34,9178,15.19,119.0,en,English,US,Taika Waititi,3,Fantasy|Action|Comedy,2.72,2.25,-0.22,-0.25,0.25
+104,The Flash,2023,2020,2020'ler,2020s,2.0,0,0,2023-08-11,2023,6.59,5417,13.28,144.0,en,English,US,Andy Muschietti,3,Action|Science Fiction|Adventure,2.93,2.01,-0.93,0.01,0.01
+105,Thor: Ragnarok,2017,2010,2010'ler,2010s,4.0,1,0,2023-08-11,2023,7.58,22798,17.92,131.0,en,English,US,Taika Waititi,4,Action|Adventure|Comedy|Science Fiction,3.76,3.41,0.24,-0.59,0.59
+106,Zack Snyder's Justice League,2021,2020,2020'ler,2020s,2.5,0,0,2023-12-31,2023,8.06,11323,16.78,242.0,en,English,US,Zack Snyder,3,Action|Adventure|Fantasy,4.17,3.81,-1.67,1.31,1.31
+107,The Truman Show,1998,1990,1990'ler,1990s,4.0,1,0,2023-08-11,2023,8.16,21281,21.57,103.0,en,English,US,Peter Weir,2,Comedy|Drama,4.25,4.31,-0.25,0.31,0.31
+108,Parasite,2019,2010,2010'ler,2010s,4.5,1,1,2024-06-04,2024,8.49,21772,42.23,133.0,ko,Other,KR,Bong Joon Ho,3,Comedy|Thriller|Drama,4.53,4.07,-0.03,-0.43,0.43
+109,Neon Genesis Evangelion: The End of Evangelion,1997,1990,1990'ler,1990s,5.0,1,1,2025-08-30,2025,8.26,2012,10.64,87.0,ja,Other,JP,Hideaki Anno,5,Animation|Science Fiction|Drama|Fantasy|Action,4.34,4.37,0.66,-0.63,0.63
+110,Grave of the Fireflies,1988,1980,1980'ler,1980s,5.0,1,1,2023-08-11,2023,8.45,6981,0.02,89.0,ja,Other,JP,Isao Takahata,3,Animation|Drama|War,4.5,4.39,0.5,-0.61,0.61
+111,The Father,2020,2020,2020'ler,2020s,4.0,1,0,2023-08-11,2023,8.09,3863,6.79,97.0,en,English,FR,Florian Zeller,1,Drama,4.19,3.62,-0.19,-0.38,0.38
+112,Alien,1979,1970,1970 ve öncesi,1970s and earlier,4.5,1,0,2023-08-11,2023,8.18,17185,23.51,117.0,en,English,US,Ridley Scott,2,Horror|Science Fiction,4.27,4.22,0.23,-0.28,0.28
+113,The Departed,2006,2000,2000'ler,2000s,4.5,1,1,2023-08-11,2023,8.16,16975,17.98,151.0,en,English,HK,Martin Scorsese,3,Drama|Thriller|Crime,4.25,4.3,0.25,-0.2,0.2
+114,Shutter Island,2010,2010,2010'ler,2010s,5.0,1,1,2024-08-18,2024,8.2,26871,20.88,138.0,en,English,US,Martin Scorsese,3,Drama|Thriller|Mystery,4.28,4.12,0.72,-0.88,0.88
+115,Pulp Fiction,1994,1990,1990'ler,1990s,4.0,1,0,2023-08-11,2023,8.48,31390,32.49,154.0,en,English,US,Quentin Tarantino,3,Thriller|Crime|Comedy,4.52,4.23,-0.52,0.23,0.23
+116,Good Will Hunting,1997,1990,1990'ler,1990s,4.0,1,0,2023-08-11,2023,8.17,14630,17.09,127.0,en,English,US,Gus Van Sant,1,Drama,4.26,4.35,-0.26,0.35,0.35
+117,Saving Private Ryan,1998,1990,1990'ler,1990s,4.0,1,0,2023-08-11,2023,8.24,18123,18.12,169.0,en,English,US,Steven Spielberg,3,War|Drama|History,4.32,4.34,-0.32,0.34,0.34
+118,Shame,2011,2010,2010'ler,2010s,3.0,0,0,2023-08-12,2023,6.92,3575,7.01,102.0,en,English,CA,Steve McQueen,1,Drama,3.21,3.44,-0.21,0.44,0.44
+119,Eternal Sunshine of the Spotless Mind,2004,2000,2000'ler,2000s,4.0,1,0,2024-04-25,2024,8.09,17023,17.44,108.0,en,English,US,Michel Gondry,3,Science Fiction|Drama|Romance,4.2,4.25,-0.2,0.25,0.25
+120,Barış Akarsu: Merhaba,2022,2020,2020'ler,2020s,1.5,0,0,2023-08-13,2023,4.31,18,0.3,114.0,tr,Turkish,TR,Mert Dikmen,2,Drama|Music,1.0,2.72,0.5,1.22,1.22
+121,Enola Holmes 2,2022,2020,2020'ler,2020s,2.5,0,0,2023-08-13,2023,7.38,3245,5.46,131.0,en,English,US,Harry Bradbeer,3,Adventure|Mystery|Crime,3.6,3.2,-1.1,0.7,0.7
+122,Enola Holmes,2020,2020,2020'ler,2020s,2.0,0,0,2023-08-13,2023,7.2,6942,7.83,124.0,en,English,US,Harry Bradbeer,3,Adventure|Mystery|Crime,3.44,3.1,-1.44,1.1,1.1
+123,3 Idiots,2009,2000,2000'ler,2000s,3.5,0,0,2023-08-13,2023,8.01,2917,9.92,171.0,hi,Other,IN,Rajkumar Hirani,2,Drama|Comedy,4.12,4.28,-0.62,0.78,0.78
+124,The Empire Strikes Back,1980,1980,1980'ler,1980s,4.5,1,0,2023-08-13,2023,8.39,19164,15.75,124.0,en,English,US,Irvin Kershner,3,Adventure|Action|Science Fiction,4.45,4.25,0.05,-0.25,0.25
+125,Before Sunrise,1995,1990,1990'ler,1990s,4.5,1,0,2023-08-13,2023,8.0,4987,10.74,101.0,en,English,AT,Richard Linklater,2,Drama|Romance,4.12,4.28,0.38,-0.22,0.22
+126,Moonlight,2016,2010,2010'ler,2010s,3.0,0,0,2023-11-19,2023,7.35,7783,9.81,112.0,en,English,US,Barry Jenkins,1,Drama,3.57,3.65,-0.57,0.65,0.65
+127,The Intouchables,2011,2010,2010'ler,2010s,4.0,1,0,2023-08-13,2023,8.27,19106,20.37,113.0,fr,Other,FR,Éric Toledano,2,Drama|Comedy,4.35,4.32,-0.35,0.32,0.32
+128,Y Tu Mamá También,2001,2000,2000'ler,2000s,4.0,1,0,2024-06-05,2024,7.45,1876,7.73,106.0,es,Other,MX,Alfonso Cuarón,2,Drama|Romance,3.65,4.06,0.35,0.06,0.06
+129,Becoming Jane,2007,2000,2000'ler,2000s,2.5,0,0,2023-08-15,2023,7.32,1296,3.57,120.0,en,English,GB,Julian Jarrold,2,Romance|Drama,3.54,3.83,-1.04,1.33,1.33
+130,The Notebook,2004,2000,2000'ler,2000s,4.0,1,0,2023-08-15,2023,7.9,13076,23.55,123.0,en,English,US,Nick Cassavetes,2,Romance|Drama,4.03,4.1,-0.03,0.1,0.1
+131,Avatar: The Way of Water,2022,2020,2020'ler,2020s,3.0,0,0,2023-08-15,2023,7.58,14922,22.82,192.0,en,English,US,James Cameron,3,Action|Adventure|Science Fiction,3.76,3.43,-0.76,0.43,0.43
+132,Your Name.,2016,2010,2010'ler,2010s,3.5,0,0,2023-10-20,2023,8.49,13219,30.71,106.0,ja,Other,JP,Makoto Shinkai,3,Animation|Romance|Drama,4.53,4.18,-1.03,0.68,0.68
+133,No Time to Die,2021,2020,2020'ler,2020s,2.5,0,0,2023-08-19,2023,7.34,7586,20.33,163.0,en,English,GB,Cary Joji Fukunaga,3,Action|Thriller|Adventure,3.56,3.28,-1.06,0.78,0.78
+134,Blonde,2022,2020,2020'ler,2020s,3.0,0,0,2023-08-19,2023,5.87,1600,5.36,167.0,en,English,US,Andrew Dominik,1,Drama,2.32,2.38,0.68,-0.62,0.62
+135,The Menu,2022,2020,2020'ler,2020s,3.5,0,0,2024-08-14,2024,7.18,6908,11.1,107.0,en,English,US,Mark Mylod,2,Comedy|Horror,3.42,3.3,0.08,-0.2,0.2
+136,Destiny,2006,2000,2000'ler,2000s,5.0,1,1,2024-06-04,2024,6.79,1897,4.55,93.0,en,English,US,Liam Lynch,4,Comedy|Music|Fantasy|Adventure,3.1,3.08,1.9,-1.92,1.92
+137,Innocence,1997,1990,1990'ler,1990s,4.0,1,1,2023-08-28,2023,7.0,1275,3.54,138.0,en,English,US,Martin Scorsese,2,Drama|Romance,3.27,3.94,0.73,-0.06,0.06
+138,Inside,2012,2010,2010'ler,2010s,4.0,1,1,2024-06-04,2024,7.41,6698,8.64,129.0,en,English,US,Spike Lee,3,Crime|Drama|Thriller,3.62,3.75,0.38,-0.25,0.25
+139,Fate,2001,2000,2000'ler,2000s,4.0,1,1,2025-01-03,2025,7.21,72,0.57,119.0,tr,Turkish,TR,Zeki Demirkubuz,1,Drama,3.45,3.99,0.55,-0.01,0.01
+140,Nausea,2015,2010,2010'ler,2010s,3.0,0,0,2023-08-28,2023,5.64,33,0.6,116.0,tr,Turkish,TR,Zeki Demirkubuz,1,Drama,2.12,2.84,0.88,-0.16,0.16
+141,Unhinged,2020,2020,2020'ler,2020s,1.0,0,0,2023-08-29,2023,6.42,2632,4.87,90.0,en,English,US,Derrick Borte,3,Action|Thriller|Horror,2.78,2.4,-1.78,1.4,1.4
+142,Scent of a Woman,1992,1990,1990'ler,1990s,4.0,1,0,2023-08-30,2023,7.79,4212,9.52,156.0,en,English,US,Martin Brest,1,Drama,3.94,4.18,0.06,0.18,0.18
+143,Dog,2022,2020,2020'ler,2020s,2.5,0,0,2023-08-31,2023,7.26,1835,4.74,101.0,en,English,US,Reid Carolin,2,Drama|Comedy,3.5,3.45,-1.0,0.95,0.95
+144,Winter Sleep,2014,2010,2010'ler,2010s,5.0,1,1,2023-08-31,2023,7.51,659,2.38,196.0,tr,Turkish,TR,Nuri Bilge Ceylan,1,Drama,3.7,3.95,1.3,-1.05,1.05
+145,Once Upon a Time in Anatolia,2011,2010,2010'ler,2010s,5.0,1,1,2025-08-07,2025,7.48,577,2.93,163.0,tr,Turkish,BA,Nuri Bilge Ceylan,2,Drama|Crime,3.68,3.84,1.32,-1.16,1.16
+146,The Wild Pear Tree,2018,2010,2010'ler,2010s,4.0,1,0,2023-08-31,2023,7.49,338,1.5,188.0,tr,Turkish,BA,Nuri Bilge Ceylan,1,Drama,3.69,4.02,0.31,0.02,0.02
+147,The Wind Rises,2013,2010,2010'ler,2010s,4.0,1,0,2023-08-31,2023,7.78,3555,10.38,126.0,ja,Other,JP,Hayao Miyazaki,4,Animation|Drama|History|Romance,3.94,4.01,0.06,0.01,0.01
+148,Soul,2020,2020,2020'ler,2020s,4.0,1,0,2023-08-31,2023,8.1,11938,16.31,101.0,en,English,US,Pete Docter,5,Animation|Drama|Family|Music|Fantasy,4.2,3.82,-0.2,-0.18,0.18
+149,Room,2015,2010,2010'ler,2010s,3.5,0,0,2023-08-31,2023,7.98,9959,6.2,118.0,en,English,CA,Lenny Abrahamson,2,Drama|Thriller,4.11,3.75,-0.61,0.25,0.25
+150,The Revenant,2015,2010,2010'ler,2010s,4.5,1,0,2023-08-31,2023,7.54,19971,13.99,157.0,en,English,CA,Alejandro G. Iñárritu,3,Western|Drama|Adventure,3.73,3.57,0.77,-0.93,0.93
+151,Logan,2017,2010,2010'ler,2010s,4.0,1,0,2023-08-31,2023,7.82,21113,16.99,137.0,en,English,US,James Mangold,3,Action|Drama|Science Fiction,3.97,3.77,0.03,-0.23,0.23
+152,The Lego Movie,2014,2010,2010'ler,2010s,4.0,1,0,2023-08-31,2023,7.43,8874,8.95,100.0,en,English,US,Phil Lord,5,Animation|Family|Adventure|Comedy|Fantasy,3.64,3.44,0.36,-0.56,0.56
+153,The Irishman,2019,2010,2010'ler,2010s,3.5,0,0,2023-08-31,2023,7.56,7883,11.42,209.0,en,English,US,Martin Scorsese,3,Crime|Drama|History,3.75,3.83,-0.25,0.33,0.33
+154,12 Years a Slave,2013,2010,2010'ler,2010s,4.0,1,0,2024-06-04,2024,7.93,12386,11.41,134.0,en,English,GB,Steve McQueen,2,Drama|History,4.06,3.91,-0.06,-0.09,0.09
+155,Meet Joe Black,1998,1990,1990'ler,1990s,3.5,0,0,2023-09-01,2023,7.37,6068,9.89,178.0,en,English,US,Martin Brest,3,Fantasy|Drama|Romance,3.59,3.84,-0.09,0.34,0.34
+156,The Others,2001,2000,2000'ler,2000s,4.0,1,0,2023-09-01,2023,7.62,7586,9.7,101.0,en,English,ES,Alejandro Amenábar,3,Horror|Mystery|Thriller,3.8,3.95,0.2,-0.05,0.05
+157,Taxi Driver,1976,1970,1970 ve öncesi,1970s and earlier,5.0,1,1,2023-11-19,2023,8.12,14053,18.53,114.0,en,English,US,Martin Scorsese,2,Crime|Drama,4.22,4.33,0.78,-0.67,0.67
+158,Fig Jam,2011,2010,2010'ler,2010s,1.0,0,0,2023-09-06,2023,6.22,98,0.54,94.0,tr,Turkish,TR,Aytaç Ağırlar,2,Romance|Drama,2.61,2.74,-1.61,1.74,1.74
+159,Brothers,2009,2000,2000'ler,2000s,3.5,0,0,2023-09-07,2023,7.32,4084,6.74,105.0,en,English,US,Jim Sheridan,3,Drama|Thriller|War,3.54,3.48,-0.04,-0.02,0.02
+160,V for Vendetta,2005,2000,2000'ler,2000s,4.0,1,0,2025-04-02,2025,7.9,16207,12.25,132.0,en,English,DE,James McTeigue,3,Action|Thriller|Science Fiction,4.03,3.98,-0.03,-0.02,0.02
+161,Heat,1995,1990,1990'ler,1990s,4.5,1,0,2023-09-07,2023,7.95,8928,18.33,170.0,en,English,US,Michael Mann,3,Crime|Drama|Action,4.08,4.25,0.42,-0.25,0.25
+162,Thor,2011,2010,2010'ler,2010s,3.0,0,0,2023-09-07,2023,6.77,23102,16.23,115.0,en,English,US,Kenneth Branagh,3,Adventure|Fantasy|Action,3.08,2.83,-0.08,-0.17,0.17
+163,Spider-Man: Homecoming,2017,2010,2010'ler,2010s,3.0,0,0,2023-09-29,2023,7.33,24284,23.46,133.0,en,English,US,Jon Watts,3,Action|Adventure|Science Fiction,3.55,3.12,-0.55,0.12,0.12
+164,Spider-Man: Far From Home,2019,2010,2010'ler,2010s,3.0,0,0,2023-09-29,2023,7.38,17943,21.49,129.0,en,English,US,Jon Watts,3,Action|Adventure|Science Fiction,3.6,3.11,-0.6,0.11,0.11
+165,Nocturnal Animals,2016,2010,2010'ler,2010s,4.5,1,0,2024-06-08,2024,7.4,8605,7.62,116.0,en,English,US,Tom Ford,2,Drama|Thriller,3.61,3.53,0.89,-0.97,0.97
+166,Love & Other Drugs,2010,2010,2010'ler,2010s,3.0,0,0,2023-09-07,2023,7.04,5794,9.92,112.0,en,English,US,Edward Zwick,3,Drama|Comedy|Romance,3.31,3.54,-0.31,0.54,0.54
+167,Requiem for a Dream,2000,2000,2000'ler,2000s,4.0,1,0,2023-09-28,2023,8.01,11513,5.6,102.0,en,English,US,Darren Aronofsky,1,Drama,4.12,4.2,-0.12,0.2,0.2
+168,Amélie,2001,2000,2000'ler,2000s,4.0,1,0,2023-09-28,2023,7.92,12854,15.58,122.0,fr,Other,FR,Jean-Pierre Jeunet,2,Comedy|Romance,4.05,4.08,-0.05,0.08,0.08
+169,The Batman,2022,2020,2020'ler,2020s,4.0,1,0,2023-09-28,2023,7.68,12944,38.33,177.0,en,English,US,Matt Reeves,3,Crime|Mystery|Thriller,3.84,3.86,0.16,-0.14,0.14
+170,At the Bar,2007,2000,2000'ler,2000s,3.0,0,0,2023-11-19,2023,6.39,113,0.83,95.0,tr,Turkish,TR,Serdar Akar,3,Crime|Drama|Thriller,2.76,2.88,0.24,-0.12,0.12
+171,Dead Poets Society,1989,1980,1980'ler,1980s,4.0,1,0,2023-11-20,2023,8.29,13215,18.74,129.0,en,English,US,Peter Weir,1,Drama,4.37,4.37,-0.37,0.37,0.37
+172,Operation Cicero,2019,2010,2010'ler,2010s,2.0,0,0,2023-09-29,2023,5.94,55,0.57,120.0,tr,Turkish,TR,Serdar Akar,4,Crime|Drama|History|War,2.38,2.51,-0.38,0.51,0.51
+173,Jaws,1975,1970,1970 ve öncesi,1970s and earlier,2.5,0,0,2023-09-29,2023,7.69,12059,15.54,124.0,en,English,US,Steven Spielberg,3,Horror|Thriller|Adventure,3.85,4.09,-1.35,1.59,1.59
+174,Men in Black,1997,1990,1990'ler,1990s,3.0,0,0,2023-09-29,2023,7.23,15466,13.22,98.0,en,English,US,Barry Sonnenfeld,4,Action|Adventure|Comedy|Science Fiction,3.47,3.64,-0.47,0.64,0.64
+175,Django Unchained,2012,2010,2010'ler,2010s,3.5,0,0,2023-09-29,2023,8.19,29015,22.62,165.0,en,English,US,Quentin Tarantino,2,Drama|Western,4.28,4.24,-0.78,0.74,0.74
+176,Reservoir Dogs,1992,1990,1990'ler,1990s,4.0,1,0,2023-09-29,2023,8.11,16075,12.64,99.0,en,English,US,Quentin Tarantino,2,Crime|Thriller,4.21,4.37,-0.21,0.37,0.37
+177,The Terminal,2004,2000,2000'ler,2000s,2.5,0,0,2023-09-29,2023,7.36,9132,9.04,128.0,en,English,US,Steven Spielberg,2,Comedy|Drama,3.57,3.63,-1.07,1.13,1.13
+178,Once Upon a Time... in Hollywood,2019,2010,2010'ler,2010s,3.0,0,0,2023-09-29,2023,7.42,15607,20.47,162.0,en,English,CN,Quentin Tarantino,3,Comedy|Drama|Thriller,3.63,3.78,-0.63,0.78,0.78
+179,Deadpool 2,2018,2010,2010'ler,2010s,3.0,0,0,2023-09-29,2023,7.49,19961,17.99,120.0,en,English,US,David Leitch,3,Action|Comedy|Adventure,3.69,3.42,-0.69,0.42,0.42
+180,Megamind,2010,2010,2010'ler,2010s,4.0,1,0,2023-09-29,2023,7.04,7822,10.38,96.0,en,English,US,Tom McGrath,5,Animation|Action|Comedy|Family|Science Fiction,3.31,3.33,0.69,-0.67,0.67
+181,World War Z,2013,2010,2010'ler,2010s,3.0,0,0,2023-09-29,2023,6.86,17328,15.94,116.0,en,English,US,Marc Forster,3,Action|Horror|Science Fiction,3.15,3.16,-0.15,0.16,0.16
+182,Fury,2014,2010,2010'ler,2010s,3.0,0,0,2023-09-29,2023,7.55,13460,19.55,135.0,en,English,US,David Ayer,3,War|Drama|Action,3.74,3.89,-0.74,0.89,0.89
+183,Black Panther,2018,2010,2010'ler,2010s,3.0,0,0,2023-09-29,2023,7.36,24283,19.52,135.0,en,English,US,Ryan Coogler,3,Action|Adventure|Science Fiction,3.58,3.1,-0.58,0.1,0.1
+184,Doctor Strange in the Multiverse of Madness,2022,2020,2020'ler,2020s,3.0,0,0,2023-09-29,2023,7.21,11173,31.41,126.0,en,English,US,Sam Raimi,3,Fantasy|Action|Adventure,3.45,3.27,-0.45,0.27,0.27
+185,The Avengers,2012,2010,2010'ler,2010s,3.5,0,0,2023-09-29,2023,8.09,40444,42.41,143.0,en,English,US,Joss Whedon,3,Science Fiction|Action|Adventure,4.19,3.94,-0.69,0.44,0.44
+186,Jojo Rabbit,2019,2010,2010'ler,2010s,3.0,0,0,2023-09-29,2023,7.97,10882,9.73,108.0,en,English,NZ,Taika Waititi,3,Comedy|War|Drama,4.09,3.76,-1.09,0.76,0.76
+187,Don't Look Up,2021,2020,2020'ler,2020s,2.0,0,0,2023-10-01,2023,7.05,9926,11.13,138.0,en,English,US,Adam McKay,3,Comedy|Science Fiction|Drama,3.32,3.12,-1.32,1.12,1.12
+188,Marriage Story: From the Pages to the Performances,2019,2010,2010'ler,2010s,3.0,0,0,2023-10-01,2023,8.3,18,0.68,30.0,en,English,US,,1,Documentary,4.37,3.78,-1.37,0.78,0.78
+189,Enemy,2013,2010,2010'ler,2010s,5.0,1,1,2025-07-28,2025,6.84,6715,7.02,91.0,en,English,CA,Denis Villeneuve,2,Thriller|Mystery,3.14,3.18,1.86,-1.82,1.82
+190,The Northman,2022,2020,2020'ler,2020s,3.0,0,0,2023-11-19,2023,7.02,5419,9.29,137.0,en,English,US,Robert Eggers,3,Action|Adventure|Fantasy,3.29,2.88,-0.29,-0.12,0.12
+191,Underwater,2020,2020,2020'ler,2020s,2.0,0,0,2023-11-19,2023,6.32,3733,5.56,95.0,en,English,US,William Eubank,4,Horror|Science Fiction|Action|Adventure,2.7,2.1,-0.7,0.1,0.1
+192,Catch Me If You Can,2002,2000,2000'ler,2000s,4.0,1,0,2023-11-19,2023,7.98,17919,15.4,141.0,en,English,US,Steven Spielberg,2,Drama|Crime,4.1,4.15,-0.1,0.15,0.15
+193,Dunkirk,2017,2010,2010'ler,2010s,3.5,0,0,2023-11-19,2023,7.45,18272,14.88,107.0,en,English,GB,Christopher Nolan,3,War|Action|History,3.65,3.44,-0.15,-0.06,0.06
+194,1917,2019,2010,2010'ler,2010s,4.0,1,0,2023-11-19,2023,7.98,14158,13.96,119.0,en,English,US,Sam Mendes,3,War|Drama|History,4.11,3.83,-0.11,-0.17,0.17
+195,GoodFellas,1990,1990,1990'ler,1990s,5.0,1,1,2024-06-04,2024,8.45,15070,21.49,145.0,en,English,US,Martin Scorsese,2,Drama|Crime,4.5,4.37,0.5,-0.63,0.63
+196,Interstellar,2014,2010,2010'ler,2010s,4.5,1,1,2023-11-19,2023,8.5,41996,64.28,169.0,en,English,GB,Christopher Nolan,3,Adventure|Drama|Science Fiction,4.54,3.96,-0.04,-0.54,0.54
+197,Edward Scissorhands,1990,1990,1990'ler,1990s,4.0,1,0,2023-11-19,2023,7.72,14227,12.85,105.0,en,English,US,Tim Burton,3,Fantasy|Drama|Romance,3.88,4.18,0.12,0.18,0.18
+198,Scarface,1983,1980,1980'ler,1980s,5.0,1,1,2023-11-19,2023,8.15,13716,19.45,170.0,en,English,US,Brian De Palma,3,Action|Crime|Drama,4.25,4.43,0.75,-0.57,0.57
+199,Barbarian,2022,2020,2020'ler,2020s,4.0,1,0,2023-11-23,2023,6.88,3719,9.26,103.0,en,English,US,Zach Cregger,3,Horror|Mystery|Thriller,3.18,3.21,0.82,-0.79,0.79
+200,Say You Will,2017,2010,2010'ler,2010s,2.5,0,0,2023-11-23,2023,6.2,25,0.75,95.0,en,English,US,Nick Naveda,2,Drama|TV Movie,2.6,2.29,-0.1,-0.21,0.21
+201,The Third Page,1999,1990,1990'ler,1990s,4.5,1,1,2024-06-04,2024,7.0,51,0.5,92.0,tr,Turkish,TR,Zeki Demirkubuz,1,Drama,3.27,3.94,1.23,-0.56,0.56
+202,La Notte,1961,1960,1970 ve öncesi,1970s and earlier,4.5,1,1,2024-06-04,2024,7.9,770,2.12,122.0,it,Other,IT,Michelangelo Antonioni,2,Drama|Romance,4.03,4.4,0.47,-0.1,0.1
+203,Baby Driver,2017,2010,2010'ler,2010s,3.0,0,0,2023-12-07,2023,7.44,17454,13.07,113.0,en,English,GB,Edgar Wright,2,Action|Crime,3.65,3.59,-0.65,0.59,0.59
+204,Castle in the Sky,1986,1980,1980'ler,1980s,4.0,1,0,2025-09-29,2025,7.97,4896,15.97,125.0,ja,Other,JP,Hayao Miyazaki,5,Adventure|Fantasy|Animation|Action|Family,4.1,4.26,-0.1,0.26,0.26
+205,Donnie Darko,2001,2000,2000'ler,2000s,4.5,1,1,2024-06-04,2024,7.8,13990,12.15,114.0,en,English,US,Richard Kelly,3,Fantasy|Drama|Mystery,3.95,4.02,0.55,-0.48,0.48
+206,Coraline,2009,2000,2000'ler,2000s,4.0,1,0,2023-12-14,2023,7.95,9801,52.24,100.0,en,English,US,Henry Selick,4,Animation|Family|Fantasy|Horror,4.08,4.21,-0.08,0.21,0.21
+207,Babylon,2022,2020,2020'ler,2020s,3.0,0,0,2023-12-14,2023,7.34,4042,11.36,189.0,en,English,US,Damien Chazelle,2,Drama|Comedy,3.56,3.46,-0.56,0.46,0.46
+208,Ad Astra,2019,2010,2010'ler,2010s,2.5,0,0,2023-12-30,2023,6.15,7564,4.51,123.0,en,English,BR,James Gray,2,Science Fiction|Drama,2.55,2.66,-0.05,0.16,0.16
+209,Distant,2002,2000,2000'ler,2000s,4.0,1,0,2023-12-30,2023,7.11,275,1.45,106.0,tr,Turkish,TR,Nuri Bilge Ceylan,1,Drama,3.37,4.05,0.63,0.05,0.05
+210,Batman v Superman: Dawn of Justice,2016,2010,2010'ler,2010s,1.0,0,0,2023-12-31,2023,6.02,19586,16.06,152.0,en,English,US,Zack Snyder,3,Action|Adventure|Fantasy,2.44,2.21,-1.44,1.21,1.21
+211,Man of Steel,2013,2010,2010'ler,2010s,2.0,0,0,2023-12-31,2023,6.66,16845,13.44,143.0,en,English,GB,Zack Snyder,3,Action|Adventure|Science Fiction,2.99,2.57,-0.99,0.57,0.57
+212,Justice League,2017,2010,2010'ler,2010s,1.0,0,0,2023-12-31,2023,6.06,14129,12.35,120.0,en,English,US,Zack Snyder,3,Action|Adventure|Science Fiction,2.48,2.46,-1.48,1.46,1.46
+213,300,2006,2000,2000'ler,2000s,3.0,0,0,2023-12-31,2023,7.21,15321,11.75,117.0,en,English,US,Zack Snyder,3,Action|Adventure|War,3.45,3.32,-0.45,0.32,0.32
+214,Losers' Club,2011,2010,2010'ler,2010s,2.0,0,0,2024-02-26,2024,6.53,156,0.65,105.0,tr,Turkish,TR,Tolga Örnek,2,Comedy|Drama,2.88,2.93,-0.88,0.93,0.93
+215,Poor Things,2023,2020,2020'ler,2020s,3.5,0,0,2024-03-04,2024,7.62,5951,14.26,141.0,en,English,IE,Yorgos Lanthimos,3,Science Fiction|Romance|Comedy,3.8,3.66,-0.3,0.16,0.16
+216,Lamb,2021,2020,2020'ler,2020s,2.5,0,0,2025-08-27,2025,6.43,1114,3.16,106.0,is,Other,IS,Valdimar Jóhannsson,3,Drama|Fantasy|Horror,2.79,2.48,-0.29,-0.02,0.02
+217,La Haine,1995,1990,1990'ler,1990s,5.0,1,1,2024-12-14,2024,8.09,4819,7.36,98.0,fr,Other,FR,Mathieu Kassovitz,1,Drama,4.19,4.45,0.81,-0.55,0.55
+218,Dune: Part Two,2024,2020,2020'ler,2020s,5.0,1,1,2024-08-14,2024,8.14,9037,52.15,167.0,en,English,US,Denis Villeneuve,2,Science Fiction|Adventure,4.24,3.97,0.76,-1.03,1.03
+219,Arrival,2016,2010,2010'ler,2010s,4.0,1,0,2024-03-18,2024,7.64,20228,21.48,116.0,en,English,US,Denis Villeneuve,3,Drama|Science Fiction|Mystery,3.81,3.97,0.19,-0.03,0.03
+220,Sicario,2015,2010,2010'ler,2010s,4.0,1,0,2024-03-18,2024,7.44,10139,12.97,122.0,en,English,US,Denis Villeneuve,3,Action|Crime|Thriller,3.65,3.61,0.35,-0.39,0.39
+221,The Creator,2023,2020,2020'ler,2020s,2.0,0,0,2024-04-07,2024,7.01,4311,8.71,134.0,en,English,CA,Gareth Edwards,3,Science Fiction|Action|Adventure,3.29,2.91,-1.29,0.91,0.91
+222,Titanic,1997,1990,1990'ler,1990s,4.0,1,0,2024-04-25,2024,7.9,28122,34.63,194.0,en,English,US,James Cameron,2,Drama|Romance,4.03,4.33,-0.03,0.33,0.33
+223,The Reader,2008,2000,2000'ler,2000s,3.5,0,0,2024-04-25,2024,7.5,3534,7.71,124.0,en,English,DE,Stephen Daldry,2,Drama|Romance,3.7,3.77,-0.2,0.27,0.27
+224,All Quiet on the Western Front,2022,2020,2020'ler,2020s,4.0,1,0,2024-05-11,2024,7.74,5093,13.21,147.0,de,Other,DE,Edward Berger,2,War|Drama,3.9,3.93,0.1,-0.07,0.07
+225,No Country for Old Men,2007,2000,2000'ler,2000s,5.0,1,1,2024-06-04,2024,7.95,14117,16.66,122.0,en,English,US,Joel Coen,3,Crime|Thriller|Western,4.08,4.0,0.92,-1.0,1.0
+226,The Godfather Part II,1974,1970,1970 ve öncesi,1970s and earlier,5.0,1,1,2024-06-04,2024,8.6,14657,24.63,202.0,en,English,US,Francis Ford Coppola,2,Drama|Crime,4.63,4.46,0.37,-0.54,0.54
+227,It's a Wonderful Life,1946,1940,1970 ve öncesi,1970s and earlier,4.5,1,0,2024-06-04,2024,8.28,5184,14.75,131.0,en,English,US,Frank Capra,3,Drama|Family|Fantasy,4.35,4.37,0.15,-0.13,0.13
+228,The Killer,2023,2020,2020'ler,2020s,3.0,0,0,2024-06-04,2024,6.58,3126,6.89,118.0,en,English,US,David Fincher,2,Crime|Thriller,2.92,2.7,0.08,-0.3,0.3
+229,X-Men: Days of Future Past,2014,2010,2010'ler,2010s,3.0,0,0,2024-06-04,2024,7.54,16921,15.14,132.0,en,English,US,Bryan Singer,3,Action|Adventure|Science Fiction,3.73,3.58,-0.73,0.58,0.58
+230,X-Men: First Class,2011,2010,2010'ler,2010s,3.0,0,0,2024-06-04,2024,7.31,14070,0.72,132.0,en,English,US,Matthew Vaughn,3,Action|Science Fiction|Adventure,3.53,3.15,-0.53,0.15,0.15
+231,X-Men: Apocalypse,2016,2010,2010'ler,2010s,1.0,0,0,2024-06-04,2024,6.53,14308,12.81,144.0,en,English,US,Bryan Singer,3,Science Fiction|Fantasy|Action,2.88,2.43,-1.88,1.43,1.43
+232,Alien: Covenant,2017,2010,2010'ler,2010s,3.0,0,0,2024-06-04,2024,6.19,9828,13.8,122.0,en,English,US,Ridley Scott,2,Horror|Science Fiction,2.59,2.2,0.41,-0.8,0.8
+233,Killers of the Flower Moon,2023,2020,2020'ler,2020s,4.5,1,1,2024-06-04,2024,7.39,4501,13.54,206.0,en,English,US,Martin Scorsese,3,Crime|History|Drama,3.61,3.57,0.89,-0.93,0.93
+234,The Da Vinci Code,2006,2000,2000'ler,2000s,3.5,0,0,2024-06-04,2024,6.73,10480,12.5,149.0,en,English,US,Ron Howard,2,Thriller|Mystery,3.05,3.23,0.45,-0.27,0.27
+235,Inferno,2016,2010,2010'ler,2010s,3.0,0,0,2024-06-04,2024,6.1,6880,6.77,122.0,en,English,US,Ron Howard,2,Mystery|Thriller,2.52,2.29,0.48,-0.71,0.71
+236,Angels & Demons,2009,2000,2000'ler,2000s,3.0,0,0,2024-06-04,2024,6.73,7633,8.96,139.0,en,English,IT,Ron Howard,2,Thriller|Mystery,3.05,3.0,-0.05,0.0,0.0
+237,The Grand Budapest Hotel,2014,2010,2010'ler,2010s,4.5,1,1,2024-06-04,2024,8.02,16791,20.04,100.0,en,English,US,Wes Anderson,2,Comedy|Drama,4.14,4.09,0.36,-0.41,0.41
+238,The Guilty,2021,2020,2020'ler,2020s,3.0,0,0,2024-06-04,2024,6.42,3342,4.52,89.0,en,English,US,Antoine Fuqua,2,Drama|Thriller,2.78,2.54,0.22,-0.46,0.46
+239,Sleepers,1996,1990,1990'ler,1990s,3.5,0,0,2024-06-04,2024,7.61,4155,7.71,147.0,en,English,US,Barry Levinson,3,Crime|Drama|Thriller,3.79,4.0,-0.29,0.5,0.5
+240,Princess Mononoke,1997,1990,1990'ler,1990s,4.0,1,0,2024-06-04,2024,8.32,9486,25.05,134.0,ja,Other,JP,Hayao Miyazaki,3,Adventure|Fantasy|Animation,4.39,4.36,-0.39,0.36,0.36
+241,Eyes Wide Shut,1999,1990,1990'ler,1990s,4.5,1,1,2024-06-13,2024,7.48,7490,16.0,159.0,en,English,GB,Stanley Kubrick,3,Drama|Thriller|Mystery,3.68,3.91,0.82,-0.59,0.59
+242,"I, Robot",2004,2000,2000'ler,2000s,3.0,0,0,2024-06-16,2024,6.98,13218,11.4,115.0,en,English,US,Alex Proyas,2,Action|Science Fiction,3.25,3.3,-0.25,0.3,0.3
+243,The Face of Another,1966,1960,1970 ve öncesi,1970s and earlier,5.0,1,1,2024-06-25,2024,7.8,306,2.33,122.0,ja,Other,JP,Hiroshi Teshigahara,2,Drama|Science Fiction,3.95,4.36,1.05,-0.64,0.64
+244,Head-On,2004,2000,2000'ler,2000s,5.0,1,1,2025-06-26,2025,7.5,659,2.68,122.0,de,Other,DE,Fatih Akin,2,Drama|Romance,3.7,4.12,1.3,-0.88,0.88
+245,The Golden Glove,2019,2010,2010'ler,2010s,4.0,1,0,2024-07-06,2024,6.94,691,2.3,110.0,de,Other,DE,Fatih Akin,3,Crime|Thriller|Horror,3.22,3.4,0.78,-0.6,0.6
+246,Hide and Seek,2005,2000,2000'ler,2000s,2.0,0,0,2024-07-10,2024,6.34,1823,3.55,101.0,en,English,US,John Polson,2,Horror|Mystery,2.71,3.3,-0.71,1.3,1.3
+247,Inside Out 2,2024,2020,2020'ler,2020s,3.5,0,0,2024-07-12,2024,7.54,7187,23.08,97.0,en,English,US,Kelsey Mann,4,Animation|Adventure|Comedy|Family,3.73,3.6,-0.23,0.1,0.1
+248,The Double Life of Véronique,1991,1990,1990'ler,1990s,4.5,1,0,2024-07-12,2024,7.49,938,3.52,98.0,fr,Other,FR,Krzysztof Kieślowski,2,Drama|Fantasy,3.68,4.33,0.82,-0.17,0.17
+249,Lucy,2014,2010,2010'ler,2010s,3.5,0,0,2024-07-13,2024,6.48,17590,11.95,89.0,en,English,FR,Luc Besson,2,Action|Science Fiction,2.83,2.12,0.67,-1.38,1.38
+250,Shrek,2001,2000,2000'ler,2000s,5.0,1,0,2025-02-17,2025,7.78,19623,24.11,90.0,en,English,US,Andrew Adamson,5,Animation|Comedy|Fantasy|Adventure|Family,3.93,4.09,1.07,-0.91,0.91
+251,The Elephant Man,1980,1980,1980'ler,1980s,4.5,1,0,2024-07-13,2024,8.05,4142,6.34,124.0,en,English,US,David Lynch,2,Drama|History,4.16,4.23,0.34,-0.27,0.27
+252,Casino,1995,1990,1990'ler,1990s,4.5,1,0,2024-07-18,2024,8.0,6893,9.91,179.0,en,English,FR,Martin Scorsese,2,Crime|Drama,4.12,4.25,0.38,-0.25,0.25
+253,Batman Returns,1992,1990,1990'ler,1990s,4.0,1,0,2024-07-27,2024,6.96,7438,9.92,126.0,en,English,US,Tim Burton,2,Action|Fantasy,3.24,3.71,0.76,-0.29,0.29
+254,Corpse Bride,2005,2000,2000'ler,2000s,5.0,1,1,2024-07-27,2024,7.6,10699,19.59,77.0,en,English,GB,Tim Burton,3,Romance|Fantasy|Animation,3.78,3.96,1.22,-1.04,1.04
+255,Alice in Wonderland,2010,2010,2010'ler,2010s,3.5,0,0,2024-07-27,2024,6.64,15240,14.41,108.0,en,English,US,Tim Burton,3,Family|Fantasy|Adventure,2.97,2.55,0.53,-0.95,0.95
+256,Batman,1989,1980,1980'ler,1980s,4.0,1,0,2024-07-27,2024,7.24,8972,10.96,126.0,en,English,US,Tim Burton,3,Fantasy|Action|Crime,3.47,3.61,0.53,-0.39,0.39
+257,Up,2009,2000,2000'ler,2000s,4.5,1,1,2024-07-27,2024,7.96,22436,19.97,96.0,en,English,US,Pete Docter,4,Animation|Comedy|Family|Adventure,4.08,4.17,0.42,-0.33,0.33
+258,Turkish Ice Cream,2019,2010,2010'ler,2010s,3.0,0,0,2024-07-28,2024,5.86,46,0.53,120.0,tr,Turkish,TR,Can Ulkay,3,History|Drama|War,2.31,2.24,0.69,-0.76,0.76
+259,Billionaire,1986,1980,1980'ler,1980s,4.0,1,0,2024-07-31,2024,7.35,59,0.78,96.0,tr,Turkish,TR,Kartal Tibet,3,Family|Drama|Comedy,3.57,4.1,0.43,0.1,0.1
+260,Yi Yi,2000,2000,2000'ler,2000s,5.0,1,1,2024-08-03,2024,7.96,732,6.14,174.0,zh,Other,TW,Edward Yang,1,Drama,4.09,4.34,0.91,-0.66,0.66
+261,Burn After Reading,2008,2000,2000'ler,2000s,3.0,0,0,2024-08-12,2024,6.68,5517,5.02,96.0,en,English,US,Ethan Coen,2,Comedy|Drama,3.01,2.88,-0.01,-0.12,0.12
+262,Insomnia,2002,2000,2000'ler,2000s,4.0,1,0,2024-08-14,2024,6.96,5667,6.5,118.0,en,English,US,Christopher Nolan,3,Thriller|Crime|Drama,3.24,3.66,0.76,-0.34,0.34
+263,The Wolf and the Lion,2021,2020,2020'ler,2020s,1.5,0,0,2024-08-19,2024,7.5,517,3.03,99.0,en,English,CA,Gilles de Maistre,3,Family|Adventure|Drama,3.7,3.65,-2.2,2.15,2.15
+264,The Aviator,2004,2000,2000'ler,2000s,4.0,1,0,2024-08-21,2024,7.21,6134,8.67,170.0,en,English,US,Martin Scorsese,1,Drama,3.45,3.54,0.55,-0.46,0.46
+265,Notting Hill,1999,1990,1990'ler,1990s,3.5,0,0,2026-02-10,2026,7.26,7002,8.3,124.0,en,English,GB,Roger Michell,2,Romance|Comedy,3.49,3.55,0.01,0.05,0.05
+266,Skyscraper,2018,2010,2010'ler,2010s,2.0,0,0,2024-09-05,2024,6.3,5523,4.74,102.0,en,English,JP,Rawson Marshall Thurber,3,Action|Thriller|Adventure,2.68,2.24,-0.68,0.24,0.24
+267,Hacksaw Ridge,2016,2010,2010'ler,2010s,4.0,1,0,2024-09-05,2024,8.19,15548,20.54,139.0,en,English,AU,Mel Gibson,3,Drama|History|War,4.28,4.1,-0.28,0.1,0.1
+268,Fantastic Beasts: The Secrets of Dumbledore,2022,2020,2020'ler,2020s,1.0,0,0,2024-09-12,2024,6.62,5373,11.18,142.0,en,English,GB,David Yates,2,Fantasy|Adventure,2.95,2.69,-1.95,1.69,1.69
+269,Cloverfield,2008,2000,2000'ler,2000s,2.0,0,0,2024-09-29,2024,6.73,8261,7.4,85.0,en,English,US,Matt Reeves,3,Action|Thriller|Science Fiction,3.05,2.89,-1.05,0.89,0.89
+270,Hancock,2008,2000,2000'ler,2000s,2.0,0,0,2024-09-29,2024,6.36,10654,7.71,92.0,en,English,US,Peter Berg,2,Fantasy|Action,2.73,2.74,-0.73,0.74,0.74
+271,The Cloverfield Paradox,2018,2010,2010'ler,2010s,1.0,0,0,2024-09-29,2024,5.63,3756,3.87,102.0,en,English,US,Julius Onah,3,Horror|Mystery|Science Fiction,2.12,2.26,-1.12,1.26,1.26
+272,Joker: Folie à Deux,2024,2020,2020'ler,2020s,2.0,0,0,2024-10-07,2024,5.39,3169,10.22,138.0,en,English,US,Todd Phillips,3,Drama|Crime|Thriller,1.92,2.38,0.08,0.38,0.38
+273,Hush,2016,2010,2010'ler,2010s,3.0,0,0,2024-10-09,2024,6.72,5028,4.33,82.0,en,English,US,Mike Flanagan,2,Horror|Thriller,3.04,2.71,-0.04,-0.29,0.29
+274,mother!,2017,2010,2010'ler,2010s,2.5,0,0,2025-07-09,2025,6.95,7348,6.39,121.0,en,English,US,Darren Aronofsky,2,Horror|Mystery,3.23,3.46,-0.73,0.96,0.96
+275,Smile,2022,2020,2020'ler,2020s,3.0,0,0,2024-10-24,2024,6.66,4406,10.73,115.0,en,English,US,Parker Finn,2,Horror|Mystery,2.99,2.8,0.01,-0.2,0.2
+276,Gravity,2013,2010,2010'ler,2010s,3.0,0,0,2024-11-04,2024,7.17,16914,10.93,91.0,en,English,GB,Alfonso Cuarón,3,Science Fiction|Thriller|Drama,3.42,3.53,-0.42,0.53,0.53
+277,Pearl,2022,2020,2020'ler,2020s,4.0,1,1,2024-12-15,2024,7.22,2849,8.86,102.0,en,English,US,Ti West,1,Horror,3.46,3.32,0.54,-0.68,0.68
+278,13 Going on 30,2004,2000,2000'ler,2000s,3.0,0,0,2024-12-16,2024,6.78,5744,7.66,98.0,en,English,US,Gary Winick,3,Comedy|Fantasy|Romance,3.08,3.09,-0.08,0.09,0.09
+279,Closer,2004,2000,2000'ler,2000s,3.0,0,0,2024-12-23,2024,6.83,3877,4.79,104.0,en,English,GB,Mike Nichols,2,Drama|Romance,3.13,3.62,-0.13,0.62,0.62
+280,Time to Love,1965,1960,1970 ve öncesi,1970s and earlier,4.5,1,1,2025-01-17,2025,7.53,108,1.26,89.0,tr,Turkish,TR,Metin Erksan,2,Drama|Romance,3.72,4.32,0.78,-0.18,0.18
+281,The Conjuring,2013,2010,2010'ler,2010s,3.5,0,0,2025-01-23,2025,7.55,13319,19.01,112.0,en,English,US,James Wan,2,Horror|Thriller,3.74,3.86,-0.24,0.36,0.36
+282,Ember,2016,2010,2010'ler,2010s,3.5,0,0,2025-01-24,2025,5.4,38,0.58,109.0,tr,Turkish,TR,Zeki Demirkubuz,1,Drama,1.92,2.42,1.58,-1.08,1.08
+283,You Me Lenin,2021,2020,2020'ler,2020s,3.0,0,0,2025-01-26,2025,6.27,22,0.67,86.0,tr,Turkish,TR,Tufan Tastan,2,Drama|Comedy,2.66,2.32,0.34,-0.68,0.68
+284,Hustle,2022,2020,2020'ler,2020s,3.5,0,0,2025-02-03,2025,7.68,2985,4.22,117.0,en,English,US,Jeremiah Zagar,2,Drama|Comedy,3.85,3.59,-0.35,0.09,0.09
+285,Tangerines,2013,2010,2010'ler,2010s,4.0,1,0,2025-02-07,2025,7.67,636,2.08,87.0,et,Other,EE,Zaza Urushadze,2,Drama|War,3.84,3.93,0.16,-0.07,0.07
+286,Madame,1988,1980,1980'ler,1980s,4.5,1,0,2025-02-08,2025,6.9,23,0.8,122.0,en,English,GB,John Schlesinger,2,Drama|Music,3.19,3.93,1.31,-0.57,0.57
+287,"Girl, Interrupted",1999,1990,1990'ler,1990s,3.5,0,0,2025-08-28,2025,7.56,4351,5.67,127.0,en,English,US,James Mangold,1,Drama,3.74,3.96,-0.24,0.46,0.46
+288,The Substance,2024,2020,2020'ler,2020s,3.0,0,0,2025-02-27,2025,7.1,6825,18.54,142.0,en,English,FR,Coralie Fargeat,2,Horror|Science Fiction,3.36,3.23,-0.36,0.23,0.23
+289,What Happened to Monday,2017,2010,2010'ler,2010s,2.5,0,0,2025-03-13,2025,7.13,6649,7.97,123.0,en,English,BE,Tommy Wirkola,4,Science Fiction|Thriller|Mystery|Action,3.39,3.33,-0.89,0.83,0.83
+290,Aftersun,2022,2020,2020'ler,2020s,4.0,1,0,2025-09-27,2025,7.7,2059,9.09,101.0,en,English,GB,Charlotte Wells,1,Drama,3.87,3.75,0.13,-0.25,0.25
+291,Whiplash,2014,2010,2010'ler,2010s,4.5,1,0,2025-03-18,2025,8.38,17445,31.58,107.0,en,English,US,Damien Chazelle,3,Drama|Music|Thriller,4.44,4.14,0.06,-0.36,0.36
+292,The Nightmare Before Christmas,1993,1990,1990'ler,1990s,4.0,1,0,2025-04-13,2025,7.86,10962,20.87,76.0,en,English,US,Henry Selick,3,Fantasy|Animation|Family,4.0,4.29,0.0,0.29,0.29
+293,Bread and Roses,2000,2000,2000'ler,2000s,4.0,1,0,2025-05-03,2025,6.29,149,1.34,110.0,en,English,GB,Ken Loach,2,Comedy|Drama,2.67,3.17,1.33,-0.83,0.83
+294,Liberal Arts,2012,2010,2010'ler,2010s,2.0,0,0,2025-05-10,2025,6.47,600,2.3,97.0,en,English,US,Josh Radnor,3,Romance|Comedy|Drama,2.82,2.58,-0.82,0.58,0.58
+295,Batman Begins,2005,2000,2000'ler,2000s,4.0,1,0,2025-05-15,2025,7.73,23575,19.77,140.0,en,English,GB,Christopher Nolan,3,Drama|Crime|Action,3.89,4.03,0.11,0.03,0.03
+296,The Dark Knight Rises,2012,2010,2010'ler,2010s,3.5,0,0,2025-05-15,2025,7.8,25367,21.04,165.0,en,English,GB,Christopher Nolan,3,Action|Crime|Thriller,3.95,3.94,-0.45,0.44,0.44
+297,Clouds of May,1999,1990,1990'ler,1990s,4.5,1,1,2025-05-17,2025,6.92,85,0.79,130.0,tr,Turkish,TR,Nuri Bilge Ceylan,1,Drama,3.2,4.0,1.3,-0.5,0.5
+298,Being John Malkovich,1999,1990,1990'ler,1990s,4.0,1,0,2025-05-20,2025,7.42,5062,6.54,113.0,en,English,US,Spike Jonze,3,Comedy|Drama|Fantasy,3.63,3.76,0.37,-0.24,0.24
+299,Autumn,2008,2000,2000'ler,2000s,4.5,1,1,2025-12-21,2025,7.34,66,0.64,99.0,tr,Turkish,TR,Özcan Alper,1,Drama,3.56,3.85,0.94,-0.65,0.65
+300,Punch-Drunk Love,2002,2000,2000'ler,2000s,4.5,1,1,2025-11-23,2025,7.11,2938,5.55,96.0,en,English,US,Paul Thomas Anderson,3,Romance|Drama|Comedy,3.36,3.64,1.14,-0.86,0.86
+301,Incendies,2010,2010,2010'ler,2010s,5.0,1,1,2025-06-11,2025,8.11,3592,8.79,131.0,fr,Other,CA,Denis Villeneuve,3,Drama|War|Mystery,4.21,4.28,0.79,-0.72,0.72
+302,The Confession,2001,2000,2000'ler,2000s,3.5,0,0,2025-06-22,2025,6.68,54,0.58,88.0,tr,Turkish,TR,Zeki Demirkubuz,1,Drama,3.0,3.46,0.5,-0.04,0.04
+303,Trainspotting,1996,1990,1990'ler,1990s,4.5,1,1,2025-07-04,2025,7.96,10857,10.85,94.0,en,English,GB,Danny Boyle,2,Drama|Crime,4.08,4.27,0.42,-0.23,0.23
+304,Vivre Sa Vie,1962,1960,1970 ve öncesi,1970s and earlier,4.5,1,0,2025-07-04,2025,7.7,732,3.44,84.0,fr,Other,FR,Jean-Luc Godard,1,Drama,3.87,4.5,0.63,0.0,0.0
+305,Taste of Cherry,1997,1990,1990'ler,1990s,4.5,1,0,2025-07-25,2025,7.72,754,3.99,99.0,fa,Other,IR,Abbas Kiarostami,1,Drama,3.88,4.42,0.62,-0.08,0.08
+306,"Life, and Nothing More…",1992,1990,1990'ler,1990s,4.5,1,0,2025-07-25,2025,7.7,193,1.64,95.0,fa,Other,IR,Abbas Kiarostami,1,Drama,3.87,4.4,0.63,-0.1,0.1
+307,Seven Years in Tibet,1997,1990,1990'ler,1990s,3.5,0,0,2025-07-26,2025,7.16,3266,5.04,136.0,en,English,US,Jean-Jacques Annaud,3,Adventure|Drama|History,3.41,3.62,0.09,0.12,0.12
+308,Everything's Gonna Be Great,1998,1990,1990'ler,1990s,4.0,1,0,2025-08-02,2025,7.49,172,0.81,109.0,tr,Turkish,TR,Ömer Vargı,4,Family|Drama|Comedy|Adventure,3.69,4.09,0.31,0.09,0.09
+309,Conclave,2024,2020,2020'ler,2020s,4.0,1,0,2025-08-07,2025,7.19,3782,9.4,120.0,en,English,GB,Edward Berger,2,Drama|Thriller,3.43,3.31,0.57,-0.69,0.69
+310,The Witch,2015,2010,2010'ler,2010s,4.0,1,0,2025-08-09,2025,7.01,8035,9.95,92.0,en,English,BR,Robert Eggers,3,Horror|Fantasy|Mystery,3.28,3.35,0.72,-0.65,0.65
+311,Dune,1984,1980,1980'ler,1980s,4.5,1,1,2025-08-14,2025,6.2,3637,11.46,136.0,en,English,US,David Lynch,3,Action|Science Fiction|Adventure,2.6,2.65,1.9,-1.85,1.85
+312,Nosferatu,2024,2020,2020'ler,2020s,3.0,0,0,2025-08-18,2025,6.73,4187,12.02,133.0,en,English,US,Robert Eggers,2,Horror|Fantasy,3.05,2.68,-0.05,-0.32,0.32
+313,Death Proof,2007,2000,2000'ler,2000s,3.5,0,0,2025-08-21,2025,6.84,5909,7.48,113.0,en,English,US,Quentin Tarantino,2,Action|Thriller,3.14,3.3,0.36,-0.2,0.2
+314,The Killing of a Sacred Deer,2017,2010,2010'ler,2010s,4.0,1,0,2025-08-23,2025,7.0,4659,5.69,121.0,en,English,GB,Yorgos Lanthimos,3,Drama|Thriller|Mystery,3.27,3.49,0.73,-0.51,0.51
+315,Irreversible,2002,2000,2000'ler,2000s,2.5,0,0,2025-09-12,2025,7.16,3497,9.5,97.0,fr,Other,FR,Gaspar Noé,3,Drama|Thriller|Crime,3.41,3.92,-0.91,1.42,1.42
+316,A Separation,2011,2010,2010'ler,2010s,4.5,1,1,2025-09-26,2025,7.9,2077,5.87,123.0,fa,Other,IR,Asghar Farhadi,1,Drama,4.04,4.01,0.46,-0.49,0.49
+317,The Mine,1978,1970,1970 ve öncesi,1970s and earlier,3.5,0,0,2025-10-16,2025,7.0,18,0.66,90.0,tr,Turkish,TR,Yavuz Özkan,2,Drama|Thriller,3.27,3.99,0.23,0.49,0.49
+318,The Perks of Being a Wallflower,2012,2010,2010'ler,2010s,4.0,1,0,2025-10-17,2025,7.81,11650,10.89,103.0,en,English,US,Stephen Chbosky,1,Drama,3.96,3.95,0.04,-0.05,0.05
+319,Through the Olive Trees,1994,1990,1990'ler,1990s,4.0,1,0,2025-10-23,2025,7.5,224,1.81,104.0,fa,Other,IR,Abbas Kiarostami,1,Drama,3.7,4.27,0.3,0.27,0.27
+320,Big Fish,2003,2000,2000'ler,2000s,4.0,1,0,2025-10-24,2025,7.74,8066,7.83,125.0,en,English,US,Tim Burton,3,Adventure|Fantasy|Drama,3.9,3.96,0.1,-0.04,0.04
+321,Ikiru,1952,1950,1970 ve öncesi,1970s and earlier,5.0,1,1,2025-10-29,2025,8.31,1436,10.27,143.0,ja,Other,JP,Akira Kurosawa,1,Drama,4.38,4.47,0.62,-0.53,0.53
+322,The Worst Person in the World,2021,2020,2020'ler,2020s,4.5,1,0,2025-11-04,2025,7.4,2041,5.88,128.0,no,Other,NO,Joachim Trier,3,Drama|Romance|Comedy,3.61,3.4,0.89,-1.1,1.1
+323,The Usual Suspects,1995,1990,1990'ler,1990s,5.0,1,1,2025-11-17,2025,8.16,11986,13.11,106.0,en,English,US,Bryan Singer,3,Drama|Crime|Thriller,4.26,4.25,0.74,-0.75,0.75
+324,Breaking the Waves,1996,1990,1990'ler,1990s,3.5,0,0,2025-11-19,2025,7.48,1166,4.18,159.0,da,Other,DK,Lars von Trier,2,Drama|Romance,3.68,4.17,-0.18,0.67,0.67
+325,Melancholia,2011,2010,2010'ler,2010s,3.0,0,0,2025-11-21,2025,7.14,4002,5.33,136.0,en,English,DK,Lars von Trier,2,Drama|Science Fiction,3.39,3.33,-0.39,0.33,0.33
+326,Jerry Maguire,1996,1990,1990'ler,1990s,3.5,0,0,2025-11-28,2025,7.0,3988,6.89,139.0,en,English,US,Cameron Crowe,3,Comedy|Drama|Romance,3.28,3.72,0.22,0.22,0.22
+327,Control,2007,2000,2000'ler,2000s,4.0,1,0,2025-11-28,2025,7.5,991,2.16,122.0,en,English,GB,Anton Corbijn,1,Drama,3.7,4.1,0.3,0.1,0.1
+328,Cléo from 5 to 7,1962,1960,1970 ve öncesi,1970s and earlier,4.5,1,0,2025-12-04,2025,7.7,827,4.17,90.0,fr,Other,FR,Agnès Varda,1,Drama,3.87,4.5,0.63,0.0,0.0
+329,In the Mood for Love,2000,2000,2000'ler,2000s,5.0,1,1,2025-12-17,2025,8.09,3488,15.87,99.0,cn,Other,HK,Wong Kar-wai,2,Drama|Romance,4.19,4.32,0.81,-0.68,0.68
+330,The Matrix,1999,1990,1990'ler,1990s,5.0,1,0,2025-12-29,2025,8.3,29323,41.45,136.0,en,English,US,Lana Wachowski,2,Action|Science Fiction,4.37,4.08,0.63,-0.92,0.92
+331,Companion,2025,2020,2020'ler,2020s,2.0,0,0,2026-01-07,2026,6.99,2830,12.01,97.0,en,English,US,Drew Hancock,3,Horror|Science Fiction|Thriller,3.26,3.23,-1.26,1.23,1.23
+332,The Tale of The Princess Kaguya,2013,2010,2010'ler,2010s,5.0,1,1,2026-01-10,2026,8.09,2084,9.17,137.0,ja,Other,JP,Isao Takahata,3,Animation|Drama|Fantasy,4.19,4.19,0.81,-0.81,0.81
+333,The Platform,2019,2010,2010'ler,2010s,3.0,0,0,2026-01-19,2026,6.96,8164,8.1,95.0,es,Other,ES,Galder Gaztelu-Urrutia,3,Drama|Science Fiction|Thriller,3.24,3.1,-0.24,0.1,0.1
+334,The Platform 2,2024,2020,2020'ler,2020s,0.5,0,0,2026-01-19,2026,5.55,1534,4.85,101.0,es,Other,ES,Galder Gaztelu-Urrutia,3,Science Fiction|Horror|Thriller,2.05,2.38,-1.55,1.88,1.88
+335,Fallen Angels,1995,1990,1990'ler,1990s,5.0,1,1,2026-01-21,2026,7.67,1421,9.08,98.0,cn,Other,HK,Wong Kar-wai,3,Action|Romance|Crime,3.84,4.2,1.16,-0.8,0.8
+336,Candy,2006,2000,2000'ler,2000s,4.0,1,0,2026-01-28,2026,7.1,675,2.08,116.0,en,English,AU,Neil Armfield,2,Drama|Romance,3.36,3.92,0.64,-0.08,0.08
+337,On the Silver Globe,1988,1980,1980'ler,1980s,4.0,1,0,2026-02-10,2026,7.6,195,1.78,165.0,pl,Other,PL,Andrzej Żuławski,2,Science Fiction|Drama,3.78,4.37,0.22,0.37,0.37
+338,Metropolis,1927,1920,1970 ve öncesi,1970s and earlier,3.5,0,0,2026-02-13,2026,8.09,3276,6.2,148.0,de,Other,DE,Fritz Lang,2,Drama|Science Fiction,4.19,4.58,-0.69,1.08,1.08
+339,Satantango,1994,1990,1990'ler,1990s,5.0,1,0,2026-02-14,2026,8.04,333,2.54,432.0,hu,Other,DE,Béla Tarr,1,Drama,4.15,4.42,0.85,-0.58,0.58
+340,Barry Lyndon,1975,1970,1970 ve öncesi,1970s and earlier,5.0,1,1,2026-03-13,2026,8.0,3367,7.58,188.0,en,English,GB,Stanley Kubrick,2,Drama|History,4.12,4.22,0.88,-0.78,0.78
+341,Hamnet,2025,2020,2020'ler,2020s,4.0,1,0,2026-03-13,2026,7.73,1784,9.83,125.0,en,English,GB,Chloé Zhao,2,Drama|Romance,3.89,3.74,0.11,-0.26,0.26
+342,The Fountain,2006,2000,2000'ler,2000s,4.0,1,0,2026-04-14,2026,6.9,3290,4.78,96.0,en,English,US,Darren Aronofsky,3,Drama|Science Fiction|Romance,3.19,3.42,0.81,-0.58,0.58
+343,Project Hail Mary,2026,2020,2020'ler,2020s,4.0,1,0,2026-04-30,2026,8.62,8994,108.99,157.0,en,English,US,Phil Lord,2,Science Fiction|Adventure,4.64,3.93,-0.64,-0.07,0.07
+344,Real Steel,2011,2010,2010'ler,2010s,3.5,0,0,2026-06-03,2026,7.16,9740,15.14,127.0,en,English,US,Shawn Levy,3,Action|Science Fiction|Drama,3.41,3.2,0.09,-0.3,0.3
+345,Obsession,2025,2020,2020'ler,2020s,4.0,1,0,2026-05-23,2026,8.2,6713,78.29,109.0,en,English,US,Curry Barker,2,Horror|Thriller,4.29,4.01,-0.29,0.01,0.01
+346,"Lock, Stock and Two Smoking Barrels",1998,1990,1990'ler,1990s,4.5,1,0,2026-06-13,2026,8.09,7559,4.4,105.0,en,English,GB,Guy Ritchie,2,Comedy|Crime,4.2,4.26,0.3,-0.24,0.24
+347,Life,2023,2020,2020'ler,2020s,3.5,0,0,2026-06-26,2026,7.76,5206,6.37,94.0,en,English,GB,Terry Jones,1,Comedy,3.91,3.53,-0.41,0.03,0.03
+348,Weapons,2025,2020,2020'ler,2020s,4.0,1,0,2026-07-21,2026,7.25,4335,23.42,128.0,en,English,US,Zach Cregger,2,Horror|Mystery,3.49,3.41,0.51,-0.59,0.59
+349,Gladiator II,2024,2020,2020'ler,2020s,2.5,0,0,2026-08-16,2026,6.58,4917,16.8,148.0,en,English,US,Ridley Scott,3,Action|Adventure|Drama,2.92,2.22,-0.42,-0.28,0.28
+350,Spider-Man: Brand New Day,2026,2020,2020'ler,2020s,4.0,1,0,2026-08-23,2026,8.46,7043,301.14,145.0,en,English,US,Destin Daniel Cretton,3,Science Fiction|Action|Adventure,4.51,3.76,-0.51,-0.24,0.24
+351,Serendipity,2001,2000,2000'ler,2000s,4.0,1,1,2026-09-01,2026,6.99,2254,6.61,90.0,en,English,US,Peter Chelsom,2,Comedy|Romance,3.26,3.91,0.74,-0.09,0.09
+352,Southpaw,2015,2010,2010'ler,2010s,4.0,1,0,2026-09-28,2026,7.36,6018,10.93,123.0,en,English,US,Antoine Fuqua,2,Action|Drama,3.58,3.37,0.42,-0.63,0.63
+353,All About Lily Chou-Chou,2001,2000,2000'ler,2000s,4.5,1,0,2026-10-18,2026,7.47,336,7.54,146.0,ja,Other,JP,Shunji Iwai,2,Drama|Crime,3.67,4.14,0.83,-0.36,0.36
+354,Before the Frost,2018,2010,2010'ler,2010s,3.0,0,0,2026-10-18,2026,6.2,33,0.63,104.0,da,Other,DK,Michael Noer,1,Drama,2.6,2.5,0.4,-0.5,0.5
+355,Other Mommy,2026,2020,2020'ler,2020s,2.0,0,0,2026-10-19,2026,6.48,578,320.27,93.0,en,English,US,Rob Savage,1,Horror,2.84,2.73,-0.84,0.73,0.73

@@ -1,0 +1,87 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 334.18475118062986,
+            "y": 22.675007367565513
+          },
+          "nodeIndex": "film_genres",
+          "nodeLineageTag": "a295d530-4702-408a-ac6c-bcb3443998c9",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 618.36163941535983,
+            "y": -50
+          },
+          "nodeIndex": "films",
+          "nodeLineageTag": "3563f7a1-ae4d-40d0-a88a-7792c1d2db01",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 3.7401165449074369
+          },
+          "nodeIndex": "genres",
+          "nodeLineageTag": "3afb8c24-cf52-4c31-85e3-b3e54b3d85b9",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852.36163941535983,
+            "y": 26
+          },
+          "nodeIndex": "model_results",
+          "nodeLineageTag": "7b191b6c-81c6-48e4-8cef-15ed8565fd32",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1136.3616394153598,
+            "y": 26
+          },
+          "nodeIndex": "watchlist",
+          "nodeLineageTag": "d89910bb-f500-43f9-b15a-923d30b837fd",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

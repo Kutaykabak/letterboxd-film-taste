@@ -1,0 +1,35 @@
+table film_genres
+	lineageTag: a295d530-4702-408a-ac6c-bcb3443998c9
+
+	column film_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 45db6c7a-dc6e-4f6c-b453-f337672f5ca9
+		summarizeBy: none
+		sourceColumn: film_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column genre
+		dataType: string
+		lineageTag: 6ea52201-7078-4c46-aedd-54b93c95890b
+		summarizeBy: none
+		sourceColumn: genre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition film_genres = m
+		mode: import
+		source =
+				let
+				    Folder = "D:\claude\letterboxd-projesi\data\powerbi\",
+				    Source = Csv.Document(File.Contents(Folder & "film_genres.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"film_id", Int64.Type}, {"genre", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

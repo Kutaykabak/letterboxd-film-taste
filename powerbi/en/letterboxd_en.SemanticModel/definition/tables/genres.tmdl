@@ -1,0 +1,34 @@
+table genres
+	lineageTag: 3afb8c24-cf52-4c31-85e3-b3e54b3d85b9
+
+	column genre
+		dataType: string
+		lineageTag: ce5bfe9d-59df-45b6-9484-52fcfaf91a94
+		summarizeBy: none
+		sourceColumn: genre
+
+		annotation SummarizationSetBy = Automatic
+
+	column genre_tr
+		dataType: string
+		lineageTag: cc8792cb-8c08-406c-bd8c-54abb9145c9c
+		summarizeBy: none
+		sourceColumn: genre_tr
+
+		annotation SummarizationSetBy = Automatic
+
+	partition genres = m
+		mode: import
+		source =
+				let
+				    Folder = "D:\claude\letterboxd-projesi\data\powerbi\",
+				    Source = Csv.Document(File.Contents(Folder & "genres.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"genre", type text}, {"genre_tr", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

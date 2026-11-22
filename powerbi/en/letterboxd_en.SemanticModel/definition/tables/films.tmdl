@@ -1,0 +1,306 @@
+table films
+	lineageTag: 3563f7a1-ae4d-40d0-a88a-7792c1d2db01
+
+	measure 'Average Rating' = AVERAGE(films[rating])
+		formatString: 0.00
+		lineageTag: 494bca5c-bc6c-45ab-ab71-3bcabb5c7cdb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Film Count' = COUNTROWS(films)
+		formatString: 0
+		lineageTag: 0b49e581-ee56-4a43-a9dd-9dab08f813f6
+
+	measure 'Loved Share' = DIVIDE(CALCULATE(COUNTROWS(films), films[loved] = 1), COUNTROWS(films))
+		formatString: 0%;-0%;0%
+		lineageTag: d7ba8fa5-a137-49dd-81a1-43991c5fb05d
+
+	measure 'Model Error (MAE)' = AVERAGE(films[abs_error])
+		formatString: 0.00
+		lineageTag: cb2376da-f754-41b2-bbbe-4827ca69e57f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Diff from Overall' = [Average Rating] - CALCULATE([Average Rating], ALL(films), ALL(film_genres), ALL(genres))
+		lineageTag: fd995c3e-1b5b-4132-b7a9-386313a5f00e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'TMDB Average' = AVERAGE(films[tmdb_rating])
+		formatString: 0.00
+		lineageTag: 4dd82790-5776-4f94-87f5-07d9f22da441
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Rating (15+ films)' = IF([Film Count] >= 15, [Average Rating])
+		formatString: 0.00
+		lineageTag: cf49e78f-5656-4045-97aa-d8b4b617353e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column film_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f8023741-d84a-4e12-b86d-b9dc95fd2838
+		summarizeBy: none
+		sourceColumn: film_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 1f72bd55-7f96-4cf1-a8d1-a94ffc9b7fe0
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: f2538221-a503-4deb-a030-7a0e06605832
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = User
+
+	column decade
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f60b9b1-11ec-4188-a221-08e57d9f8a26
+		summarizeBy: sum
+		sourceColumn: decade
+
+		annotation SummarizationSetBy = Automatic
+
+	column decade_label
+		dataType: string
+		lineageTag: 79b1da23-04ab-4b78-9de6-a007e5266ce5
+		summarizeBy: none
+		sourceColumn: decade_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column rating
+		dataType: double
+		lineageTag: 657fca3c-0b34-459c-962c-2f6e36771dea
+		summarizeBy: sum
+		sourceColumn: rating
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column loved
+		dataType: int64
+		formatString: 0
+		lineageTag: fe39d63c-d73b-42b2-8447-9fa43ab1bbde
+		summarizeBy: sum
+		sourceColumn: loved
+
+		annotation SummarizationSetBy = Automatic
+
+	column liked
+		dataType: int64
+		formatString: 0
+		lineageTag: 722867a0-4f84-4a23-9529-b7c0550f9551
+		summarizeBy: sum
+		sourceColumn: liked
+
+		annotation SummarizationSetBy = Automatic
+
+	column rated_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: fea3b445-e2a8-4a21-854a-6baec19eec4d
+		summarizeBy: none
+		sourceColumn: rated_date
+
+		variation Variation
+			isDefault
+			relationship: 9501dee5-1411-425c-9773-db3d89d7eb94
+			defaultHierarchy: LocalDateTable_77da11d1-b78c-4cef-b8a6-70879d86e0ea.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column rated_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 67d47b2b-c0a9-45e3-9216-fcbb2fc50da1
+		summarizeBy: sum
+		sourceColumn: rated_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column tmdb_rating
+		dataType: double
+		lineageTag: 707ae6c1-16a6-4409-83aa-6ced39d935b9
+		summarizeBy: sum
+		sourceColumn: tmdb_rating
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tmdb_votes
+		dataType: int64
+		formatString: 0
+		lineageTag: ab3d82a7-20d7-4098-8994-5e78bdb893e1
+		summarizeBy: sum
+		sourceColumn: tmdb_votes
+
+		annotation SummarizationSetBy = Automatic
+
+	column popularity
+		dataType: double
+		lineageTag: 226a3033-00d7-4c2d-b5e2-d133ac170985
+		summarizeBy: sum
+		sourceColumn: popularity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column runtime
+		dataType: double
+		lineageTag: 8018a16b-6adf-4bd9-864d-2cf1fd74bd3f
+		summarizeBy: sum
+		sourceColumn: runtime
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column original_language
+		dataType: string
+		lineageTag: 63728684-f249-49a2-a3c7-e51d11dff353
+		summarizeBy: none
+		sourceColumn: original_language
+
+		annotation SummarizationSetBy = Automatic
+
+	column language_group
+		dataType: string
+		lineageTag: ebe2b168-ee4f-4e30-b36b-80e0a993f4ae
+		summarizeBy: none
+		sourceColumn: language_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column primary_country
+		dataType: string
+		lineageTag: a70d04dc-4c2d-43c8-baa8-9489599df80a
+		summarizeBy: none
+		sourceColumn: primary_country
+
+		annotation SummarizationSetBy = Automatic
+
+	column director
+		dataType: string
+		lineageTag: db91f324-fcb9-4ce6-87dd-093156f84a34
+		summarizeBy: none
+		sourceColumn: director
+
+		annotation SummarizationSetBy = Automatic
+
+	column n_genres
+		dataType: int64
+		formatString: 0
+		lineageTag: e6292edf-2d08-46c4-8c10-8b87376cc089
+		summarizeBy: sum
+		sourceColumn: n_genres
+
+		annotation SummarizationSetBy = Automatic
+
+	column genres
+		dataType: string
+		lineageTag: f416c779-b1b5-4998-a6e8-45a691b73d6d
+		summarizeBy: none
+		sourceColumn: genres
+
+		annotation SummarizationSetBy = Automatic
+
+	column expected_from_tmdb
+		dataType: double
+		lineageTag: 272d7e73-f85b-427d-bbb2-5599ab0988ff
+		summarizeBy: sum
+		sourceColumn: expected_from_tmdb
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column predicted_rating
+		dataType: double
+		lineageTag: 4c3173db-5a02-4851-8534-2734e4cea880
+		summarizeBy: sum
+		sourceColumn: predicted_rating
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column diff_from_crowd
+		dataType: double
+		lineageTag: 25320844-e52f-4fa6-83b7-b924bb920230
+		summarizeBy: sum
+		sourceColumn: diff_from_crowd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column prediction_error
+		dataType: double
+		lineageTag: 22545e62-df0d-42aa-9c2e-6ab863b19365
+		summarizeBy: sum
+		sourceColumn: prediction_error
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column abs_error
+		dataType: double
+		lineageTag: 3158fed3-073f-4d77-9112-048776fde6d5
+		summarizeBy: sum
+		sourceColumn: abs_error
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column decade_label_en
+		dataType: string
+		lineageTag: 6d1f3b52-8c3e-4a51-9f6a-2b7e1c4d9a10
+		summarizeBy: none
+		sourceColumn: decade_label_en
+
+		annotation SummarizationSetBy = Automatic
+
+	partition films = m
+		mode: import
+		source =
+				let
+				    Folder = "D:\claude\letterboxd-projesi\data\powerbi\",
+				    Source = Csv.Document(File.Contents(Folder & "films.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Headers, {
+				        {"film_id", Int64.Type}, {"name", type text}, {"year", Int64.Type}, {"decade", Int64.Type},
+				        {"decade_label", type text}, {"decade_label_en", type text}, {"rating", type number}, {"loved", Int64.Type}, {"liked", Int64.Type},
+				        {"rated_date", type date}, {"rated_year", Int64.Type}, {"tmdb_rating", type number},
+				        {"tmdb_votes", Int64.Type}, {"popularity", type number}, {"runtime", type number},
+				        {"original_language", type text}, {"language_group", type text}, {"primary_country", type text},
+				        {"director", type text}, {"n_genres", Int64.Type}, {"genres", type text},
+				        {"expected_from_tmdb", type number}, {"predicted_rating", type number},
+				        {"diff_from_crowd", type number}, {"prediction_error", type number}, {"abs_error", type number}
+				    }, "en-US")
+				in
+				    Typed
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

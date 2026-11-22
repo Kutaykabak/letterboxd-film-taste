@@ -1,0 +1,173 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "b36c324e2e7c8a19cf40",
+  "position": {
+    "x": 767,
+    "y": 0,
+    "z": 1000,
+    "height": 709,
+    "width": 513,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "films"
+                    }
+                  },
+                  "Property": "name"
+                }
+              },
+              "queryRef": "films.name",
+              "nativeQueryRef": "Film",
+              "displayName": "Film"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "films"
+                        }
+                      },
+                      "Property": "rating"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(films.rating)",
+              "nativeQueryRef": "My rating",
+              "displayName": "My rating"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "films"
+                        }
+                      },
+                      "Property": "expected_from_tmdb"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(films.expected_from_tmdb)",
+              "nativeQueryRef": "Expected",
+              "displayName": "Expected"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "films"
+                        }
+                      },
+                      "Property": "diff_from_crowd"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(films.diff_from_crowd)",
+              "nativeQueryRef": "Difference",
+              "displayName": "Difference"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "films"
+                    }
+                  },
+                  "Property": "year"
+                }
+              },
+              "queryRef": "films.year",
+              "nativeQueryRef": "Year",
+              "displayName": "Year"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "films"
+                      }
+                    },
+                    "Property": "diff_from_crowd"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Films where my rating differs most from the TMDB-based expectation'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

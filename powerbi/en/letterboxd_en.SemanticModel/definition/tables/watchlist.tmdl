@@ -1,0 +1,83 @@
+table watchlist
+	lineageTag: d89910bb-f500-43f9-b15a-923d30b837fd
+
+	column rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 7817007d-51e6-4c43-813d-f83c8921e7d0
+		summarizeBy: none
+		sourceColumn: rank
+
+		annotation SummarizationSetBy = User
+
+	column name
+		dataType: string
+		lineageTag: efbf8856-3ec9-4301-9e25-a2632cfb90ac
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 576eef9e-61bd-4384-bc38-d495a5a9845c
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = User
+
+	column predicted_rating
+		dataType: double
+		lineageTag: 2cb527c9-2ca7-42b4-86b9-76691afdb21e
+		summarizeBy: sum
+		sourceColumn: predicted_rating
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column genres
+		dataType: string
+		lineageTag: 91eb6d57-4739-4282-a3d7-021af2ba4a30
+		summarizeBy: none
+		sourceColumn: genres
+
+		annotation SummarizationSetBy = Automatic
+
+	column director
+		dataType: string
+		lineageTag: 21770e62-c8f3-43b4-bc7b-4548ab71ae5c
+		summarizeBy: none
+		sourceColumn: director
+
+		annotation SummarizationSetBy = Automatic
+
+	column tmdb_rating
+		dataType: double
+		lineageTag: 5b9d9698-32dc-4271-ad25-ab121bfb4b5d
+		summarizeBy: sum
+		sourceColumn: tmdb_rating
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition watchlist = m
+		mode: import
+		source =
+				let
+				    Folder = "D:\claude\letterboxd-projesi\data\powerbi\",
+				    Source = Csv.Document(File.Contents(Folder & "watchlist.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Headers, {
+				        {"rank", Int64.Type}, {"name", type text}, {"year", Int64.Type}, {"predicted_rating", type number},
+				        {"genres", type text}, {"director", type text}, {"tmdb_rating", type number}
+				    }, "en-US")
+				in
+				    Typed
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

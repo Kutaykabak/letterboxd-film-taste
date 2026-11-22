@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "letterboxd_en"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "db7c3fd3-bd4b-4632-9ef1-28bfdf37b547"
+  }
+}

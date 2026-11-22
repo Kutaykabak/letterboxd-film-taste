@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "letterboxd_en"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a3ab1b78-cf02-4c41-8625-20c8aad8b3e6"
+  }
+}

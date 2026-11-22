@@ -1,0 +1,106 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "e19d3df08b4016f816ea",
+  "position": {
+    "x": 8.5598280391688562,
+    "y": 225.00119417243852,
+    "z": 1000,
+    "height": 486.68736565560067,
+    "width": 630.98160974444716,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "films"
+                    }
+                  },
+                  "Property": "decade_label_en"
+                }
+              },
+              "queryRef": "films.decade_label_en",
+              "nativeQueryRef": "Decade",
+              "active": true,
+              "displayName": "Decade"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "films"
+                    }
+                  },
+                  "Property": "Average Rating"
+                }
+              },
+              "queryRef": "films.Average Rating",
+              "nativeQueryRef": "Average rating",
+              "displayName": "Average rating"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "films"
+                  }
+                },
+                "Property": "decade_label_en"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average rating by decade'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

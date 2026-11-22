@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>355 film</title>
+<meta name="description" content="Letterboxd'da puanladığım 355 film: hangi filmleri sevdiğim ve bir modelin bunu tahmin etme denemesi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --screen: #dde4e8;
+  --ink: #14233a;
+  --muted: #4a5a6e;
+  --me: #f2b400;
+  --crowd: #1f6f78;
+  --rule: #b9c5cd;
+  --dot-stroke: #14233a;
+  --track: #cbd5db;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --screen: #142233; --ink: #e2e8ed; --muted: #9aabbd; --crowd: #4fb0b9;
+    --rule: #2a3c52; --dot-stroke: #142233; --track: #22344a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --screen: #142233; --ink: #e2e8ed; --muted: #9aabbd; --crowd: #4fb0b9;
+  --rule: #2a3c52; --dot-stroke: #142233; --track: #22344a; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--screen);
+  color: var(--ink);
+  font: 400 1.1875rem/1.62 "Source Serif 4", Georgia, serif;
+  font-optical-sizing: auto;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.wrap { max-width: 72rem; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 3rem); }
+.text { max-width: 36rem; }
+p { margin: 0 0 1em; }
+h1, h2, h3 { font-family: "Big Shoulders Display", "Arial Narrow", sans-serif; margin: 0; }
+h2 { font-weight: 800; font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: .92; margin-bottom: .45em; max-width: 14ch; }
+h3 { font-weight: 600; font-size: 1.6rem; line-height: 1.05; margin-bottom: .6rem; }
+.small { font-size: .9rem; color: var(--muted); line-height: 1.45; }
+:focus-visible { outline: 3px solid var(--me); outline-offset: 3px; }
+
+/* açılış */
+.hero { padding-top: clamp(2rem, 6vw, 4.5rem); }
+.hero-top { display: grid; gap: 1.25rem 3rem; align-items: end; }
+@media (min-width: 860px) { .hero-top { grid-template-columns: auto minmax(0, 26rem); } }
+h1 { font-weight: 800; font-size: clamp(6rem, 24vw, 15.5rem); line-height: .8; letter-spacing: -.01em; }
+h1 .unit { display: block; font-weight: 600; color: var(--crowd); }
+.lede { margin: 0; }
+.finder { margin-top: 1.1rem; }
+.finder label { display: block; font-weight: 600; font-size: 1rem; margin-bottom: .3rem; }
+.finder input {
+  width: 100%; font: inherit; font-size: 1.05rem; color: var(--ink);
+  background: transparent; border: 0; border-bottom: 2px solid var(--ink);
+  padding: .35rem 0; border-radius: 0;
+}
+.finder input::placeholder { color: var(--muted); }
+.finder input:focus-visible { outline: none; border-bottom-color: var(--me); box-shadow: 0 2px 0 var(--me); }
+#found { margin-top: .6rem; font-size: 1rem; line-height: 1.45; }
+
+.chart { position: relative; margin-top: 1.5rem; }
+.chart svg { display: block; width: 100%; overflow: visible; }
+.axis text { font: 600 13px "Big Shoulders Display", sans-serif; fill: var(--muted); letter-spacing: .02em; }
+.axis line { stroke: var(--rule); }
+.dot { fill: var(--me); stroke: var(--dot-stroke); stroke-width: .8; transition: opacity .2s, r .2s; cursor: pointer; }
+.dimmed .dot { opacity: .18; }
+.dimmed .dot.hit { opacity: 1; stroke-width: 1.6; }
+.avg { stroke: var(--ink); stroke-width: 3.5; stroke-linecap: round; }
+.fit { stroke: var(--crowd); stroke-width: 3; }
+.tip {
+  position: absolute; pointer-events: none; background: var(--ink); color: var(--screen);
+  font-size: .9rem; line-height: 1.35; padding: .45rem .6rem; max-width: 16rem;
+  transform: translate(-50%, calc(-100% - 12px)); opacity: 0; transition: opacity .12s;
+}
+.tip.on { opacity: 1; }
+.tip b { font-weight: 600; }
+
+/* bölümler */
+section { margin-top: clamp(4.5rem, 11vw, 8rem); }
+.cols { display: grid; gap: 2rem 3.5rem; }
+@media (min-width: 900px) { .cols { grid-template-columns: minmax(0, 30rem) minmax(0, 1fr); align-items: start; } }
+
+/* satır grafikleri */
+.rows { display: grid; grid-template-columns: minmax(6.5rem, max-content) minmax(0, 1fr) 3.6rem; column-gap: 1rem; align-items: center; }
+.rows > .lab { font-size: 1rem; line-height: 1.2; padding: .35rem 0; }
+.rows > .lab small { display: block; color: var(--muted); font-size: .8rem; }
+.rows > .val { font-size: 1rem; text-align: right; font-weight: 600; }
+.track { position: relative; height: 2.4rem; }
+.track::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 1px solid var(--track); }
+.bar { position: absolute; left: 0; top: 30%; height: 40%; background: var(--me); }
+.ci { position: absolute; top: 50%; height: 3px; margin-top: -1.5px; background: var(--ink); }
+.pt { position: absolute; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: var(--me); border: 1.5px solid var(--dot-stroke); }
+.mark { position: absolute; top: 0; bottom: 0; border-left: 1.5px dashed var(--muted); }
+.exp { position: absolute; top: 25%; height: 50%; width: 3px; margin-left: -1.5px; background: var(--crowd); }
+.gap { position: absolute; top: 50%; height: 2px; margin-top: -1px; background: var(--muted); }
+.scale { position: relative; height: 1.3em; font: 600 13px "Big Shoulders Display", sans-serif; color: var(--muted); }
+.scale span { position: absolute; top: 0; transform: translateX(-50%); }
+.scale-row { grid-column: 2; }
+.key { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: .2rem 0 1rem; font-size: .9rem; color: var(--muted); }
+.key > span::before { content: ""; display: inline-block; vertical-align: -1px; margin-right: .4rem; }
+.key .k-me::before { width: 12px; height: 12px; border-radius: 50%; background: var(--me); border: 1.5px solid var(--dot-stroke); }
+.key .k-crowd::before { width: 3px; height: 14px; background: var(--crowd); }
+.key .k-mean::before { width: 0; height: 14px; border-left: 1.5px dashed var(--muted); }
+.key .k-fit::before { width: 18px; height: 3px; background: var(--crowd); vertical-align: 4px; }
+.key .k-avg::before { width: 18px; height: 3.5px; background: var(--ink); vertical-align: 4px; }
+
+.split { display: grid; gap: 2.5rem; margin-top: 2.5rem; }
+@media (min-width: 900px) { .split { grid-template-columns: 1fr 1fr; gap: 3.5rem; } }
+.rows.wide { grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); }
+
+.model-row.base .pt { background: var(--track); }
+.model-row.best .lab { font-weight: 600; }
+
+/* izleme listesi */
+.filters { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1.2rem 0 1.6rem; }
+.filters button {
+  font: 600 1.05rem "Big Shoulders Display", sans-serif; letter-spacing: .02em;
+  color: var(--ink); background: transparent; border: 1.5px solid var(--ink);
+  border-radius: 999px; padding: .2rem .85rem; cursor: pointer;
+}
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--screen); }
+.filters button:hover { border-color: var(--crowd); }
+ol.picks { list-style: none; counter-reset: pick; margin: 0; padding: 0; max-width: 46rem; }
+ol.picks li {
+  counter-increment: pick; display: grid; grid-template-columns: 2.6rem 1fr auto; gap: .2rem 1rem;
+  align-items: baseline; padding: .7rem 0; border-top: 1px solid var(--rule);
+}
+ol.picks li::before { content: counter(pick); font: 800 1.7rem/1 "Big Shoulders Display", sans-serif; color: var(--muted); }
+ol.picks .ttl { font-weight: 600; }
+ol.picks .meta { grid-column: 2; font-size: .9rem; color: var(--muted); }
+ol.picks .score { grid-row: 1 / span 2; grid-column: 3; font: 800 2rem/1 "Big Shoulders Display", sans-serif; }
+ol.picks .score span { background: var(--me); color: #14233a; padding: .12rem .4rem 0; }
+
+footer { margin: clamp(5rem, 12vw, 9rem) 0 3rem; padding-top: 1.2rem; border-top: 2px solid var(--ink); }
+footer p { max-width: 40rem; }
+
+@media (max-width: 560px) {
+  body { font-size: 1.0625rem; }
+  .rows { grid-template-columns: minmax(5.5rem, 7.5rem) minmax(0, 1fr) 3rem; column-gap: .6rem; }
+  .rows.wide { grid-template-columns: minmax(0, 9rem) minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+<header class="hero">
+  <div class="hero-top">
+    <h1>355<span class="unit">film</span></h1>
+    <div>
+      <p class="lede">Aralık 2022'den beri Letterboxd'da puan verdiğim her film burada bir nokta. Soldan sağa filmin çıktığı yıl, aşağıdan yukarı benim puanım. Koyu çizgiler her on yılın ortalaması ve yeni filmlere doğru düzenli olarak iniyor.</p>
+      <div class="finder">
+        <label for="q">Bir film ya da yönetmen bul</label>
+        <input id="q" type="search" list="titles" placeholder="Se7en, Whiplash, Nolan" autocomplete="off">
+        <datalist id="titles"></datalist>
+        <div id="found" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+  <div class="chart" id="hero-chart"></div>
+  <div class="key"><span class="k-me">bir film ve verdiğim puan</span><span class="k-avg">on yıl ortalaması</span></div>
+</header>
+
+<section aria-labelledby="h-decade">
+  <div class="cols">
+    <div class="text">
+      <h2 id="h-decade">Eski filmlere daha cömertim</h2>
+      <p>1980 öncesi filmlere ortalama <span data-dec="0"></span> veriyorum, 2020'lerde çekilenlere <span data-dec="-1"></span>. Film yılı ile puanım arasındaki Spearman korelasyonu <span id="rho-year"></span>.</p>
+      <p>Bunun bir kısmı seçilim. Eski filmlerden zaten adı çıkmış olanları seçip izliyorum, yenileri ise daha rastgele açıyorum.</p>
+    </div>
+    <div class="rows" id="decades"></div>
+  </div>
+</section>
+
+<section aria-labelledby="h-genre">
+  <div class="cols">
+    <div class="text">
+      <h2 id="h-genre">Türler</h2>
+      <p>En az 15 filmini izlediğim türler. Animasyon, suç ve dram ortalamamın üstünde kalıyor. Korku, bilim kurgu, aksiyon ve macera altında. Bu farklar, aynı anda birçok tür test ettiğim için yaptığım düzeltmeden sonra da duruyor.</p>
+      <p class="small">Çizgiler ortalamanın %95 bootstrap aralığı. Bir film birden fazla türde sayılabiliyor.</p>
+    </div>
+    <div>
+      <div class="key"><span class="k-me">tür ortalaması</span><span class="k-mean">genel ortalamam (<span id="mean-all"></span>)</span></div>
+      <div class="rows" id="genres"></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-crowd">
+  <div class="text">
+    <h2 id="h-crowd">Kalabalıkla ne kadar aynı fikirdeyim?</h2>
+    <p>TMDB ortalaması ile verdiğim puanlar arasındaki Spearman korelasyonu <span id="rho-tmdb"></span>. Camgöbeği çizgi, bir filmin TMDB puanına bakarak benden beklenecek puan. Çoğu film ona yakın duruyor, bazıları hiç durmuyor.</p>
+  </div>
+  <div class="chart" id="crowd-chart"></div>
+  <div class="key"><span class="k-me">verdiğim puan</span><span class="k-fit">TMDB puanından beklenen</span></div>
+  <div class="split">
+    <div>
+      <h3>Beklenenden çok sevdiklerim</h3>
+      <div class="rows wide" id="above"></div>
+    </div>
+    <div>
+      <h3>Beklenenden az sevdiklerim</h3>
+      <div class="rows wide" id="below"></div>
+    </div>
+  </div>
+  <div class="key"><span class="k-crowd">beklenen</span><span class="k-me">verdiğim</span></div>
+</section>
+
+<section aria-labelledby="h-model">
+  <div class="cols">
+    <div class="text">
+      <h2 id="h-model">Bir model zevkimi tahmin edebilir mi?</h2>
+      <p>Kısmen. 11 modeli 5 katlı, 10 tekrarlı çapraz doğrulamayla karşılaştırdım. Herkese ortalamamı söyleyen temel çizgi 0,91 puan hata yapıyor, en iyi modeller 0,65 civarında. Model seçimini de hesaba katan iç içe doğrulamada hata 0,66.</p>
+      <p>Random Forest, XGBoost ya da LightGBM, sadece filmin yılını ve TMDB puanını kullanan iki değişkenli doğrusal modeli çoklu karşılaştırma düzeltmesinden sonra anlamlı biçimde geçemedi. Dört değişkenli sıralı lojistik regresyon da onlarla aynı yerde ve bir şey daha söylüyor: TMDB puanı 0,69 puan artınca daha yüksek puan verme odds'um 5,1 katına çıkıyor.</p>
+    </div>
+    <div>
+      <div class="key"><span class="k-me">ortalama hata (RMSE)</span><span class="k-mean">seçim dahil hata (0,66)</span></div>
+      <div class="rows" id="models"></div>
+      <p class="small" style="margin-top:.8rem">Yatay çizgiler 50 bölme arasındaki standart sapma. Düşük daha iyi.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="h-next">
+  <div class="text">
+    <h2 id="h-next">Sırada ne izlesem?</h2>
+    <p>Modelin izleme listemdeki 247 film için tahmini. Ortalama hata yarım puan civarında, o yüzden tek tek sayılardan çok sıralamaya bakmak lazım.</p>
+  </div>
+  <div class="filters" id="filters" role="group" aria-label="Türe göre süz"></div>
+  <ol class="picks" id="picks"></ol>
+</section>
+
+<footer>
+  <p class="small">Veri kendi Letterboxd dışa aktarımım ve TMDB'den. Analiz ve modeller projenin <code>notebooks</code> klasöründe.</p>
+  <p class="small">Bu ürün TMDB API'sini kullanır ancak TMDB tarafından onaylanmamıştır.</p>
+</footer>
+</main>
+
+<div class="tip" id="tip" role="presentation"></div>
+
+<script src="data.js"></script>
+<script>
+(() => {
+  const D = window.DATA;
+  const NS = 'http://www.w3.org/2000/svg';
+  const TR = { 'Drama': 'Dram', 'Crime': 'Suç', 'Comedy': 'Komedi', 'Horror': 'Korku', 'Science Fiction': 'Bilim kurgu',
+    'Animation': 'Animasyon', 'Romance': 'Romantik', 'Thriller': 'Gerilim', 'War': 'Savaş', 'History': 'Tarih',
+    'Mystery': 'Gizem', 'Fantasy': 'Fantastik', 'Adventure': 'Macera', 'Action': 'Aksiyon', 'Family': 'Aile',
+    'Music': 'Müzik', 'Documentary': 'Belgesel', 'Western': 'Western', 'TV Movie': 'TV filmi' };
+  const tr = g => TR[g] || g;
+  const num = (x, d = 2) => x.toLocaleString('tr-TR', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const star = x => x.toLocaleString('tr-TR', { maximumFractionDigits: 1 });
+  const svgEl = (tag, attrs, parent) => {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  };
+  const div = (cls, parent, html) => {
+    const e = document.createElement('div');
+    if (cls) e.className = cls;
+    if (html != null) e.innerHTML = html;
+    if (parent) parent.appendChild(e);
+    return e;
+  };
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const pct = (v, lo, hi) => ((v - lo) / (hi - lo) * 100) + '%';
+  // satır grafiklerinin altındaki ölçek: etiketler değerin tam yerinde
+  const scaleRow = (host, ticks, lo, hi) => {
+    div('', host);
+    const s = div('scale scale-row', host);
+    ticks.forEach(t => { const sp = document.createElement('span'); sp.textContent = num(t, t % 1 ? 1 : 0); sp.style.left = pct(t, lo, hi); s.appendChild(sp); });
+    div('', host);
+  };
+
+  // sayılar metne
+  document.querySelectorAll('[data-dec]').forEach(s => {
+    const i = +s.dataset.dec; const d = D.decades[i < 0 ? D.decades.length + i : i]; s.textContent = num(d.mean);
+  });
+  document.getElementById('rho-year').textContent = num(D.stats.rho_year);
+  document.getElementById('rho-tmdb').textContent = num(D.stats.rho_tmdb);
+  document.getElementById('mean-all').textContent = num(D.stats.mean);
+
+  // ipucu
+  const tip = document.getElementById('tip');
+  const filmHTML = f => `<b>${esc(f.n)}</b> (${f.y})<br>Puanım ${star(f.r)}, TMDB ${num(f.t, 1)}${f.d ? '<br>' + esc(f.d) : ''}`;
+  const showTip = (f, ev, host) => {
+    const r = host.getBoundingClientRect();
+    tip.innerHTML = filmHTML(f);
+    tip.style.left = (ev.clientX) + 'px';
+    tip.style.top = (ev.clientY + window.scrollY) + 'px';
+    tip.style.position = 'absolute';
+    tip.classList.add('on');
+  };
+  const hideTip = () => tip.classList.remove('on');
+
+  // sabit titreşim: aynı film her çizimde aynı yerde dursun
+  const jit = (i, k) => (((i + 1) * (k ? 7919 : 104729)) % 1000) / 1000 - 0.5;
+
+  function scatter(host, { xKey, xMin, xMax, xTicks, xFmt, height, avg, fit, r }) {
+    host.innerHTML = '';
+    const W = host.clientWidth;
+    const H = height(W);
+    const m = { l: 34, r: 8, t: 10, b: 30 };
+    const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, height: H, role: 'img',
+      'aria-label': host.dataset.label || '' }, host);
+    const X = v => m.l + (v - xMin) / (xMax - xMin) * (W - m.l - m.r);
+    const Y = v => m.t + (5.25 - v) / (5.25 - 0.25) * (H - m.t - m.b);
+    const ax = svgEl('g', { class: 'axis' }, svg);
+    for (let s = 1; s <= 5; s++) {
+      svgEl('line', { x1: m.l, x2: W - m.r, y1: Y(s), y2: Y(s) }, ax);
+      svgEl('text', { x: m.l - 10, y: Y(s) + 4, 'text-anchor': 'end' }, ax).textContent = s;
+    }
+    xTicks.forEach(t => {
+      const tx = svgEl('text', { x: X(t), y: H - 8, 'text-anchor': 'middle' }, ax);
+      tx.textContent = xFmt(t);
+    });
+    if (avg) avg.forEach(a => svgEl('line', { class: 'avg', x1: X(a.from) + 3, x2: X(Math.min(a.to, xMax)) - 3, y1: Y(a.mean), y2: Y(a.mean) }, svg));
+    if (fit) {
+      // çizgiyi 0,5 ile 5 puan arasında tut
+      const x0 = Math.max(xMin, (0.5 - fit.a) / fit.b), x1 = Math.min(xMax, (5 - fit.a) / fit.b);
+      svgEl('line', { class: 'fit', x1: X(x0), x2: X(x1), y1: Y(fit.a + fit.b * x0), y2: Y(fit.a + fit.b * x1) }, svg);
+    }
+    const g = svgEl('g', {}, svg);
+    const dots = D.films.map((f, i) => {
+      const c = svgEl('circle', { class: 'dot', r, cx: X(f[xKey] + jit(i, 0) * (xKey === 'y' ? 0.8 : 0.06)),
+        cy: Y(f.r + jit(i, 1) * 0.16) }, g);
+      c.addEventListener('pointerenter', ev => showTip(f, ev, host));
+      c.addEventListener('pointerleave', hideTip);
+      return c;
+    });
+    return { svg, g, dots };
+  }
+
+  // açılış grafiği
+  const heroHost = document.getElementById('hero-chart');
+  heroHost.dataset.label = `Puanladığım ${D.stats.n} filmin yıla göre dağılımı. Yeni filmlere doğru ortalama puan düşüyor.`;
+  const avgSpans = D.decades.map(d => {
+    const start = d.label.startsWith('1980 öncesi') ? 1925 : parseInt(d.label);
+    return { from: start, to: start === 1925 ? 1980 : start + 10, mean: d.mean };
+  });
+  let hero;
+  const drawHero = () => {
+    hero = scatter(heroHost, {
+      xKey: 'y', xMin: 1925, xMax: 2027, xTicks: [1930, 1950, 1970, 1990, 2010, 2026], xFmt: t => t,
+      height: W => Math.max(320, Math.min(520, W * 0.46)), avg: avgSpans, r: heroHost.clientWidth < 560 ? 3.6 : 4.6
+    });
+    applyQuery();
+  };
+
+  // film arama
+  const q = document.getElementById('q');
+  const found = document.getElementById('found');
+  const titles = document.getElementById('titles');
+  [...new Set(D.films.map(f => f.n))].sort((a, b) => a.localeCompare(b, 'tr')).forEach(n => {
+    const o = document.createElement('option'); o.value = n; titles.appendChild(o);
+  });
+  function applyQuery() {
+    const s = q.value.trim().toLocaleLowerCase('tr');
+    if (!hero) return;
+    const r0 = heroHost.clientWidth < 560 ? 3.6 : 4.6;
+    hero.dots.forEach(d => { d.classList.remove('hit'); d.setAttribute('r', r0); });
+    if (s.length < 2) { hero.g.parentNode.classList.remove('dimmed'); found.innerHTML = ''; return; }
+    const exact = D.films.findIndex(f => f.n.toLocaleLowerCase('tr') === s);
+    const idx = exact >= 0 ? [exact] : D.films.map((f, i) => (f.n + ' ' + f.d).toLocaleLowerCase('tr').includes(s) ? i : -1).filter(i => i >= 0);
+    hero.g.parentNode.classList.add('dimmed');
+    idx.forEach(i => { const d = hero.dots[i]; d.classList.add('hit'); d.setAttribute('r', r0 * 1.8); hero.g.appendChild(d); });
+    if (idx.length === 0) found.textContent = 'Bu adla puanladığım bir film ya da yönetmen yok. Letterboxd çoğu filmi İngilizce adıyla tutuyor, onunla dene.';
+    else if (idx.length === 1) found.innerHTML = filmHTML(D.films[idx[0]]);
+    else found.textContent = `${idx.length} film: ` + idx.slice(0, 5).map(i => D.films[i].n).join(', ') + (idx.length > 5 ? ' ve diğerleri' : '');
+  }
+  q.addEventListener('input', applyQuery);
+
+  // on yıllar
+  const dec = document.getElementById('decades');
+  D.decades.forEach(d => {
+    div('lab', dec, `${d.label}<small>${d.n} film</small>`);
+    const t = div('track', dec);
+    div('bar', t).style.width = pct(d.mean, 0, 5);
+    div('val', dec, num(d.mean));
+  });
+  scaleRow(dec, [0, 1, 2, 3, 4, 5], 0, 5);
+
+  // türler
+  const gen = document.getElementById('genres');
+  const GLO = 2.5, GHI = 4.75;
+  D.genres.forEach(g => {
+    div('lab', gen, `${tr(g.name)}<small>${g.n} film</small>`);
+    const t = div('track', gen);
+    div('mark', t).style.left = pct(D.stats.mean, GLO, GHI);
+    const ci = div('ci', t); ci.style.left = pct(g.lo, GLO, GHI); ci.style.width = `calc(${pct(g.hi, GLO, GHI)} - ${pct(g.lo, GLO, GHI)})`;
+    div('pt', t).style.left = pct(g.mean, GLO, GHI);
+    div('val', gen, num(g.mean));
+  });
+  scaleRow(gen, [2.5, 3, 3.5, 4, 4.5], GLO, GHI);
+
+  // kalabalık grafiği
+  const crowdHost = document.getElementById('crowd-chart');
+  crowdHost.dataset.label = 'TMDB puanı ile verdiğim puan. Çoğu film beklenen çizgiye yakın.';
+  const drawCrowd = () => scatter(crowdHost, {
+    xKey: 't', xMin: 4, xMax: 9, xTicks: [4, 5, 6, 7, 8, 9], xFmt: t => 'TMDB ' + t,
+    height: W => Math.max(280, Math.min(420, W * 0.38)), fit: D.fit, r: 3.6
+  });
+
+  const gapRows = (host, list) => list.forEach(f => {
+    div('lab', host, `${esc(f.n)}<small>${f.y}. Beklenen ${num(f.e, 1)}, verdiğim ${star(f.r)}</small>`);
+    const t = div('track', host);
+    const lo = Math.min(f.e, f.r), hi = Math.max(f.e, f.r);
+    const gp = div('gap', t); gp.style.left = pct(lo, 0.5, 5); gp.style.width = `calc(${pct(hi, 0.5, 5)} - ${pct(lo, 0.5, 5)})`;
+    div('exp', t).style.left = pct(f.e, 0.5, 5);
+    div('pt', t).style.left = pct(f.r, 0.5, 5);
+  });
+  gapRows(document.getElementById('above'), D.above);
+  gapRows(document.getElementById('below'), D.below);
+
+  // modeller
+  const mod = document.getElementById('models');
+  const MLO = 0.55, MHI = 1.0;
+  const best = Math.min(...D.models.map(m => m[1]));
+  D.models.slice().sort((a, b) => a[1] - b[1]).forEach(([name, rmse, sd]) => {
+    const cls = name.startsWith('Temel') ? ' base' : (rmse === best ? ' best' : '');
+    const lab = div('lab', mod, esc(name));
+    const t = div('track', mod);
+    div('mark', t).style.left = pct(0.66, MLO, MHI);
+    const ci = div('ci', t); ci.style.left = pct(rmse - sd, MLO, MHI); ci.style.width = `calc(${pct(rmse + sd, MLO, MHI)} - ${pct(rmse - sd, MLO, MHI)})`;
+    div('pt', t).style.left = pct(rmse, MLO, MHI);
+    div('val', mod, num(rmse, 3));
+    if (cls.includes('base')) t.querySelector('.pt').style.background = 'var(--track)';
+    if (cls.includes('best')) lab.style.fontWeight = '600';
+  });
+  scaleRow(mod, [0.6, 0.7, 0.8, 0.9, 1.0], MLO, MHI);
+
+  // izleme listesi
+  const filters = document.getElementById('filters');
+  const picks = document.getElementById('picks');
+  const counts = {};
+  D.watch.forEach(w => w.g.split('|').filter(Boolean).forEach(g => counts[g] = (counts[g] || 0) + 1));
+  const opts = ['Hepsi', ...Object.keys(counts).filter(g => counts[g] >= 8).sort((a, b) => counts[b] - counts[a])];
+  let current = 'Hepsi';
+  const renderPicks = () => {
+    const list = D.watch.filter(w => current === 'Hepsi' || w.g.split('|').includes(current)).slice(0, 10);
+    picks.innerHTML = list.map(w => `<li><span class="ttl">${esc(w.n)}</span><span class="score"><span>${num(w.p, 1)}</span></span>` +
+      `<span class="meta">${w.y}${w.d ? ', ' + esc(w.d) : ''}. ${w.g.split('|').filter(Boolean).map(tr).join(', ')}</span></li>`).join('');
+  };
+  opts.forEach(o => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.textContent = o === 'Hepsi' ? 'Hepsi' : tr(o);
+    b.setAttribute('aria-pressed', o === current);
+    b.addEventListener('click', () => {
+      current = o;
+      filters.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+      renderPicks();
+    });
+    filters.appendChild(b);
+  });
+  renderPicks();
+
+  // çizim ve yeniden boyutlandırma
+  const drawAll = () => { drawHero(); drawCrowd(); };
+  drawAll();
+  let rt; let lastW = window.innerWidth;
+  window.addEventListener('resize', () => {
+    if (window.innerWidth === lastW) return;
+    lastW = window.innerWidth; clearTimeout(rt); rt = setTimeout(drawAll, 150);
+  });
+  if (document.fonts) document.fonts.ready.then(drawAll);
+})();
+</script>
+</body>
+</html>

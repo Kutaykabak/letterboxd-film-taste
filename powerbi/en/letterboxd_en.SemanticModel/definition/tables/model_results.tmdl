@@ -1,0 +1,85 @@
+table model_results
+	lineageTag: 7b191b6c-81c6-48e4-8cef-15ed8565fd32
+
+	column model
+		dataType: string
+		lineageTag: d489a1ba-9bd6-4195-b25a-672f7dca8bb1
+		summarizeBy: none
+		sourceColumn: model
+
+		annotation SummarizationSetBy = Automatic
+
+	column family
+		dataType: string
+		lineageTag: f9c68dc1-83b0-4b62-a1f4-bb7300bde77c
+		summarizeBy: none
+		sourceColumn: family
+
+		annotation SummarizationSetBy = Automatic
+
+	column rmse
+		dataType: double
+		lineageTag: b4139d35-e21a-4dde-9fe6-faa9c125ee4b
+		summarizeBy: sum
+		sourceColumn: rmse
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rmse_sd
+		dataType: double
+		lineageTag: 5f1151b5-0389-446d-8885-6c54edffb658
+		summarizeBy: sum
+		sourceColumn: rmse_sd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column mae
+		dataType: double
+		lineageTag: 00beaf5b-ca8f-4ed4-8bfd-f7344b08b5da
+		summarizeBy: sum
+		sourceColumn: mae
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column r2
+		dataType: double
+		lineageTag: 9505918f-d10d-4743-b6ac-ed0fbeb9e981
+		summarizeBy: sum
+		sourceColumn: r2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column evaluation
+		dataType: string
+		lineageTag: 644629cb-be10-483f-9a73-9963f5c893d6
+		summarizeBy: none
+		sourceColumn: evaluation
+
+		annotation SummarizationSetBy = Automatic
+
+	partition model_results = m
+		mode: import
+		source =
+				let
+				    Folder = "D:\claude\letterboxd-projesi\data\powerbi\",
+				    Source = Csv.Document(File.Contents(Folder & "model_results.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Headers, {
+				        {"model", type text}, {"family", type text}, {"rmse", type number}, {"rmse_sd", type number},
+				        {"mae", type number}, {"r2", type number}, {"evaluation", type text}
+				    }, "en-US")
+				in
+				    Typed
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
