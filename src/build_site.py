@@ -33,7 +33,12 @@ grp = np.where(df['decade'] < 1980, 1970, df['decade'])
 decades = []
 for d in sorted(set(grp)):
     x = df.loc[grp == d, 'rating']
-    decades.append({'label': '1980 öncesi' if d == 1970 else f"{d}'ler", 'mean': round(x.mean(), 2), 'n': int(len(x))})
+    first_d = d == 1970
+    decades.append({
+        'from': 1925 if first_d else int(d), 'to': 1980 if first_d else int(d) + 10,
+        'label_tr': '1980 öncesi' if first_d else f"{d}'ler",
+        'label_en': 'Before 1980' if first_d else f"{d}s",
+        'mean': round(x.mean(), 2), 'n': int(len(x))})
 
 
 def boot(x, n=4000):
@@ -61,10 +66,19 @@ below = pick(res.sort_values().index[:6])
 
 # model sonuçları: notebooks/03_modelleme.ipynb (5x10 tekrarlı CV)
 models = [
-    ['Temel çizgi (ortalama)', 0.910, 0.070], ['Sadece TMDB puanı', 0.703, 0.057],
-    ['Ridge', 0.686, 0.047], ['Spline + Ridge', 0.685, 0.053], ['Film yılı + TMDB puanı', 0.682, 0.054],
-    ['Lasso', 0.671, 0.051], ['XGBoost', 0.665, 0.056], ['Gradient Boosting', 0.664, 0.056],
-    ['LightGBM', 0.662, 0.058], ['Sıralı lojistik', 0.656, 0.056], ['Random Forest', 0.649, 0.054],
+    {'tr': t, 'en': e, 'rmse': r, 'sd': s, 'base': e.startswith('Baseline')} for t, e, r, s in [
+        ('Temel çizgi (ortalama)', 'Baseline (mean)', 0.910, 0.070),
+        ('Sadece TMDB puanı', 'TMDB rating only', 0.703, 0.057),
+        ('Ridge', 'Ridge', 0.686, 0.047),
+        ('Spline + Ridge', 'Spline + Ridge', 0.685, 0.053),
+        ('Film yılı + TMDB puanı', 'Release year + TMDB rating', 0.682, 0.054),
+        ('Lasso', 'Lasso', 0.671, 0.051),
+        ('XGBoost', 'XGBoost', 0.665, 0.056),
+        ('Gradient Boosting', 'Gradient Boosting', 0.664, 0.056),
+        ('LightGBM', 'LightGBM', 0.662, 0.058),
+        ('Sıralı lojistik', 'Ordinal logistic', 0.656, 0.056),
+        ('Random Forest', 'Random Forest', 0.649, 0.054),
+    ]
 ]
 
 wl = pd.read_csv(ROOT / 'reports' / 'izleme_listesi_tahminleri.csv')

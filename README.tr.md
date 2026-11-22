@@ -1,6 +1,6 @@
 # Letterboxd film zevki: analiz ve puan tahmini
 
-**Canlı sayfa: [kutaykabak.github.io/letterboxd-film-taste](https://kutaykabak.github.io/letterboxd-film-taste/)**
+**Canlı sayfa: [kutaykabak.github.io/letterboxd-film-taste/tr](https://kutaykabak.github.io/letterboxd-film-taste/tr/)** (İngilizcesi: [ana sayfa](https://kutaykabak.github.io/letterboxd-film-taste/))
 
 *[English version: README.md](README.md)*
 

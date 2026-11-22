@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>355 film</title>
-<meta name="description" content="Letterboxd'da puanladığım 355 film: hangi filmleri sevdiğim ve bir modelin bunu tahmin etme denemesi.">
+<title>355 films</title>
+<meta name="description" content="The 355 films I have rated on Letterboxd: what I like, and a model that tries to predict it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
@@ -50,7 +50,7 @@ h3 { font-weight: 600; font-size: 1.6rem; line-height: 1.05; margin-bottom: .6re
 .small { font-size: .9rem; color: var(--muted); line-height: 1.45; }
 :focus-visible { outline: 3px solid var(--me); outline-offset: 3px; }
 
-/* açılış */
+/* opening */
 .hero { padding-top: clamp(2rem, 6vw, 4.5rem); }
 .hero-top { display: grid; gap: 1.25rem 3rem; align-items: end; }
 @media (min-width: 860px) { .hero-top { grid-template-columns: auto minmax(0, 26rem); } }
@@ -85,12 +85,12 @@ h1 .unit { display: block; font-weight: 600; color: var(--crowd); }
 .tip.on { opacity: 1; }
 .tip b { font-weight: 600; }
 
-/* bölümler */
+/* sections */
 section { margin-top: clamp(4.5rem, 11vw, 8rem); }
 .cols { display: grid; gap: 2rem 3.5rem; }
 @media (min-width: 900px) { .cols { grid-template-columns: minmax(0, 30rem) minmax(0, 1fr); align-items: start; } }
 
-/* satır grafikleri */
+/* row charts */
 .rows { display: grid; grid-template-columns: minmax(6.5rem, max-content) minmax(0, 1fr) 3.6rem; column-gap: 1rem; align-items: center; }
 .rows > .lab { font-size: 1rem; line-height: 1.2; padding: .35rem 0; }
 .rows > .lab small { display: block; color: var(--muted); font-size: .8rem; }
@@ -121,7 +121,7 @@ section { margin-top: clamp(4.5rem, 11vw, 8rem); }
 .model-row.base .pt { background: var(--track); }
 .model-row.best .lab { font-weight: 600; }
 
-/* izleme listesi */
+/* watchlist */
 .filters { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1.2rem 0 1.6rem; }
 .filters button {
   font: 600 1.05rem "Big Shoulders Display", sans-serif; letter-spacing: .02em;
@@ -150,18 +150,21 @@ footer p { max-width: 40rem; }
   .rows.wide { grid-template-columns: minmax(0, 9rem) minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+.lang { padding-top: 1rem; text-align: right; font-size: .95rem; }
+.lang a { color: var(--ink); text-underline-offset: 3px; }
 </style>
 </head>
 <body>
 <main class="wrap">
+<nav class="lang"><a href="tr/" lang="tr" hreflang="tr">Türkçe</a></nav>
 
 <header class="hero">
   <div class="hero-top">
-    <h1>355<span class="unit">film</span></h1>
+    <h1>355<span class="unit">films</span></h1>
     <div>
-      <p class="lede">Aralık 2022'den beri Letterboxd'da puan verdiğim her film burada bir nokta. Soldan sağa filmin çıktığı yıl, aşağıdan yukarı benim puanım. Koyu çizgiler her on yılın ortalaması ve yeni filmlere doğru düzenli olarak iniyor.</p>
+      <p class="lede">Every film I have rated on Letterboxd since December 2022 is a dot here. Left to right is the year the film came out, bottom to top is my rating. The dark lines are each decade's average, and they step down steadily towards newer films.</p>
       <div class="finder">
-        <label for="q">Bir film ya da yönetmen bul</label>
+        <label for="q">Find a film or director</label>
         <input id="q" type="search" list="titles" placeholder="Se7en, Whiplash, Nolan" autocomplete="off">
         <datalist id="titles"></datalist>
         <div id="found" aria-live="polite"></div>
@@ -169,15 +172,15 @@ footer p { max-width: 40rem; }
     </div>
   </div>
   <div class="chart" id="hero-chart"></div>
-  <div class="key"><span class="k-me">bir film ve verdiğim puan</span><span class="k-avg">on yıl ortalaması</span></div>
+  <div class="key"><span class="k-me">a film and my rating</span><span class="k-avg">decade average</span></div>
 </header>
 
 <section aria-labelledby="h-decade">
   <div class="cols">
     <div class="text">
-      <h2 id="h-decade">Eski filmlere daha cömertim</h2>
-      <p>1980 öncesi filmlere ortalama <span data-dec="0"></span> veriyorum, 2020'lerde çekilenlere <span data-dec="-1"></span>. Film yılı ile puanım arasındaki Spearman korelasyonu <span id="rho-year"></span>.</p>
-      <p>Bunun bir kısmı seçilim. Eski filmlerden zaten adı çıkmış olanları seçip izliyorum, yenileri ise daha rastgele açıyorum.</p>
+      <h2 id="h-decade">I go easier on older films</h2>
+      <p>Films from before 1980 get <span data-dec="0"></span> from me on average, films from the 2020s get <span data-dec="-1"></span>. The Spearman correlation between release year and my rating is <span id="rho-year"></span>.</p>
+      <p>Part of this is selection. From older decades I pick films that already have a reputation, while I start new ones more at random.</p>
     </div>
     <div class="rows" id="decades"></div>
   </div>
@@ -186,12 +189,12 @@ footer p { max-width: 40rem; }
 <section aria-labelledby="h-genre">
   <div class="cols">
     <div class="text">
-      <h2 id="h-genre">Türler</h2>
-      <p>En az 15 filmini izlediğim türler. Animasyon, suç ve dram ortalamamın üstünde kalıyor. Korku, bilim kurgu, aksiyon ve macera altında. Bu farklar, aynı anda birçok tür test ettiğim için yaptığım düzeltmeden sonra da duruyor.</p>
-      <p class="small">Çizgiler ortalamanın %95 bootstrap aralığı. Bir film birden fazla türde sayılabiliyor.</p>
+      <h2 id="h-genre">Genres</h2>
+      <p>Genres I have seen at least 15 films from. Animation, crime and drama sit above my average; horror, science fiction, action and adventure sit below it. The gaps hold up after correcting for testing many genres at once.</p>
+      <p class="small">Lines show the 95% bootstrap interval of the mean. A film can count in more than one genre.</p>
     </div>
     <div>
-      <div class="key"><span class="k-me">tür ortalaması</span><span class="k-mean">genel ortalamam (<span id="mean-all"></span>)</span></div>
+      <div class="key"><span class="k-me">genre average</span><span class="k-mean">my overall average (<span id="mean-all"></span>)</span></div>
       <div class="rows" id="genres"></div>
     </div>
   </div>
@@ -199,51 +202,51 @@ footer p { max-width: 40rem; }
 
 <section aria-labelledby="h-crowd">
   <div class="text">
-    <h2 id="h-crowd">Kalabalıkla ne kadar aynı fikirdeyim?</h2>
-    <p>TMDB ortalaması ile verdiğim puanlar arasındaki Spearman korelasyonu <span id="rho-tmdb"></span>. Camgöbeği çizgi, bir filmin TMDB puanına bakarak benden beklenecek puan. Çoğu film ona yakın duruyor, bazıları hiç durmuyor.</p>
+    <h2 id="h-crowd">How much do I agree with the crowd?</h2>
+    <p>The Spearman correlation between the TMDB average and my ratings is <span id="rho-tmdb"></span>. The teal line is the rating you would expect from me given a film's TMDB score. Most films sit close to it; some are nowhere near.</p>
   </div>
   <div class="chart" id="crowd-chart"></div>
-  <div class="key"><span class="k-me">verdiğim puan</span><span class="k-fit">TMDB puanından beklenen</span></div>
+  <div class="key"><span class="k-me">my rating</span><span class="k-fit">expected from the TMDB score</span></div>
   <div class="split">
     <div>
-      <h3>Beklenenden çok sevdiklerim</h3>
+      <h3>Liked more than expected</h3>
       <div class="rows wide" id="above"></div>
     </div>
     <div>
-      <h3>Beklenenden az sevdiklerim</h3>
+      <h3>Liked less than expected</h3>
       <div class="rows wide" id="below"></div>
     </div>
   </div>
-  <div class="key"><span class="k-crowd">beklenen</span><span class="k-me">verdiğim</span></div>
+  <div class="key"><span class="k-crowd">expected</span><span class="k-me">my rating</span></div>
 </section>
 
 <section aria-labelledby="h-model">
   <div class="cols">
     <div class="text">
-      <h2 id="h-model">Bir model zevkimi tahmin edebilir mi?</h2>
-      <p>Kısmen. 11 modeli 5 katlı, 10 tekrarlı çapraz doğrulamayla karşılaştırdım. Herkese ortalamamı söyleyen temel çizgi 0,91 puan hata yapıyor, en iyi modeller 0,65 civarında. Model seçimini de hesaba katan iç içe doğrulamada hata 0,66.</p>
-      <p>Random Forest, XGBoost ya da LightGBM, sadece filmin yılını ve TMDB puanını kullanan iki değişkenli doğrusal modeli çoklu karşılaştırma düzeltmesinden sonra anlamlı biçimde geçemedi. Dört değişkenli sıralı lojistik regresyon da onlarla aynı yerde ve bir şey daha söylüyor: TMDB puanı 0,69 puan artınca daha yüksek puan verme odds'um 5,1 katına çıkıyor.</p>
+      <h2 id="h-model">Can a model predict my taste?</h2>
+      <p>Partly. I compared 11 models with 5-fold cross-validation repeated 10 times. A baseline that predicts my average for every film is off by 0.91 stars; the best models get to about 0.65. With nested cross-validation, which also accounts for picking the model, the error is 0.66.</p>
+      <p>After a multiple-comparison correction, none of Random Forest, XGBoost or LightGBM beats a two-variable linear model that only uses the release year and the TMDB rating. A four-variable ordinal logistic regression lands in the same place and tells me one more thing: when the TMDB rating goes up by 0.69 points, the odds of me giving a higher rating multiply by 5.1.</p>
     </div>
     <div>
-      <div class="key"><span class="k-me">ortalama hata (RMSE)</span><span class="k-mean">seçim dahil hata (0,66)</span></div>
+      <div class="key"><span class="k-me">mean error (RMSE)</span><span class="k-mean">error including model selection (0.66)</span></div>
       <div class="rows" id="models"></div>
-      <p class="small" style="margin-top:.8rem">Yatay çizgiler 50 bölme arasındaki standart sapma. Düşük daha iyi.</p>
+      <p class="small" style="margin-top:.8rem">Horizontal lines show the standard deviation across 50 splits. Lower is better.</p>
     </div>
   </div>
 </section>
 
 <section aria-labelledby="h-next">
   <div class="text">
-    <h2 id="h-next">Sırada ne izlesem?</h2>
-    <p>Modelin izleme listemdeki 247 film için tahmini. Ortalama hata yarım puan civarında, o yüzden tek tek sayılardan çok sıralamaya bakmak lazım.</p>
+    <h2 id="h-next">What should I watch next?</h2>
+    <p>The model's predictions for the 247 films on my watchlist. It is off by about half a star on average, so the order matters more than any single number.</p>
   </div>
-  <div class="filters" id="filters" role="group" aria-label="Türe göre süz"></div>
+  <div class="filters" id="filters" role="group" aria-label="Filter by genre"></div>
   <ol class="picks" id="picks"></ol>
 </section>
 
 <footer>
-  <p class="small">Veri kendi Letterboxd dışa aktarımım ve TMDB'den. Analiz ve modeller projenin <code>notebooks</code> klasöründe.</p>
-  <p class="small">Bu ürün TMDB API'sini kullanır ancak TMDB tarafından onaylanmamıştır.</p>
+  <p class="small">Data from my own Letterboxd export and TMDB. The analysis, models and code are in the <a href="https://github.com/Kutaykabak/letterboxd-film-taste">GitHub repository</a>.</p>
+  <p class="small">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
 </footer>
 </main>
 
@@ -254,13 +257,9 @@ footer p { max-width: 40rem; }
 (() => {
   const D = window.DATA;
   const NS = 'http://www.w3.org/2000/svg';
-  const TR = { 'Drama': 'Dram', 'Crime': 'Suç', 'Comedy': 'Komedi', 'Horror': 'Korku', 'Science Fiction': 'Bilim kurgu',
-    'Animation': 'Animasyon', 'Romance': 'Romantik', 'Thriller': 'Gerilim', 'War': 'Savaş', 'History': 'Tarih',
-    'Mystery': 'Gizem', 'Fantasy': 'Fantastik', 'Adventure': 'Macera', 'Action': 'Aksiyon', 'Family': 'Aile',
-    'Music': 'Müzik', 'Documentary': 'Belgesel', 'Western': 'Western', 'TV Movie': 'TV filmi' };
-  const tr = g => TR[g] || g;
-  const num = (x, d = 2) => x.toLocaleString('tr-TR', { minimumFractionDigits: d, maximumFractionDigits: d });
-  const star = x => x.toLocaleString('tr-TR', { maximumFractionDigits: 1 });
+  const tr = g => g;
+  const num = (x, d = 2) => x.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const star = x => x.toLocaleString('en-US', { maximumFractionDigits: 1 });
   const svgEl = (tag, attrs, parent) => {
     const e = document.createElementNS(NS, tag);
     for (const k in attrs) e.setAttribute(k, attrs[k]);
@@ -276,7 +275,7 @@ footer p { max-width: 40rem; }
   };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const pct = (v, lo, hi) => ((v - lo) / (hi - lo) * 100) + '%';
-  // satır grafiklerinin altındaki ölçek: etiketler değerin tam yerinde
+  // scale under the row charts: labels sit at their exact value
   const scaleRow = (host, ticks, lo, hi) => {
     div('', host);
     const s = div('scale scale-row', host);
@@ -284,7 +283,7 @@ footer p { max-width: 40rem; }
     div('', host);
   };
 
-  // sayılar metne
+  // numbers into the text
   document.querySelectorAll('[data-dec]').forEach(s => {
     const i = +s.dataset.dec; const d = D.decades[i < 0 ? D.decades.length + i : i]; s.textContent = num(d.mean);
   });
@@ -292,9 +291,9 @@ footer p { max-width: 40rem; }
   document.getElementById('rho-tmdb').textContent = num(D.stats.rho_tmdb);
   document.getElementById('mean-all').textContent = num(D.stats.mean);
 
-  // ipucu
+  // tooltip
   const tip = document.getElementById('tip');
-  const filmHTML = f => `<b>${esc(f.n)}</b> (${f.y})<br>Puanım ${star(f.r)}, TMDB ${num(f.t, 1)}${f.d ? '<br>' + esc(f.d) : ''}`;
+  const filmHTML = f => `<b>${esc(f.n)}</b> (${f.y})<br>My rating ${star(f.r)}, TMDB ${num(f.t, 1)}${f.d ? '<br>' + esc(f.d) : ''}`;
   const showTip = (f, ev, host) => {
     const r = host.getBoundingClientRect();
     tip.innerHTML = filmHTML(f);
@@ -305,7 +304,7 @@ footer p { max-width: 40rem; }
   };
   const hideTip = () => tip.classList.remove('on');
 
-  // sabit titreşim: aynı film her çizimde aynı yerde dursun
+  // fixed jitter: each film keeps its place on every redraw
   const jit = (i, k) => (((i + 1) * (k ? 7919 : 104729)) % 1000) / 1000 - 0.5;
 
   function scatter(host, { xKey, xMin, xMax, xTicks, xFmt, height, avg, fit, r }) {
@@ -328,7 +327,7 @@ footer p { max-width: 40rem; }
     });
     if (avg) avg.forEach(a => svgEl('line', { class: 'avg', x1: X(a.from) + 3, x2: X(Math.min(a.to, xMax)) - 3, y1: Y(a.mean), y2: Y(a.mean) }, svg));
     if (fit) {
-      // çizgiyi 0,5 ile 5 puan arasında tut
+      // keep the line between 0.5 and 5 stars
       const x0 = Math.max(xMin, (0.5 - fit.a) / fit.b), x1 = Math.min(xMax, (5 - fit.a) / fit.b);
       svgEl('line', { class: 'fit', x1: X(x0), x2: X(x1), y1: Y(fit.a + fit.b * x0), y2: Y(fit.a + fit.b * x1) }, svg);
     }
@@ -343,13 +342,10 @@ footer p { max-width: 40rem; }
     return { svg, g, dots };
   }
 
-  // açılış grafiği
+  // opening chart
   const heroHost = document.getElementById('hero-chart');
-  heroHost.dataset.label = `Puanladığım ${D.stats.n} filmin yıla göre dağılımı. Yeni filmlere doğru ortalama puan düşüyor.`;
-  const avgSpans = D.decades.map(d => {
-    const start = d.label.startsWith('1980 öncesi') ? 1925 : parseInt(d.label);
-    return { from: start, to: start === 1925 ? 1980 : start + 10, mean: d.mean };
-  });
+  heroHost.dataset.label = `My ${D.stats.n} rated films by release year. The average rating drops towards newer films.`;
+  const avgSpans = D.decades.map(d => ({ from: d.from, to: d.to, mean: d.mean }));
   let hero;
   const drawHero = () => {
     hero = scatter(heroHost, {
@@ -359,44 +355,44 @@ footer p { max-width: 40rem; }
     applyQuery();
   };
 
-  // film arama
+  // film search
   const q = document.getElementById('q');
   const found = document.getElementById('found');
   const titles = document.getElementById('titles');
-  [...new Set(D.films.map(f => f.n))].sort((a, b) => a.localeCompare(b, 'tr')).forEach(n => {
+  [...new Set(D.films.map(f => f.n))].sort((a, b) => a.localeCompare(b, 'en')).forEach(n => {
     const o = document.createElement('option'); o.value = n; titles.appendChild(o);
   });
   function applyQuery() {
-    const s = q.value.trim().toLocaleLowerCase('tr');
+    const s = q.value.trim().toLocaleLowerCase('en');
     if (!hero) return;
     const r0 = heroHost.clientWidth < 560 ? 3.6 : 4.6;
     hero.dots.forEach(d => { d.classList.remove('hit'); d.setAttribute('r', r0); });
     if (s.length < 2) { hero.g.parentNode.classList.remove('dimmed'); found.innerHTML = ''; return; }
-    const exact = D.films.findIndex(f => f.n.toLocaleLowerCase('tr') === s);
-    const idx = exact >= 0 ? [exact] : D.films.map((f, i) => (f.n + ' ' + f.d).toLocaleLowerCase('tr').includes(s) ? i : -1).filter(i => i >= 0);
+    const exact = D.films.findIndex(f => f.n.toLocaleLowerCase('en') === s);
+    const idx = exact >= 0 ? [exact] : D.films.map((f, i) => (f.n + ' ' + f.d).toLocaleLowerCase('en').includes(s) ? i : -1).filter(i => i >= 0);
     hero.g.parentNode.classList.add('dimmed');
     idx.forEach(i => { const d = hero.dots[i]; d.classList.add('hit'); d.setAttribute('r', r0 * 1.8); hero.g.appendChild(d); });
-    if (idx.length === 0) found.textContent = 'Bu adla puanladığım bir film ya da yönetmen yok. Letterboxd çoğu filmi İngilizce adıyla tutuyor, onunla dene.';
+    if (idx.length === 0) found.textContent = 'No film or director by that name among my ratings. Letterboxd lists most films under their English title.';
     else if (idx.length === 1) found.innerHTML = filmHTML(D.films[idx[0]]);
-    else found.textContent = `${idx.length} film: ` + idx.slice(0, 5).map(i => D.films[i].n).join(', ') + (idx.length > 5 ? ' ve diğerleri' : '');
+    else found.textContent = `${idx.length} films: ` + idx.slice(0, 5).map(i => D.films[i].n).join(', ') + (idx.length > 5 ? ' and more' : '');
   }
   q.addEventListener('input', applyQuery);
 
-  // on yıllar
+  // decades
   const dec = document.getElementById('decades');
   D.decades.forEach(d => {
-    div('lab', dec, `${d.label}<small>${d.n} film</small>`);
+    div('lab', dec, `${d.label_en}<small>${d.n} films</small>`);
     const t = div('track', dec);
     div('bar', t).style.width = pct(d.mean, 0, 5);
     div('val', dec, num(d.mean));
   });
   scaleRow(dec, [0, 1, 2, 3, 4, 5], 0, 5);
 
-  // türler
+  // genres
   const gen = document.getElementById('genres');
   const GLO = 2.5, GHI = 4.75;
   D.genres.forEach(g => {
-    div('lab', gen, `${tr(g.name)}<small>${g.n} film</small>`);
+    div('lab', gen, `${g.name}<small>${g.n} films</small>`);
     const t = div('track', gen);
     div('mark', t).style.left = pct(D.stats.mean, GLO, GHI);
     const ci = div('ci', t); ci.style.left = pct(g.lo, GLO, GHI); ci.style.width = `calc(${pct(g.hi, GLO, GHI)} - ${pct(g.lo, GLO, GHI)})`;
@@ -405,16 +401,16 @@ footer p { max-width: 40rem; }
   });
   scaleRow(gen, [2.5, 3, 3.5, 4, 4.5], GLO, GHI);
 
-  // kalabalık grafiği
+  // crowd chart
   const crowdHost = document.getElementById('crowd-chart');
-  crowdHost.dataset.label = 'TMDB puanı ile verdiğim puan. Çoğu film beklenen çizgiye yakın.';
+  crowdHost.dataset.label = 'TMDB rating against my rating. Most films sit close to the expected line.';
   const drawCrowd = () => scatter(crowdHost, {
     xKey: 't', xMin: 4, xMax: 9, xTicks: [4, 5, 6, 7, 8, 9], xFmt: t => 'TMDB ' + t,
     height: W => Math.max(280, Math.min(420, W * 0.38)), fit: D.fit, r: 3.6
   });
 
   const gapRows = (host, list) => list.forEach(f => {
-    div('lab', host, `${esc(f.n)}<small>${f.y}. Beklenen ${num(f.e, 1)}, verdiğim ${star(f.r)}</small>`);
+    div('lab', host, `${esc(f.n)}<small>${f.y}. Expected ${num(f.e, 1)}, I gave ${star(f.r)}</small>`);
     const t = div('track', host);
     const lo = Math.min(f.e, f.r), hi = Math.max(f.e, f.r);
     const gp = div('gap', t); gp.style.left = pct(lo, 0.5, 5); gp.style.width = `calc(${pct(hi, 0.5, 5)} - ${pct(lo, 0.5, 5)})`;
@@ -424,12 +420,12 @@ footer p { max-width: 40rem; }
   gapRows(document.getElementById('above'), D.above);
   gapRows(document.getElementById('below'), D.below);
 
-  // modeller
+  // models
   const mod = document.getElementById('models');
   const MLO = 0.55, MHI = 1.0;
-  const best = Math.min(...D.models.map(m => m[1]));
-  D.models.slice().sort((a, b) => a[1] - b[1]).forEach(([name, rmse, sd]) => {
-    const cls = name.startsWith('Temel') ? ' base' : (rmse === best ? ' best' : '');
+  const best = Math.min(...D.models.map(m => m.rmse));
+  D.models.slice().sort((a, b) => a.rmse - b.rmse).forEach(({ en: name, rmse, sd, base }) => {
+    const cls = base ? ' base' : (rmse === best ? ' best' : '');
     const lab = div('lab', mod, esc(name));
     const t = div('track', mod);
     div('mark', t).style.left = pct(0.66, MLO, MHI);
@@ -441,21 +437,21 @@ footer p { max-width: 40rem; }
   });
   scaleRow(mod, [0.6, 0.7, 0.8, 0.9, 1.0], MLO, MHI);
 
-  // izleme listesi
+  // watchlist
   const filters = document.getElementById('filters');
   const picks = document.getElementById('picks');
   const counts = {};
   D.watch.forEach(w => w.g.split('|').filter(Boolean).forEach(g => counts[g] = (counts[g] || 0) + 1));
-  const opts = ['Hepsi', ...Object.keys(counts).filter(g => counts[g] >= 8).sort((a, b) => counts[b] - counts[a])];
-  let current = 'Hepsi';
+  const opts = ['All', ...Object.keys(counts).filter(g => counts[g] >= 8).sort((a, b) => counts[b] - counts[a])];
+  let current = 'All';
   const renderPicks = () => {
-    const list = D.watch.filter(w => current === 'Hepsi' || w.g.split('|').includes(current)).slice(0, 10);
+    const list = D.watch.filter(w => current === 'All' || w.g.split('|').includes(current)).slice(0, 10);
     picks.innerHTML = list.map(w => `<li><span class="ttl">${esc(w.n)}</span><span class="score"><span>${num(w.p, 1)}</span></span>` +
       `<span class="meta">${w.y}${w.d ? ', ' + esc(w.d) : ''}. ${w.g.split('|').filter(Boolean).map(tr).join(', ')}</span></li>`).join('');
   };
   opts.forEach(o => {
     const b = document.createElement('button');
-    b.type = 'button'; b.textContent = o === 'Hepsi' ? 'Hepsi' : tr(o);
+    b.type = 'button'; b.textContent = o === 'All' ? 'All' : tr(o);
     b.setAttribute('aria-pressed', o === current);
     b.addEventListener('click', () => {
       current = o;
@@ -466,7 +462,7 @@ footer p { max-width: 40rem; }
   });
   renderPicks();
 
-  // çizim ve yeniden boyutlandırma
+  // drawing and resizing
   const drawAll = () => { drawHero(); drawCrowd(); };
   drawAll();
   let rt; let lastW = window.innerWidth;
