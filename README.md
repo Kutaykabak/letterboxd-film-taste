@@ -1,5 +1,7 @@
 # What my Letterboxd ratings say about my taste
 
+**Live page: [kutaykabak.github.io/letterboxd-film-taste](https://kutaykabak.github.io/letterboxd-film-taste/)**
+
 *[Türkçe sürüm için README.tr.md](README.tr.md)*
 
 A data science and machine learning project built on my own Letterboxd data. I joined the 355 films I have rated with metadata from the TMDB API and asked two questions:

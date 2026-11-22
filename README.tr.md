@@ -1,5 +1,7 @@
 # Letterboxd film zevki: analiz ve puan tahmini
 
+**Canlı sayfa: [kutaykabak.github.io/letterboxd-film-taste](https://kutaykabak.github.io/letterboxd-film-taste/)**
+
 *[English version: README.md](README.md)*
 
 Kendi Letterboxd verimle yaptığım bir veri bilimi ve makine öğrenmesi projesi. 355 filme verdiğim puanları TMDB'den çektiğim film bilgileriyle birleştirdim ve iki soruya baktım:
