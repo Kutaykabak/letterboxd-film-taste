@@ -150,6 +150,24 @@ footer p { max-width: 40rem; }
   .rows.wide { grid-template-columns: minmax(0, 9rem) minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+/* herhangi bir film */
+.any { max-width: 36rem; margin-top: 1.4rem; }
+.amatch { list-style: none; margin: .5rem 0 0; padding: 0; }
+.amatch button {
+  font: inherit; font-size: 1rem; color: var(--ink); background: none; border: 0;
+  border-bottom: 1px solid var(--rule); width: 100%; text-align: left; padding: .45rem 0; cursor: pointer;
+}
+.amatch button:hover { color: var(--crowd); }
+.amatch small { color: var(--muted); margin-left: .3rem; }
+.aresult { margin-top: 1.3rem; }
+.ares-title { font: 800 2.3rem/1 "Big Shoulders Display", sans-serif; }
+.ares-title span { font-weight: 600; color: var(--muted); }
+.ares-nums { display: flex; flex-wrap: wrap; gap: .8rem 2.4rem; margin: 1rem 0 .7rem; }
+.ares-nums div { display: flex; flex-direction: column; gap: .35rem; }
+.ares-nums .big { font: 800 3rem/1 "Big Shoulders Display", sans-serif; }
+.ares-nums .pred { background: var(--me); color: #14233a; padding: .1rem .35rem 0; align-self: flex-start; }
+.ares-nums .tmdb { color: var(--crowd); }
+.ares-nums small { font-size: .85rem; color: var(--muted); }
 .lang { padding-top: 1rem; text-align: right; font-size: .95rem; }
 .lang a { color: var(--ink); text-underline-offset: 3px; }
 </style>
@@ -235,6 +253,20 @@ footer p { max-width: 40rem; }
   </div>
 </section>
 
+<section aria-labelledby="h-any">
+  <div class="text">
+    <h2 id="h-any">Herhangi bir film için tahmin</h2>
+    <p>Modeli TMDB'de en çok oy almış 5.000 filme, puanladığım filmlere ve izleme listeme uyguladım. Bir film adı yaz, kaç puan vereceğimi tahmin etsin. Puanladığım bir filmse, modelin o filmi hiç görmeden yaptığı tahmini ve benim gerçek puanımı yan yana görürsün.</p>
+    <p class="small">Model, kendi seçip izlediğim filmlerden öğrendi. Pek izlemediğim türden filmlerde tahmin daha az güvenilir. Ortalama hata yarım puan civarında.</p>
+  </div>
+  <div class="finder any">
+    <label for="aq">Film adı</label>
+    <input id="aq" type="search" placeholder="Parasite, The Godfather, Barbie" autocomplete="off">
+    <ul id="amatch" class="amatch"></ul>
+    <div id="aresult" class="aresult" aria-live="polite"></div>
+  </div>
+</section>
+
 <section aria-labelledby="h-next">
   <div class="text">
     <h2 id="h-next">Sırada ne izlesem?</h2>
@@ -253,6 +285,7 @@ footer p { max-width: 40rem; }
 <div class="tip" id="tip" role="presentation"></div>
 
 <script src="../data.js?v=2"></script>
+<script src="../catalog.js?v=1"></script>
 <script>
 (() => {
   const D = window.DATA;
@@ -440,6 +473,47 @@ footer p { max-width: 40rem; }
     if (cls.includes('best')) lab.style.fontWeight = '600';
   });
   scaleRow(mod, [0.6, 0.7, 0.8, 0.9, 1.0], MLO, MHI);
+
+  // herhangi bir film
+  const C = window.CATALOG;
+  const aq = document.getElementById('aq');
+  const amatch = document.getElementById('amatch');
+  const ares = document.getElementById('aresult');
+  const low = s => s.toLocaleLowerCase('tr');
+  const keys = C.f.map(x => low(x[0]));
+  const showFilm = i => {
+    const [n, y, p, t, gs, me, oof, wl] = C.f[i];
+    const mine = me !== null;
+    const notes = [];
+    if (gs.length) notes.push(gs.map(g => tr(C.g[g])).join(', '));
+    if (wl) notes.push('İzleme listemde');
+    if (mine) notes.push('Bu filmi puanladım. Tahmin, eğitiminde bu filmi hiç görmemiş bir modelden geliyor');
+    ares.innerHTML = `<div class="ares-title">${esc(n)} <span>(${y})</span></div><div class="ares-nums">` +
+      `<div><span class="big pred">${num(mine ? oof : p, 1)}</span><small>${mine ? 'modelin görmeden tahmini' : 'tahmini puanım'}</small></div>` +
+      (mine ? `<div><span class="big">${star(me)}</span><small>gerçekte verdiğim</small></div>` : '') +
+      `<div><span class="big tmdb">${num(t, 1)}</span><small>TMDB (10 üzerinden)</small></div></div>` +
+      (notes.length ? `<p class="small">${notes.join('. ')}.</p>` : '');
+  };
+  const searchAny = () => {
+    const s = low(aq.value.trim());
+    amatch.innerHTML = '';
+    if (s.length < 2) { ares.innerHTML = ''; return; }
+    const starts = [], has = [];
+    keys.forEach((k, i) => { if (k.startsWith(s)) starts.push(i); else if (k.includes(s)) has.push(i); });
+    const hits = starts.concat(has).slice(0, 8);
+    if (!hits.length) {
+      ares.innerHTML = '<p class="small">Bu adla bir film bulamadım. Katalogda TMDB\'de en çok oy almış 5.000 film ve kendi filmlerim var; çoğu film İngilizce adıyla duruyor.</p>';
+      return;
+    }
+    if (hits.length === 1 || keys[hits[0]] === s) showFilm(hits[0]); else ares.innerHTML = '';
+    if (hits.length > 1) amatch.innerHTML = hits.map(i =>
+      `<li><button type="button" data-i="${i}">${esc(C.f[i][0])}<small>${C.f[i][1]}</small></button></li>`).join('');
+  };
+  aq.addEventListener('input', searchAny);
+  amatch.addEventListener('click', e => {
+    const b = e.target.closest('button');
+    if (b) { showFilm(+b.dataset.i); amatch.innerHTML = ''; }
+  });
 
   // izleme listesi
   const filters = document.getElementById('filters');

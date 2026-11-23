@@ -115,7 +115,7 @@ Of two films with the same TMDB rating, I like the less-known one more. Language
 
 ## Ways to explore the results
 
-- **Interactive page** ([live](https://kutaykabak.github.io/letterboxd-film-taste/), source in [`site/`](site/)): a single-page data story with a searchable chart of all 355 films, built with plain SVG and JavaScript. English at the root, Turkish under [`/tr/`](https://kutaykabak.github.io/letterboxd-film-taste/tr/). Deployed to GitHub Pages by a GitHub Actions workflow on every push.
+- **Interactive page** ([live](https://kutaykabak.github.io/letterboxd-film-taste/), source in [`site/`](site/)): a single-page data story with a searchable chart of all 355 films, built with plain SVG and JavaScript. English at the root, Turkish under [`/tr/`](https://kutaykabak.github.io/letterboxd-film-taste/tr/). A "Predict any film" box gives my predicted rating for the 5,000 most-voted films on TMDB plus my own films; for films I have rated it shows the model's unseen prediction next to my actual rating (`src/fetch_catalog.py` pulls the catalog, `src/build_site.py` writes `site/catalog.js`). Deployed to GitHub Pages by a GitHub Actions workflow on every push.
 - **Streamlit dashboard** ([`app/streamlit_app.py`](app/streamlit_app.py)): taste charts, a "predict my rating" form and a filterable watchlist.
 - **Power BI report** ([`powerbi/letterboxd_en.pbix`](powerbi/letterboxd_en.pbix)): a star-schema model (films, a film–genre bridge table, genres, watchlist, model results), DAX measures and three pages (Overview, Me vs. the crowd, Model and watchlist) with language and genre slicers. The same report is also stored in Power BI project format under [`powerbi/en/`](powerbi/en/) (TMDL model, JSON visuals), so changes show up line by line in git.
 

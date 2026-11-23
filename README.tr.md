@@ -122,7 +122,8 @@ Aynı TMDB puanına sahip iki filmden daha az bilinenini daha çok seviyorum. Di
 | `notebooks/02_eda_testler.ipynb` | Keşifsel analiz ve istatistiksel testler |
 | `notebooks/03_modelleme.ipynb` | Tahmin modelleri, iç içe çapraz doğrulama, izleme listesi |
 | `site/index.html` | Statik tek sayfalık site: bulguları anlatan etkileşimli bir veri yazısı (`site/data.js` verisiyle) |
-| `src/build_site.py` | `site/data.js` dosyasını işlenmiş veriden üretiyor |
+| `src/build_site.py` | `site/data.js` ve `site/catalog.js` dosyalarını üretiyor (katalog: 5.000 film için modelin tahmini) |
+| `src/fetch_catalog.py` | TMDB'de en çok oy almış 5.000 filmi çekiyor; sitedeki "Herhangi bir film için tahmin" kutusu bunu kullanıyor |
 | `app/streamlit_app.py` | Etkileşimli pano: zevk grafikleri, puan tahmini, izleme listesi sıralaması |
 | `src/export_powerbi.py` | Power BI için yıldız şema tablolarını `data/powerbi/` altına yazıyor |
 | `src/features.py` | Pano ve model için ortak özellik üretimi |
