@@ -168,6 +168,12 @@ Hazır rapor: [`powerbi/letterboxd.pbix`](powerbi/letterboxd.pbix). Üç sayfas�
 
 İngilizce sürüm: [`powerbi/letterboxd_en.pbix`](powerbi/letterboxd_en.pbix). Sayfa adları (Overview, Me vs. the crowd, Model and watchlist), başlıklar, ölçüler (Average Rating, Film Count, Loved Share…), eksenler, dilimleyiciler, tür ve on yıl etiketleri İngilizce. Aynı rapor metin dosyaları olarak da `powerbi/en/letterboxd_en.pbip` altında duruyor (Power BI proje biçimi: model TMDL, görseller JSON), böylece değişiklikler git'te satır satır görülebilir. Renk teması `powerbi/tema.json`.
 
+İngilizce raporun sayfaları ([PDF olarak](reports/powerbi/letterboxd_en.pdf)):
+
+![Power BI genel bakış](reports/powerbi/en-1-overview.png)
+![Power BI ben ve kalabalık](reports/powerbi/en-2-me-vs-crowd.png)
+![Power BI model ve izleme listesi](reports/powerbi/en-3-model-and-watchlist.png)
+
 Power Query sorguları [`powerbi/queries.pq`](powerbi/queries.pq) dosyasında. Sayılar `en-US` kültürüyle okunduğu için Türkçe Windows'ta ondalık sorunu çıkmıyor. Klasör yolu farklıysa sorgulardaki `Folder` değerini değiştirmek yeterli.
 
 **Power BI Desktop'ta sıfırdan kurulum**

@@ -121,6 +121,21 @@ Of two films with the same TMDB rating, I like the less-known one more. Language
 - **Streamlit dashboard** ([`app/streamlit_app.py`](app/streamlit_app.py)): taste charts, a "predict my rating" form and a filterable watchlist.
 - **Power BI report** ([`powerbi/letterboxd_en.pbix`](powerbi/letterboxd_en.pbix)): a star-schema model (films, a film–genre bridge table, genres, watchlist, model results), DAX measures and three pages (Overview, Me vs. the crowd, Model and watchlist) with language and genre slicers. The same report is also stored in Power BI project format under [`powerbi/en/`](powerbi/en/) (TMDL model, JSON visuals), so changes show up line by line in git.
 
+## Power BI report
+
+The same data as a three-page Power BI report ([`.pbix`](powerbi/letterboxd_en.pbix), [PDF export](reports/powerbi/letterboxd_en.pdf)). The model is a star schema: a `films` fact table with my rating, TMDB data and the model's out-of-fold prediction, a `film_genres` bridge table for the many-to-many genre link, and `genres`, `watchlist` and `model_results` tables. Measures are written in DAX, and the genre and language slicers filter every visual through the bridge table.
+
+**Overview:** cards, average rating by decade and by genre (genres with at least 15 films), language and genre slicers.
+![Power BI overview page](reports/powerbi/en-1-overview.png)
+
+**Me vs. the crowd:** TMDB rating against my rating with a trend line, and the films where I differ most from the TMDB-based expectation.
+![Power BI me vs. the crowd page](reports/powerbi/en-2-me-vs-crowd.png)
+
+**Model and watchlist:** error of every model and validation method, and my watchlist ranked by predicted rating.
+![Power BI model and watchlist page](reports/powerbi/en-3-model-and-watchlist.png)
+
+Decimal commas in the screenshots come from the Turkish regional settings of the machine that exported them.
+
 ## Project structure
 
 | Path | Contents |

@@ -177,6 +177,10 @@ footer p { max-width: 40rem; }
 .ares-nums .pred { background: var(--me); color: #14233a; padding: .1rem .35rem 0; align-self: flex-start; }
 .ares-nums .tmdb { color: var(--crowd); }
 .ares-nums small { font-size: .85rem; color: var(--muted); }
+/* power bi */
+.pbi { display: block; margin-top: 1.4rem; max-width: 64rem; }
+.pbi img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
+.pbi-links a { color: var(--ink); text-underline-offset: 3px; }
 .lang { padding-top: 1rem; text-align: right; font-size: .95rem; }
 .lang a { color: var(--ink); text-underline-offset: 3px; }
 </style>
@@ -283,6 +287,15 @@ footer p { max-width: 40rem; }
   </div>
   <div class="filters" id="filters" role="group" aria-label="Filter by genre"></div>
   <ol class="picks" id="picks"></ol>
+</section>
+
+<section aria-labelledby="h-pbi">
+  <div class="text">
+    <h2 id="h-pbi">Same data, in Power BI</h2>
+    <p>I also built this analysis as a three-page Power BI report: a star-schema data model, DAX measures, and language and genre slicers. You can view it as a PDF or download it and open it in Power BI Desktop.</p>
+  </div>
+  <a class="pbi" href="https://github.com/Kutaykabak/letterboxd-film-taste/blob/main/reports/powerbi/letterboxd_en.pdf"><img src="powerbi-overview.png?v=1" width="1522" height="880" loading="lazy" alt="Overview page of the Power BI report: summary cards, average rating by decade and by genre, language and genre slicers"></a>
+  <p class="small pbi-links" style="margin-top:.8rem"><a href="https://github.com/Kutaykabak/letterboxd-film-taste/blob/main/reports/powerbi/letterboxd_en.pdf">Full report (PDF, 3 pages)</a>, <a href="https://github.com/Kutaykabak/letterboxd-film-taste/raw/main/powerbi/letterboxd_en.pbix">Download the .pbix file</a></p>
 </section>
 
 <footer>

@@ -177,6 +177,10 @@ footer p { max-width: 40rem; }
 .ares-nums .pred { background: var(--me); color: #14233a; padding: .1rem .35rem 0; align-self: flex-start; }
 .ares-nums .tmdb { color: var(--crowd); }
 .ares-nums small { font-size: .85rem; color: var(--muted); }
+/* power bi */
+.pbi { display: block; margin-top: 1.4rem; max-width: 64rem; }
+.pbi img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
+.pbi-links a { color: var(--ink); text-underline-offset: 3px; }
 .lang { padding-top: 1rem; text-align: right; font-size: .95rem; }
 .lang a { color: var(--ink); text-underline-offset: 3px; }
 </style>
@@ -283,6 +287,15 @@ footer p { max-width: 40rem; }
   </div>
   <div class="filters" id="filters" role="group" aria-label="Türe göre süz"></div>
   <ol class="picks" id="picks"></ol>
+</section>
+
+<section aria-labelledby="h-pbi">
+  <div class="text">
+    <h2 id="h-pbi">Aynı veri, Power BI'da</h2>
+    <p>Bu analizi üç sayfalık bir Power BI raporu olarak da kurdum: yıldız şema bir veri modeli, DAX ölçüleri, dil ve tür dilimleyicileri. Raporu PDF olarak görebilir ya da indirip Power BI Desktop'ta açabilirsin.</p>
+  </div>
+  <a class="pbi" href="https://github.com/Kutaykabak/letterboxd-film-taste/blob/main/reports/powerbi/letterboxd_en.pdf"><img src="../powerbi-overview.png?v=1" width="1522" height="880" loading="lazy" alt="Power BI raporunun genel bakış sayfası: özet kartları, on yıllara ve türlere göre ortalama puan grafikleri, dil ve tür dilimleyicileri"></a>
+  <p class="small pbi-links" style="margin-top:.8rem"><a href="https://github.com/Kutaykabak/letterboxd-film-taste/blob/main/reports/powerbi/letterboxd_en.pdf">Raporun tamamı (PDF, 3 sayfa)</a>, <a href="https://github.com/Kutaykabak/letterboxd-film-taste/raw/main/powerbi/letterboxd_en.pbix">.pbix dosyasını indir</a></p>
 </section>
 
 <footer>

@@ -91,6 +91,7 @@ svg text { font-family: "Big Shoulders Display", sans-serif; font-weight: 600; f
 .srow.best .f { background: var(--me); }
 .srow .n { font: 800 44px "Big Shoulders Display", sans-serif; text-align: right; }
 
+.shot { display: block; width: 936px; height: auto; margin-top: 50px; border: 1px solid var(--rule); }
 /* closing */
 .big-url { font: 800 76px/1 "Big Shoulders Display", sans-serif; color: var(--me); margin-top: 60px; word-break: break-word; }
 .tools { font-size: 30px; line-height: 1.5; color: var(--muted); margin-top: 60px; max-width: 52ch; }
@@ -132,7 +133,7 @@ svg text { font-family: "Big Shoulders Display", sans-serif; font-weight: 600; f
   <p class="lede" style="max-width:24ch">What my Letterboxd ratings say about my taste, and whether a model can predict them.</p>
   <svg id="c1-chart" width="936" height="440" style="margin-top:44px"></svg>
   <div class="foot">A data science project in Python. Swipe for the findings.</div>
-  <div class="pn">1/7</div>
+  <div class="pn">1/8</div>
 </section>
 
 <section class="card tall" id="c2">
@@ -142,7 +143,7 @@ svg text { font-family: "Big Shoulders Display", sans-serif; font-weight: 600; f
     <div class="fact"><div class="n crowd">TMDB</div><div class="d">genres, release year, runtime, language, and the crowd's average rating and vote count for each film</div></div>
     <div class="fact"><div class="n">27</div><div class="d">features for the model. No likes or rating dates: a new film wouldn't have them</div></div>
   </div>
-  <div class="pn">2/7</div>
+  <div class="pn">2/8</div>
 </section>
 
 <section class="card tall" id="c3">
@@ -150,14 +151,14 @@ svg text { font-family: "Big Shoulders Display", sans-serif; font-weight: 600; f
   <p class="lede">My average rating by the decade a film came out.</p>
   <div class="bars" id="dec-bars"></div>
   <div class="foot">Kruskal-Wallis p &lt; 0.001, Spearman ρ = <span class="rho-year"></span>. Partly selection: from older decades I mostly watch the classics.</div>
-  <div class="pn">3/7</div>
+  <div class="pn">3/8</div>
 </section>
 
 <section class="card tall" id="c4">
   <h2>I mostly agree with the crowd</h2>
   <p class="lede">Spearman ρ = <span class="rho-tmdb"></span> between TMDB's average and my rating. The films where I differ most from what the TMDB score predicts:</p>
   <div class="dis" id="dis"></div>
-  <div class="pn">4/7</div>
+  <div class="pn">4/8</div>
 </section>
 
 <section class="card tall" id="c5">
@@ -165,7 +166,7 @@ svg text { font-family: "Big Shoulders Display", sans-serif; font-weight: 600; f
   <p class="lede">Prediction error (RMSE) from 5-fold cross-validation repeated 10 times. Lower is better.</p>
   <div class="strip" id="strip"></div>
   <div class="foot">After correcting for multiple comparisons, no model beats "release year + TMDB rating" significantly. Honest scores: 0.66 with nested CV, 0.67 on 71 held-out films.</div>
-  <div class="pn">5/7</div>
+  <div class="pn">5/8</div>
 </section>
 
 <section class="card tall" id="c6">
@@ -173,7 +174,15 @@ svg text { font-family: "Big Shoulders Display", sans-serif; font-weight: 600; f
   <p class="lede">Predictions for films the model never saw in training.</p>
   <div class="key"><span><i class="sw model"></i>model</span><span><i class="sw me"></i>my rating</span></div>
   <div class="mrows" id="c6-rows"></div>
-  <div class="pn">6/7</div>
+  <div class="pn">6/8</div>
+</section>
+
+<section class="card tall" id="c7pbi">
+  <h2>Also in Power BI</h2>
+  <p class="lede">The same data as a three-page report: a star-schema model, DAX measures, and slicers for language and genre.</p>
+  <img class="shot" src="../powerbi/en-1-overview.png" alt="Power BI overview page">
+  <p class="lede" style="font-size:28px;color:var(--muted)">Pages: Overview, Me vs. the crowd, Model and watchlist.</p>
+  <div class="pn">7/8</div>
 </section>
 
 <section class="card tall" id="c7">
@@ -181,7 +190,7 @@ svg text { font-family: "Big Shoulders Display", sans-serif; font-weight: 600; f
   <p class="lede">The page predicts my rating for 5,000 popular films and lets you search all 355 of mine.</p>
   <div class="big-url">kutaykabak.github.io/<br>letterboxd-film-taste</div>
   <p class="tools">Python, pandas, scikit-learn, statsmodels, XGBoost, Power BI, GitHub Pages. Code: github.com/Kutaykabak/letterboxd-film-taste</p>
-  <div class="pn">7/7</div>
+  <div class="pn">8/8</div>
 </section>
 
 <script src="../../site/data.js?v=2"></script>
@@ -295,7 +304,7 @@ svg text { font-family: "Big Shoulders Display", sans-serif; font-weight: 600; f
       ['Close', ['Inception', 'The Wolf of Wall Street', 'Black Panther']],
       ['Way off', ['Fight Club', 'The Matrix', 'Forrest Gump']],
     ]);
-    ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7'].forEach(show);
+    ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7pbi', 'c7'].forEach(show);
   }
 })();
 </script>
