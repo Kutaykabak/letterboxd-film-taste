@@ -1,5 +1,7 @@
 # Letterboxd film zevki: analiz ve puan tahmini
 
+[![355 film, yıla göre puanlar](reports/share/og-tr.png)](https://kutaykabak.github.io/letterboxd-film-taste/tr/)
+
 **Canlı sayfa: [kutaykabak.github.io/letterboxd-film-taste/tr](https://kutaykabak.github.io/letterboxd-film-taste/tr/)** (İngilizcesi: [ana sayfa](https://kutaykabak.github.io/letterboxd-film-taste/))
 
 *[English version: README.md](README.md)*
@@ -128,6 +130,7 @@ Aynı TMDB puanına sahip iki filmden daha az bilinenini daha çok seviyorum. Di
 | `src/export_powerbi.py` | Power BI için yıldız şema tablolarını `data/powerbi/` altına yazıyor |
 | `src/features.py` | Pano ve model için ortak özellik üretimi |
 | `reports/figures/` | Grafikler |
+| `reports/share/` | LinkedIn görselleri, kaydırmalı PDF ve paylaşım metinleri (`share.html` ve `render_share.ps1` ile üretiliyor) |
 | `data/processed/` | TMDB ile zenginleştirilmiş veri |
 
 ## Çalıştırma
@@ -190,5 +193,9 @@ Model Hatası (MAE) = AVERAGE(films[abs_error])
 ## Pano
 
 Streamlit panosunda dört sekme var. **Zevkim** sekmesinde puan dağılımı, on yıl ve tür grafikleri, TMDB ile karşılaştırma ve aranabilir film tablosu var. **Tahmin et** sekmesinde listeden bir film seçip ya da yıl, TMDB puanı, tür gibi bilgileri girip tahmini puanımı görebiliyorsun. **İzleme listesi** sekmesi listemi tahmine göre sıralıyor ve türe, yıla göre süzüyor. **Model** sekmesinde model karşılaştırma grafikleri duruyor.
+
+## Lisans
+
+Kod [MIT lisansıyla](LICENSE) paylaşılıyor. Puanlar bana ait, film bilgileri TMDB'den.
 
 Bu ürün TMDB API'sini kullanır ancak TMDB tarafından onaylanmamıştır.

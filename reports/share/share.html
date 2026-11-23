@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Share cards</title>
+<!-- Renders the social images. Open with ?card=og|og-tr|post|model|carousel; render_share.ps1 turns them into PNG/PDF. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #142233; --ink: #e2e8ed; --muted: #9aabbd; --me: #f2b400; --crowd: #4fb0b9; --rule: #2a3c52; --track: #22344a;
+}
+@page { size: 1080px 1350px; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: "Source Serif 4", Georgia, serif; font-variant-numeric: lining-nums tabular-nums; }
+.card { position: relative; overflow: hidden; background: var(--bg); display: none; }
+.card.on { display: block; }
+.print .card.on { break-after: page; }
+.display { font-family: "Big Shoulders Display", "Arial Narrow", sans-serif; }
+h1, h2, h3 { font-family: "Big Shoulders Display", "Arial Narrow", sans-serif; margin: 0; }
+p { margin: 0; }
+.url { font-family: "Big Shoulders Display", sans-serif; font-weight: 600; color: var(--muted); letter-spacing: .01em; }
+.pn { position: absolute; right: 72px; bottom: 56px; font: 600 30px "Big Shoulders Display", sans-serif; color: var(--muted); }
+svg text { font-family: "Big Shoulders Display", sans-serif; font-weight: 600; fill: var(--muted); }
+
+/* og */
+.og { width: 1200px; height: 630px; padding: 48px 48px 40px 56px; display: none; grid-template-columns: 360px 1fr; gap: 24px; }
+.og.on { display: grid; }
+.og h1 { font-size: 196px; line-height: .8; font-weight: 800; }
+.og h1 span { display: block; color: var(--crowd); font-weight: 600; }
+.og .sub { font-size: 27px; line-height: 1.3; margin-top: 30px; }
+.og .url { position: absolute; left: 56px; bottom: 38px; font-size: 26px; }
+
+/* portrait cards: 1080 x 1350 */
+.tall { width: 1080px; height: 1350px; padding: 80px 72px 0; }
+.tall h2 { font-size: 104px; line-height: .92; font-weight: 800; max-width: 15ch; }
+.tall .lede { font-size: 34px; line-height: 1.42; margin-top: 30px; max-width: 46ch; }
+.tall .foot { position: absolute; left: 72px; right: 72px; bottom: 56px; font-size: 26px; line-height: 1.4; color: var(--muted); }
+.tall .foot .url { display: block; margin-top: 14px; font-size: 30px; color: var(--ink); }
+.key { display: flex; gap: 36px; font-size: 26px; color: var(--muted); margin-top: 26px; }
+.key span { display: inline-flex; align-items: center; gap: 12px; }
+.sw { display: inline-block; width: 22px; height: 22px; border-radius: 50%; }
+.sw.me { background: var(--me); }
+.sw.model { border: 3.5px solid var(--ink); }
+
+/* model vs me rows */
+.mrows { margin-top: 40px; }
+.mrows h3 { font-size: 34px; font-weight: 600; color: var(--muted); margin: 26px 0 6px; }
+.mrow { display: grid; grid-template-columns: 330px 1fr 150px; align-items: center; column-gap: 26px; height: 74px; border-bottom: 1px solid var(--rule); }
+.mrow .t { font-size: 31px; line-height: 1.1; }
+.mrow .t small { display: block; font-size: 22px; color: var(--muted); margin-top: 3px; }
+.mrow .v { text-align: right; font: 600 30px "Big Shoulders Display", sans-serif; color: var(--muted); }
+.mrow .v b { color: var(--me); font-weight: 800; }
+.trk { position: relative; height: 40px; }
+.trk::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 2px solid var(--track); }
+.trk .gap { position: absolute; top: 50%; height: 4px; margin-top: -2px; background: var(--muted); opacity: .6; }
+.trk .ring { position: absolute; top: 50%; width: 26px; height: 26px; margin: -13px 0 0 -13px; border-radius: 50%; border: 4px solid var(--ink); background: var(--bg); }
+.trk .me { position: absolute; top: 50%; width: 26px; height: 26px; margin: -13px 0 0 -13px; border-radius: 50%; background: var(--me); }
+.scale { position: relative; height: 34px; margin-left: 356px; margin-right: 176px; font: 600 24px "Big Shoulders Display", sans-serif; color: var(--muted); }
+.scale span { position: absolute; transform: translateX(-50%); top: 6px; }
+
+/* bars */
+.bars { margin-top: 56px; }
+.bar { display: grid; grid-template-columns: 230px 1fr 110px; align-items: center; column-gap: 24px; height: 104px; }
+.bar .l { font-size: 34px; }
+.bar .l small { display: block; font-size: 23px; color: var(--muted); }
+.bar .f { height: 46px; background: var(--me); }
+.bar .n { font: 800 50px "Big Shoulders Display", sans-serif; text-align: right; }
+
+/* big numbers */
+.facts { margin-top: 70px; }
+.fact { display: grid; grid-template-columns: 330px 1fr; align-items: center; padding: 34px 0; border-top: 1px solid var(--rule); }
+.fact .n { font: 800 110px/0.9 "Big Shoulders Display", sans-serif; color: var(--me); }
+.fact .n.crowd { color: var(--crowd); }
+.fact .d { font-size: 32px; line-height: 1.38; }
+
+/* disagreement lists */
+.dis h3 { font-size: 40px; font-weight: 800; margin: 46px 0 8px; }
+.dis .row { display: flex; justify-content: space-between; align-items: baseline; font-size: 31px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.dis .row small { font: 600 28px "Big Shoulders Display", sans-serif; color: var(--muted); }
+.dis .row small b { color: var(--me); }
+
+/* model strip */
+.strip { margin-top: 56px; }
+.srow { display: grid; grid-template-columns: 380px 1fr 100px; align-items: center; column-gap: 24px; height: 92px; }
+.srow .l { font-size: 31px; }
+.srow .f { height: 40px; background: var(--crowd); }
+.srow.base .f { background: var(--track); }
+.srow.best .f { background: var(--me); }
+.srow .n { font: 800 44px "Big Shoulders Display", sans-serif; text-align: right; }
+
+/* closing */
+.big-url { font: 800 76px/1 "Big Shoulders Display", sans-serif; color: var(--me); margin-top: 60px; word-break: break-word; }
+.tools { font-size: 30px; line-height: 1.5; color: var(--muted); margin-top: 60px; max-width: 52ch; }
+.print .foot { right: 170px; }
+</style>
+</head>
+<body>
+
+<!-- link preview -->
+<section class="card og" id="og">
+  <div>
+    <h1><span class="n">355</span><span class="u">films</span></h1>
+    <p class="sub">What my Letterboxd ratings say about my taste, and a model that tries to predict it.</p>
+  </div>
+  <svg id="og-chart" width="736" height="520"></svg>
+  <div class="url">kutaykabak.github.io/letterboxd-film-taste</div>
+</section>
+
+<!-- single LinkedIn image -->
+<section class="card tall" id="post">
+  <h2>The older the film, the higher I rate it.</h2>
+  <p class="lede">I joined 355 of my Letterboxd ratings with TMDB data. Films from before 1980 average <b class="d0"></b> stars from me, films from the 2020s <b class="d1"></b>.</p>
+  <svg id="post-chart" width="936" height="560" style="margin-top:44px"></svg>
+  <div class="foot">Each dot is a film, lines are decade averages. Spearman ρ = <span class="rho-year"></span>. Part of it is selection: the older films I watch are mostly ones that are already well regarded.<span class="url">kutaykabak.github.io/letterboxd-film-taste</span></div>
+</section>
+
+<!-- model vs me -->
+<section class="card tall" id="model">
+  <h2>Can a model guess my rating?</h2>
+  <p class="lede">Each prediction comes from a model that never saw that film in training. Some are close, some miss badly.</p>
+  <div class="key"><span><i class="sw model"></i>model</span><span><i class="sw me"></i>my rating</span></div>
+  <div class="mrows" id="model-rows"></div>
+  <div class="foot">Average miss: about half a star (RMSE 0.66, against 0.91 for always guessing my average).<span class="url">kutaykabak.github.io/letterboxd-film-taste</span></div>
+</section>
+
+<!-- carousel -->
+<section class="card tall" id="c1">
+  <h2 style="font-size:250px;line-height:.8;max-width:none">355<span style="display:block;color:var(--crowd);font-weight:600">films</span></h2>
+  <p class="lede" style="max-width:24ch">What my Letterboxd ratings say about my taste, and whether a model can predict them.</p>
+  <svg id="c1-chart" width="936" height="440" style="margin-top:44px"></svg>
+  <div class="foot">A data science project in Python. Swipe for the findings.</div>
+  <div class="pn">1/7</div>
+</section>
+
+<section class="card tall" id="c2">
+  <h2>The data</h2>
+  <div class="facts">
+    <div class="fact"><div class="n">355</div><div class="d">films I have rated on Letterboxd since December 2022, from half a star to five</div></div>
+    <div class="fact"><div class="n crowd">TMDB</div><div class="d">genres, release year, runtime, language, and the crowd's average rating and vote count for each film</div></div>
+    <div class="fact"><div class="n">27</div><div class="d">features for the model. No likes or rating dates: a new film wouldn't have them</div></div>
+  </div>
+  <div class="pn">2/7</div>
+</section>
+
+<section class="card tall" id="c3">
+  <h2>I go easier on older films</h2>
+  <p class="lede">My average rating by the decade a film came out.</p>
+  <div class="bars" id="dec-bars"></div>
+  <div class="foot">Kruskal-Wallis p &lt; 0.001, Spearman ρ = <span class="rho-year"></span>. Partly selection: from older decades I mostly watch the classics.</div>
+  <div class="pn">3/7</div>
+</section>
+
+<section class="card tall" id="c4">
+  <h2>I mostly agree with the crowd</h2>
+  <p class="lede">Spearman ρ = <span class="rho-tmdb"></span> between TMDB's average and my rating. The films where I differ most from what the TMDB score predicts:</p>
+  <div class="dis" id="dis"></div>
+  <div class="pn">4/7</div>
+</section>
+
+<section class="card tall" id="c5">
+  <h2>A simple rule is almost as good as a forest</h2>
+  <p class="lede">Prediction error (RMSE) from 5-fold cross-validation repeated 10 times. Lower is better.</p>
+  <div class="strip" id="strip"></div>
+  <div class="foot">After correcting for multiple comparisons, no model beats "release year + TMDB rating" significantly. Honest scores: 0.66 with nested CV, 0.67 on 71 held-out films.</div>
+  <div class="pn">5/7</div>
+</section>
+
+<section class="card tall" id="c6">
+  <h2>Can a model guess my rating?</h2>
+  <p class="lede">Predictions for films the model never saw in training.</p>
+  <div class="key"><span><i class="sw model"></i>model</span><span><i class="sw me"></i>my rating</span></div>
+  <div class="mrows" id="c6-rows"></div>
+  <div class="pn">6/7</div>
+</section>
+
+<section class="card tall" id="c7">
+  <h2>Try it on any film</h2>
+  <p class="lede">The page predicts my rating for 5,000 popular films and lets you search all 355 of mine.</p>
+  <div class="big-url">kutaykabak.github.io/<br>letterboxd-film-taste</div>
+  <p class="tools">Python, pandas, scikit-learn, statsmodels, XGBoost, Power BI, GitHub Pages. Code: github.com/Kutaykabak/letterboxd-film-taste</p>
+  <div class="pn">7/7</div>
+</section>
+
+<script src="../../site/data.js?v=2"></script>
+<script src="../../site/catalog.js?v=1"></script>
+<script>
+(() => {
+  const D = window.DATA, C = window.CATALOG, NS = 'http://www.w3.org/2000/svg';
+  const qs = new URLSearchParams(location.search);
+  const card = qs.get('card') || 'og';
+  const tr = card === 'og-tr';
+  const fmt = (x, d = 1) => x.toLocaleString(tr ? 'tr-TR' : 'en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const star = x => x.toLocaleString('en-US', { maximumFractionDigits: 1 });
+  const el = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; };
+  const pct = (v, lo, hi) => ((v - lo) / (hi - lo) * 100) + '%';
+  const jit = (i, k) => (((i + 1) * (k ? 7919 : 104729)) % 1000) / 1000 - 0.5;
+
+  // year x rating dot chart, decade averages as lines
+  function dots(svg, { r = 5, labels = false, axis = true, font = 22 }) {
+    const W = +svg.getAttribute('width'), H = +svg.getAttribute('height');
+    const m = { l: axis ? 40 : 6, r: labels ? 70 : 10, t: 12, b: axis ? 40 : 8 };
+    const X = v => m.l + (v - 1925) / (2027 - 1925) * (W - m.l - m.r);
+    const Y = v => m.t + (5.25 - v) / 5 * (H - m.t - m.b);
+    for (let s = 1; s <= 5; s++) {
+      el('line', { x1: m.l, x2: W - m.r, y1: Y(s), y2: Y(s), stroke: '#2a3c52', 'stroke-width': 1.5 }, svg);
+      if (axis) el('text', { x: m.l - 14, y: Y(s) + font / 3, 'text-anchor': 'end', 'font-size': font }, svg).textContent = s;
+    }
+    if (axis) [1930, 1950, 1970, 1990, 2010].forEach(t =>
+      el('text', { x: X(t), y: H - 8, 'text-anchor': 'middle', 'font-size': font }, svg).textContent = t);
+    D.films.forEach((f, i) => el('circle', { cx: X(f.y + jit(i, 0) * 0.8), cy: Y(f.r + jit(i, 1) * 0.16), r,
+      fill: '#f2b400', stroke: '#142233', 'stroke-width': 1.2, opacity: .92 }, svg));
+    D.decades.forEach((d, i) => {
+      el('line', { x1: X(d.from) + 4, x2: X(Math.min(d.to, 2027)) - 4, y1: Y(d.mean), y2: Y(d.mean),
+        stroke: '#e2e8ed', 'stroke-width': labels ? 6 : 5, 'stroke-linecap': 'round' }, svg);
+      if (labels && (i === 0 || i === D.decades.length - 1)) {
+        const t = el('text', { x: i === 0 ? X(d.from) + 6 : W - m.r + 12, y: Y(d.mean) - (i === 0 ? 16 : -10),
+          'font-size': 42, 'font-weight': 800, 'text-anchor': 'start' }, svg);
+        t.textContent = fmt(d.mean); t.setAttribute('style', 'fill:#e2e8ed');
+      }
+    });
+  }
+
+  // model vs my rating rows
+  const byName = n => C.f.find(x => x[0] === n && x[5] !== null);
+  function modelRows(host, groups) {
+    groups.forEach(([title, names]) => {
+      const h = document.createElement('h3'); h.textContent = title; host.appendChild(h);
+      names.forEach(n => {
+        const f = byName(n); if (!f) return;
+        const [name, year, , , , me, oof] = f;
+        const row = document.createElement('div'); row.className = 'mrow';
+        const lo = Math.min(oof, me), hi = Math.max(oof, me);
+        row.innerHTML = `<div class="t">${name}<small>${year}</small></div>` +
+          `<div class="trk"><i class="gap" style="left:${pct(lo, 0.5, 5)};width:calc(${pct(hi, 0.5, 5)} - ${pct(lo, 0.5, 5)})"></i>` +
+          `<i class="ring" style="left:${pct(oof, 0.5, 5)}"></i><i class="me" style="left:${pct(me, 0.5, 5)}"></i></div>` +
+          `<div class="v">${fmt(oof)} / <b>${star(me)}</b></div>`;
+        host.appendChild(row);
+      });
+    });
+    const sc = document.createElement('div'); sc.className = 'scale';
+    sc.innerHTML = [1, 2, 3, 4, 5].map(v => `<span style="left:${pct(v, 0.5, 5)}">${v}</span>`).join('');
+    host.appendChild(sc);
+  }
+
+  document.querySelectorAll('.rho-year').forEach(s => s.textContent = '−' + fmt(Math.abs(D.stats.rho_year), 2));
+  document.querySelectorAll('.rho-tmdb').forEach(s => s.textContent = fmt(D.stats.rho_tmdb, 2));
+  document.querySelectorAll('.d0').forEach(s => s.textContent = fmt(D.decades[0].mean));
+  document.querySelectorAll('.d1').forEach(s => s.textContent = fmt(D.decades[D.decades.length - 1].mean));
+
+  const show = id => document.getElementById(id).classList.add('on');
+  if (card === 'og' || card === 'og-tr') {
+    if (tr) {
+      document.querySelector('#og .u').textContent = 'film';
+      document.querySelector('#og .sub').textContent = 'Letterboxd puanlarım zevkim hakkında ne söylüyor ve bir model bunu tahmin edebilir mi?';
+      document.querySelector('#og .url').textContent = 'kutaykabak.github.io/letterboxd-film-taste/tr';
+      document.documentElement.lang = 'tr';
+    }
+    dots(document.getElementById('og-chart'), { r: 5.5 });
+    show('og');
+  } else if (card === 'post') {
+    dots(document.getElementById('post-chart'), { r: 6.5, labels: true, font: 24 });
+    show('post');
+  } else if (card === 'model') {
+    modelRows(document.getElementById('model-rows'), [
+      ['Close', ['Inception', 'The Wolf of Wall Street', 'Black Panther']],
+      ['Way off', ['Fight Club', 'The Matrix', 'Forrest Gump']],
+    ]);
+    show('model');
+  } else if (card === 'carousel') {
+    document.body.classList.add('print');
+    dots(document.getElementById('c1-chart'), { r: 6, axis: false });
+    const bars = document.getElementById('dec-bars');
+    D.decades.forEach(d => {
+      bars.insertAdjacentHTML('beforeend', `<div class="bar"><div class="l">${d.label_en}<small>${d.n} films</small></div>` +
+        `<div><div class="f" style="width:${pct(d.mean, 0, 5)}"></div></div><div class="n">${fmt(d.mean, 2)}</div></div>`);
+    });
+    const dis = document.getElementById('dis');
+    const disRows = (title, list) => {
+      dis.insertAdjacentHTML('beforeend', `<h3>${title}</h3>` + list.slice(0, 4).map(f =>
+        `<div class="row"><span>${f.n} (${f.y})</span><small>expected ${fmt(f.e)}, I gave <b>${star(f.r)}</b></small></div>`).join(''));
+    };
+    disRows('Liked more than expected', D.above);
+    disRows('Liked less than expected', D.below);
+    const strip = document.getElementById('strip');
+    const pick = ['Baseline (mean)', 'TMDB rating only', 'Release year + TMDB rating', 'XGBoost', 'Ordinal logistic', 'Random Forest'];
+    pick.map(n => D.models.find(m => m.en === n)).forEach(m => {
+      const cls = m.base ? ' base' : (m.en === 'Random Forest' ? ' best' : '');
+      strip.insertAdjacentHTML('beforeend', `<div class="srow${cls}"><div class="l">${m.en}</div>` +
+        `<div><div class="f" style="width:${pct(m.rmse, 0, 1)}"></div></div><div class="n">${fmt(m.rmse, 2)}</div></div>`);
+    });
+    modelRows(document.getElementById('c6-rows'), [
+      ['Close', ['Inception', 'The Wolf of Wall Street', 'Black Panther']],
+      ['Way off', ['Fight Club', 'The Matrix', 'Forrest Gump']],
+    ]);
+    ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7'].forEach(show);
+  }
+})();
+</script>
+</body>
+</html>

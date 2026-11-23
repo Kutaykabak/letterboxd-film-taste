@@ -1,5 +1,7 @@
 # What my Letterboxd ratings say about my taste
 
+[![355 films, rated by year](reports/share/og.png)](https://kutaykabak.github.io/letterboxd-film-taste/)
+
 **Live page: [kutaykabak.github.io/letterboxd-film-taste](https://kutaykabak.github.io/letterboxd-film-taste/)**
 
 *[Türkçe sürüm için README.tr.md](README.tr.md)*
@@ -128,12 +130,14 @@ Of two films with the same TMDB rating, I like the less-known one more. Language
 | `notebooks/01_temizlik.ipynb`, `02_eda_testler.ipynb`, `03_modelleme.ipynb` | The Turkish analysis split into three parts |
 | `src/tmdb_enrich.py` | Matches Letterboxd films to TMDB and pulls metadata |
 | `src/features.py` | Shared feature building for the model and the dashboard |
-| `src/build_site.py` | Builds `site/data.js` from the processed data |
+| `src/build_site.py` | Builds `site/data.js` and `site/catalog.js` (predictions for the TMDB catalog) |
+| `src/fetch_catalog.py` | Pulls the 5,000 most-voted films from TMDB for the "predict any film" box |
 | `src/export_powerbi.py` | Writes the star-schema tables for Power BI to `data/powerbi/` |
 | `app/streamlit_app.py` | Streamlit dashboard |
 | `site/` | Static interactive page |
 | `powerbi/` | Power BI reports (Turkish and English), Power Query code, colour theme |
 | `reports/` | Figures (`figures_en/` in English) and watchlist predictions |
+| `reports/share/` | Social images and the LinkedIn carousel, made from `share.html` with `render_share.ps1` |
 
 ## How to run
 
@@ -154,5 +158,9 @@ py -m pip install -r requirements.txt
 ## Tools
 
 Python (pandas, scikit-learn, statsmodels, XGBoost, LightGBM, matplotlib, seaborn), Jupyter, Streamlit, Power BI (Power Query, DAX), HTML/CSS/JavaScript.
+
+## License
+
+Code is released under the [MIT License](LICENSE). The ratings are my own; film metadata comes from TMDB.
 
 This product uses the TMDB API but is not endorsed or certified by TMDB.
