@@ -188,9 +188,6 @@ footer p { max-width: 40rem; }
 .pt.pe { background: var(--elif); }
 .key .k-elif::before { width: 12px; height: 12px; border-radius: 50%; background: var(--elif); border: 1.5px solid var(--dot-stroke); }
 .key .k-diag::before { width: 18px; height: 0; border-top: 1.5px dashed var(--muted); vertical-align: 4px; }
-.pbi { display: block; margin-top: 1.4rem; max-width: 64rem; }
-.pbi img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
-.pbi-links a { color: var(--ink); text-underline-offset: 3px; }
 .lang { padding-top: 1rem; text-align: right; font-size: .95rem; }
 .lang a { color: var(--ink); text-underline-offset: 3px; }
 </style>
@@ -261,26 +258,6 @@ footer p { max-width: 40rem; }
   <div class="key"><span class="k-crowd">expected</span><span class="k-me">my rating</span></div>
 </section>
 
-<section aria-labelledby="h-elif">
-  <div class="text">
-    <h2 id="h-elif">How much do Elif and I agree?</h2>
-    <p>My girlfriend Elif uses Letterboxd too. On the <span data-el="n"></span> films we have both rated, the Spearman correlation between our ratings is <span data-el="rho"></span>; on the same films my agreement with the TMDB crowd is <span data-el="rho_tmdb"></span>. We put films in almost the same order, but Elif is <span data-el="diff"></span> stars more generous on average, and the gap doesn't depend on how good the film is. It is smallest for horror and science fiction, the two genres we both rate lowest.</p>
-    <p class="small">Shared with Elif's permission. We chose these films ourselves and watched some together, so the agreement may be a little inflated.</p>
-  </div>
-  <div class="split">
-    <div>
-      <h3>Our ratings for the same film</h3>
-      <div class="key"><span class="k-elif">each circle is a pair of ratings, sized by number of films</span><span class="k-diag">same rating</span></div>
-      <div class="elif-pairs" id="elif-pairs"></div>
-    </div>
-    <div>
-      <h3>Our averages by genre</h3>
-      <div class="key"><span class="k-me">me</span><span class="k-elif">Elif</span></div>
-      <div class="rows" id="elif-genres"></div>
-    </div>
-  </div>
-</section>
-
 <section aria-labelledby="h-model">
   <div class="cols">
     <div class="text">
@@ -310,6 +287,35 @@ footer p { max-width: 40rem; }
   </div>
 </section>
 
+<section aria-labelledby="h-next">
+  <div class="text">
+    <h2 id="h-next">What should I watch next?</h2>
+    <p>The model's predictions for the 247 films on my watchlist. It is off by about half a star on average, so the order matters more than any single number.</p>
+  </div>
+  <div class="filters" id="filters" role="group" aria-label="Filter by genre"></div>
+  <ol class="picks" id="picks"></ol>
+</section>
+
+<section aria-labelledby="h-elif">
+  <div class="text">
+    <h2 id="h-elif">How much do Elif and I agree?</h2>
+    <p>My girlfriend Elif uses Letterboxd too. On the <span data-el="n"></span> films we have both rated, the Spearman correlation between our ratings is <span data-el="rho"></span>; on the same films my agreement with the TMDB crowd is <span data-el="rho_tmdb"></span>. We put films in almost the same order, but Elif is <span data-el="diff"></span> stars more generous on average, and the gap doesn't depend on how good the film is. It is smallest for horror and science fiction, the two genres we both rate lowest.</p>
+    <p class="small">Shared with Elif's permission. We chose these films ourselves and watched some together, so the agreement may be a little inflated.</p>
+  </div>
+  <div class="split">
+    <div>
+      <h3>Our ratings for the same film</h3>
+      <div class="key"><span class="k-elif">each circle is a pair of ratings, sized by number of films</span><span class="k-diag">same rating</span></div>
+      <div class="elif-pairs" id="elif-pairs"></div>
+    </div>
+    <div>
+      <h3>Our averages by genre</h3>
+      <div class="key"><span class="k-me">me</span><span class="k-elif">Elif</span></div>
+      <div class="rows" id="elif-genres"></div>
+    </div>
+  </div>
+</section>
+
 <section aria-labelledby="h-both">
   <div class="text">
     <h2 id="h-both">Should we watch it together?</h2>
@@ -322,24 +328,6 @@ footer p { max-width: 40rem; }
     <ul id="bmatch" class="amatch"></ul>
     <div id="bresult" class="aresult" aria-live="polite"></div>
   </div>
-</section>
-
-<section aria-labelledby="h-next">
-  <div class="text">
-    <h2 id="h-next">What should I watch next?</h2>
-    <p>The model's predictions for the 247 films on my watchlist. It is off by about half a star on average, so the order matters more than any single number.</p>
-  </div>
-  <div class="filters" id="filters" role="group" aria-label="Filter by genre"></div>
-  <ol class="picks" id="picks"></ol>
-</section>
-
-<section aria-labelledby="h-pbi">
-  <div class="text">
-    <h2 id="h-pbi">Same data, in Power BI</h2>
-    <p>I also built this analysis as a three-page Power BI report: a star-schema data model, DAX measures, and language and genre slicers. You can view it as a PDF or download it and open it in Power BI Desktop.</p>
-  </div>
-  <a class="pbi" href="https://github.com/Kutaykabak/letterboxd-film-taste/blob/main/reports/powerbi/letterboxd_en.pdf"><img src="powerbi-overview.png?v=1" width="1522" height="880" loading="lazy" alt="Overview page of the Power BI report: summary cards, average rating by decade and by genre, language and genre slicers"></a>
-  <p class="small pbi-links" style="margin-top:.8rem"><a href="https://github.com/Kutaykabak/letterboxd-film-taste/blob/main/reports/powerbi/letterboxd_en.pdf">Full report (PDF, 3 pages)</a>, <a href="https://github.com/Kutaykabak/letterboxd-film-taste/raw/main/powerbi/letterboxd_en.pbix">Download the .pbix file</a></p>
 </section>
 
 <footer>

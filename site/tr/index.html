@@ -188,9 +188,6 @@ footer p { max-width: 40rem; }
 .pt.pe { background: var(--elif); }
 .key .k-elif::before { width: 12px; height: 12px; border-radius: 50%; background: var(--elif); border: 1.5px solid var(--dot-stroke); }
 .key .k-diag::before { width: 18px; height: 0; border-top: 1.5px dashed var(--muted); vertical-align: 4px; }
-.pbi { display: block; margin-top: 1.4rem; max-width: 64rem; }
-.pbi img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
-.pbi-links a { color: var(--ink); text-underline-offset: 3px; }
 .lang { padding-top: 1rem; text-align: right; font-size: .95rem; }
 .lang a { color: var(--ink); text-underline-offset: 3px; }
 </style>
@@ -261,26 +258,6 @@ footer p { max-width: 40rem; }
   <div class="key"><span class="k-crowd">beklenen</span><span class="k-me">verdiğim</span></div>
 </section>
 
-<section aria-labelledby="h-elif">
-  <div class="text">
-    <h2 id="h-elif">Elif'le ne kadar aynı fikirdeyiz?</h2>
-    <p>Kız arkadaşım Elif de Letterboxd kullanıyor. İkimizin de puanladığı <span data-el="n"></span> filmde puanlarımız arasındaki Spearman korelasyonu <span data-el="rho"></span>; aynı filmlerde TMDB'deki çoğunlukla benim uyumum <span data-el="rho_tmdb"></span>. Filmleri neredeyse aynı sırayla diziyoruz, ama Elif ortalama <span data-el="diff"></span> yıldız daha cömert ve bu fark filmin iyi ya da kötü olmasına göre değişmiyor. Fark en küçük, ikimizin de en düşük puan verdiği korku ve bilim kurguda.</p>
-    <p class="small">Elif'in izniyle. Ortak filmleri kendimiz seçtik, bir kısmını birlikte izledik; uyum bu yüzden biraz yüksek çıkmış olabilir.</p>
-  </div>
-  <div class="split">
-    <div>
-      <h3>Aynı filme verdiğimiz puanlar</h3>
-      <div class="key"><span class="k-elif">her daire bir puan çifti, büyüklüğü film sayısı</span><span class="k-diag">aynı puan</span></div>
-      <div class="elif-pairs" id="elif-pairs"></div>
-    </div>
-    <div>
-      <h3>Türlere göre ortalamamız</h3>
-      <div class="key"><span class="k-me">ben</span><span class="k-elif">Elif</span></div>
-      <div class="rows" id="elif-genres"></div>
-    </div>
-  </div>
-</section>
-
 <section aria-labelledby="h-model">
   <div class="cols">
     <div class="text">
@@ -310,6 +287,35 @@ footer p { max-width: 40rem; }
   </div>
 </section>
 
+<section aria-labelledby="h-next">
+  <div class="text">
+    <h2 id="h-next">Sırada ne izlesem?</h2>
+    <p>Modelin izleme listemdeki 247 film için tahmini. Ortalama hata yarım puan civarında, o yüzden tek tek sayılardan çok sıralamaya bakmak lazım.</p>
+  </div>
+  <div class="filters" id="filters" role="group" aria-label="Türe göre süz"></div>
+  <ol class="picks" id="picks"></ol>
+</section>
+
+<section aria-labelledby="h-elif">
+  <div class="text">
+    <h2 id="h-elif">Elif'le ne kadar aynı fikirdeyiz?</h2>
+    <p>Kız arkadaşım Elif de Letterboxd kullanıyor. İkimizin de puanladığı <span data-el="n"></span> filmde puanlarımız arasındaki Spearman korelasyonu <span data-el="rho"></span>; aynı filmlerde TMDB'deki çoğunlukla benim uyumum <span data-el="rho_tmdb"></span>. Filmleri neredeyse aynı sırayla diziyoruz, ama Elif ortalama <span data-el="diff"></span> yıldız daha cömert ve bu fark filmin iyi ya da kötü olmasına göre değişmiyor. Fark en küçük, ikimizin de en düşük puan verdiği korku ve bilim kurguda.</p>
+    <p class="small">Elif'in izniyle. Ortak filmleri kendimiz seçtik, bir kısmını birlikte izledik; uyum bu yüzden biraz yüksek çıkmış olabilir.</p>
+  </div>
+  <div class="split">
+    <div>
+      <h3>Aynı filme verdiğimiz puanlar</h3>
+      <div class="key"><span class="k-elif">her daire bir puan çifti, büyüklüğü film sayısı</span><span class="k-diag">aynı puan</span></div>
+      <div class="elif-pairs" id="elif-pairs"></div>
+    </div>
+    <div>
+      <h3>Türlere göre ortalamamız</h3>
+      <div class="key"><span class="k-me">ben</span><span class="k-elif">Elif</span></div>
+      <div class="rows" id="elif-genres"></div>
+    </div>
+  </div>
+</section>
+
 <section aria-labelledby="h-both">
   <div class="text">
     <h2 id="h-both">Birlikte izlesek?</h2>
@@ -322,24 +328,6 @@ footer p { max-width: 40rem; }
     <ul id="bmatch" class="amatch"></ul>
     <div id="bresult" class="aresult" aria-live="polite"></div>
   </div>
-</section>
-
-<section aria-labelledby="h-next">
-  <div class="text">
-    <h2 id="h-next">Sırada ne izlesem?</h2>
-    <p>Modelin izleme listemdeki 247 film için tahmini. Ortalama hata yarım puan civarında, o yüzden tek tek sayılardan çok sıralamaya bakmak lazım.</p>
-  </div>
-  <div class="filters" id="filters" role="group" aria-label="Türe göre süz"></div>
-  <ol class="picks" id="picks"></ol>
-</section>
-
-<section aria-labelledby="h-pbi">
-  <div class="text">
-    <h2 id="h-pbi">Aynı veri, Power BI'da</h2>
-    <p>Bu analizi üç sayfalık bir Power BI raporu olarak da kurdum: yıldız şema bir veri modeli, DAX ölçüleri, dil ve tür dilimleyicileri. Raporu PDF olarak görebilir ya da indirip Power BI Desktop'ta açabilirsin.</p>
-  </div>
-  <a class="pbi" href="https://github.com/Kutaykabak/letterboxd-film-taste/blob/main/reports/powerbi/letterboxd_en.pdf"><img src="../powerbi-overview.png?v=1" width="1522" height="880" loading="lazy" alt="Power BI raporunun genel bakış sayfası: özet kartları, on yıllara ve türlere göre ortalama puan grafikleri, dil ve tür dilimleyicileri"></a>
-  <p class="small pbi-links" style="margin-top:.8rem"><a href="https://github.com/Kutaykabak/letterboxd-film-taste/blob/main/reports/powerbi/letterboxd_en.pdf">Raporun tamamı (PDF, 3 sayfa)</a>, <a href="https://github.com/Kutaykabak/letterboxd-film-taste/raw/main/powerbi/letterboxd_en.pbix">.pbix dosyasını indir</a></p>
 </section>
 
 <footer>
