@@ -120,7 +120,7 @@ Aynı TMDB puanına sahip iki filmden daha az bilinenini daha çok seviyorum. Di
 | Ben – TMDB ortalaması | 0,47 | 0,32 ile 0,60 |
 | Elif – TMDB ortalaması | 0,55 | 0,42 ile 0,66 |
 
-- Bu filmlerde Elif'in puanları benimkilerle kalabalığınkinden daha iyi örtüşüyor: fark +0,23 (eşleşmiş bootstrap %95 GA 0,11 ile 0,36).
+- Bu filmlerde Elif'in puanları benimkilerle çoğunluğunkinden daha iyi örtüşüyor: fark +0,23 (eşleşmiş bootstrap %95 GA 0,11 ile 0,36).
 - Elif daha cömert. Aynı filmlere ortalama 0,44 yıldız fazla veriyor (Wilcoxon p < 0,001; 95 filmde o yüksek, 13'te ben, 45'te eşitiz). Bland–Altman grafiğinde fark filmin puan düzeyine göre değişmiyor, yani sabit bir kayma: aynı sıra, farklı yıldızlar.
 - Birebir anlaşma orta düzeyde: filmlerin %29'unda aynı puan, %71'inde en fazla yarım yıldız fark var, karesel ağırlıklı Cohen kappası 0,62.
 - Fark en küçük korku ve bilimkurguda, yani ikimizin de en düşük puan verdiği türlerde. İkimiz de eski filmlere daha yüksek puan veriyoruz (benim için ρ = -0,39, Elif için -0,41).
@@ -131,7 +131,7 @@ Aynı TMDB puanına sahip iki filmden daha az bilinenini daha çok seviyorum. Di
 ## Sınırlar
 
 - 355 film az. Aralıklar geniş ve modeller arasındaki farklar gürültü seviyesinde.
-- Model, benim zevkimi TMDB ortalamasından ve filmin yaşından ayıramıyor. Kalabalığın sevmediği ama benim sevdiğim filmlerde hep yanılacak.
+- Model, benim zevkimi TMDB ortalamasından ve filmin yaşından ayıramıyor. Çoğunluğun sevmediği ama benim sevdiğim filmlerde hep yanılacak.
 - Yönetmen, oyuncu ve anahtar kelime bilgilerini kullanmadım. Yönetmenlerin çoğu veride bir kez geçiyor. Bunları metin vektörlerine çevirmek bir sonraki adım olabilir.
 - Puanladığım filmlerin çoğu tanınmış filmler. Az bilinen filmlerde tahmin daha az güvenilir.
 
@@ -182,7 +182,7 @@ py -m pip install -r requirements.txt
 Hazır rapor: [`powerbi/letterboxd.pbix`](powerbi/letterboxd.pbix). Üç sayfası var:
 
 - **Genel bakış:** film sayısı, ortalama puan, sevdim oranı ve TMDB ortalaması kartları; on yıllara göre ve türlere göre (en az 15 film) ortalama puan.
-- **Ben ve kalabalık:** TMDB puanı ile benim puanımın dağılım grafiği (eğilim çizgisiyle) ve TMDB'ye göre beklenenden en çok ayrıldığım filmler.
+- **Ben ve çoğunluk:** TMDB puanı ile benim puanımın dağılım grafiği (eğilim çizgisiyle) ve TMDB'ye göre beklenenden en çok ayrıldığım filmler.
 - **Model ve izleme listesi:** 11 modelin ve iki doğrulama yönteminin RMSE karşılaştırması, izleme listemin tahmine göre sıralaması.
 
 İngilizce sürüm: [`powerbi/letterboxd_en.pbix`](powerbi/letterboxd_en.pbix). Sayfa adları (Overview, Me vs. the crowd, Model and watchlist), başlıklar, ölçüler (Average Rating, Film Count, Loved Share…), eksenler, dilimleyiciler, tür ve on yıl etiketleri İngilizce. Aynı rapor metin dosyaları olarak da `powerbi/en/letterboxd_en.pbip` altında duruyor (Power BI proje biçimi: model TMDL, görseller JSON), böylece değişiklikler git'te satır satır görülebilir. Renk teması `powerbi/tema.json`.
@@ -190,7 +190,7 @@ Hazır rapor: [`powerbi/letterboxd.pbix`](powerbi/letterboxd.pbix). Üç sayfas�
 İngilizce raporun sayfaları ([PDF olarak](reports/powerbi/letterboxd_en.pdf)):
 
 ![Power BI genel bakış](reports/powerbi/en-1-overview.png)
-![Power BI ben ve kalabalık](reports/powerbi/en-2-me-vs-crowd.png)
+![Power BI ben ve çoğunluk](reports/powerbi/en-2-me-vs-crowd.png)
 ![Power BI model ve izleme listesi](reports/powerbi/en-3-model-and-watchlist.png)
 
 Power Query sorguları [`powerbi/queries.pq`](powerbi/queries.pq) dosyasında. Sayılar `en-US` kültürüyle okunduğu için Türkçe Windows'ta ondalık sorunu çıkmıyor. Klasör yolu farklıysa sorgulardaki `Folder` değerini değiştirmek yeterli.
@@ -211,7 +211,7 @@ Sevdim Oranı = DIVIDE(CALCULATE([Film Sayısı], films[loved] = 1), [Film Sayı
 Model Hatası (MAE) = AVERAGE(films[abs_error])
 ```
 
-**Rapor sayfaları için öneri:** genel bakış (kartlar, puan dağılımı, dilimleyiciler), zevkim (türler, on yıllar, ülkeler), ben ve kalabalık (`tmdb_rating` ile `rating` dağılım grafiği, `diff_from_crowd`'a göre en çok ayrıldığım filmler), model (`model_results`, `predicted_rating` ile `rating`, türlere göre `abs_error`) ve izleme listesi.
+**Rapor sayfaları için öneri:** genel bakış (kartlar, puan dağılımı, dilimleyiciler), zevkim (türler, on yıllar, ülkeler), ben ve çoğunluk (`tmdb_rating` ile `rating` dağılım grafiği, `diff_from_crowd`'a göre en çok ayrıldığım filmler), model (`model_results`, `predicted_rating` ile `rating`, türlere göre `abs_error`) ve izleme listesi.
 
 `data/powerbi/` kişisel puanlarımı içeriyor. Raporu *Publish to web* ile yayınlamak bu veriyi herkese açar.
 
