@@ -167,6 +167,7 @@ Decimal commas in the screenshots come from the Turkish regional settings of the
 | `src/tmdb_enrich.py` | Matches Letterboxd films to TMDB and pulls metadata |
 | `src/features.py` | Shared feature building for the model and the dashboard |
 | `src/build_site.py` | Builds `site/data.js` and `site/catalog.js` (predictions for the TMDB catalog) |
+| `src/build_elif.py` | Builds `site/elif.js` for the Elif section: only aggregates (rating-pair counts, genre averages), not her film-by-film ratings |
 | `src/fetch_catalog.py` | Pulls the 5,000 most-voted films from TMDB for the "predict any film" box |
 | `src/export_powerbi.py` | Writes the star-schema tables for Power BI to `data/powerbi/` |
 | `app/streamlit_app.py` | Streamlit dashboard |

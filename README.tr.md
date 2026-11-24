@@ -144,6 +144,7 @@ Aynı TMDB puanına sahip iki filmden daha az bilinenini daha çok seviyorum. Di
 | `notebooks/letterboxd_analysis.ipynb` | Birleşik not defterinin İngilizce sürümü (açıklamalar, grafikler ve çıktılar İngilizce; grafikler `reports/figures_en/` altına) |
 | `site/index.html` | Statik tek sayfalık site: bulguları anlatan etkileşimli bir veri yazısı (`site/data.js` verisiyle) |
 | `src/build_site.py` | `site/data.js` ve `site/catalog.js` dosyalarını üretiyor (katalog: 5.000 film için modelin tahmini) |
+| `src/build_elif.py` | Sitedeki Elif bölümü için `site/elif.js` dosyasını üretiyor: yalnızca özet (puan çifti sayıları, tür ortalamaları), film film puanları değil |
 | `src/fetch_catalog.py` | TMDB'de en çok oy almış 5.000 filmi çekiyor; sitedeki "Herhangi bir film için tahmin" kutusu bunu kullanıyor |
 | `app/streamlit_app.py` | Etkileşimli pano: zevk grafikleri, puan tahmini, izleme listesi sıralaması |
 | `src/export_powerbi.py` | Power BI için yıldız şema tablolarını `data/powerbi/` altına yazıyor |

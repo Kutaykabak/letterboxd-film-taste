@@ -27,17 +27,18 @@
   --rule: #b9c5cd;
   --dot-stroke: #14233a;
   --track: #cbd5db;
+  --elif: #c8553d;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --screen: #142233; --ink: #e2e8ed; --muted: #9aabbd; --crowd: #4fb0b9;
-    --rule: #2a3c52; --dot-stroke: #142233; --track: #22344a; color-scheme: dark;
+    --rule: #2a3c52; --dot-stroke: #142233; --track: #22344a; --elif: #e07a5f; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --screen: #142233; --ink: #e2e8ed; --muted: #9aabbd; --crowd: #4fb0b9;
-  --rule: #2a3c52; --dot-stroke: #142233; --track: #22344a; color-scheme: dark;
+  --rule: #2a3c52; --dot-stroke: #142233; --track: #22344a; --elif: #e07a5f; color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -178,9 +179,13 @@ footer p { max-width: 40rem; }
 .ares-nums .tmdb { color: var(--crowd); }
 .ares-nums small { font-size: .85rem; color: var(--muted); }
 /* power bi */
-.elif { display: grid; grid-template-columns: 1.55fr 1fr; gap: 1.2rem; margin-top: 1.4rem; max-width: 64rem; align-items: start; }
-.elif img { display: block; width: 100%; height: auto; background: #fff; border: 1px solid var(--rule); }
-@media (max-width: 760px) { .elif { grid-template-columns: 1fr; } }
+.elif-pairs svg { display: block; width: 100%; max-width: 30rem; overflow: visible; }
+.diag { stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.bub { fill: var(--elif); fill-opacity: .88; stroke: var(--dot-stroke); stroke-width: .8; }
+.ax-title { font: 600 14px "Big Shoulders Display", sans-serif; fill: var(--muted); letter-spacing: .02em; }
+.pt.pe { background: var(--elif); }
+.key .k-elif::before { width: 12px; height: 12px; border-radius: 50%; background: var(--elif); border: 1.5px solid var(--dot-stroke); }
+.key .k-diag::before { width: 18px; height: 0; border-top: 1.5px dashed var(--muted); vertical-align: 4px; }
 .pbi { display: block; margin-top: 1.4rem; max-width: 64rem; }
 .pbi img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
 .pbi-links a { color: var(--ink); text-underline-offset: 3px; }
@@ -214,7 +219,7 @@ footer p { max-width: 40rem; }
     <div class="text">
       <h2 id="h-decade">Eski filmlere daha cömertim</h2>
       <p>1980 öncesi filmlere ortalama <span data-dec="0"></span> veriyorum, 2020'lerde çekilenlere <span data-dec="-1"></span>. Film yılı ile puanım arasındaki Spearman korelasyonu <span id="rho-year"></span>.</p>
-      <p>Bunun bir kısmı seçilim. Eski filmlerden zaten adı çıkmış olanları seçip izliyorum, yenileri ise daha rastgele açıyorum.</p>
+      <p>Bunun bir kısmı seçilim. Eski filmlerden popüler olanları seçip izliyorum, yenileri ise daha rastgele açıyorum.</p>
     </div>
     <div class="rows" id="decades"></div>
   </div>
@@ -236,7 +241,7 @@ footer p { max-width: 40rem; }
 
 <section aria-labelledby="h-crowd">
   <div class="text">
-    <h2 id="h-crowd">Kalabalıkla ne kadar aynı fikirdeyim?</h2>
+    <h2 id="h-crowd">Çoğunlukla ne kadar aynı fikirdeyim?</h2>
     <p>TMDB ortalaması ile verdiğim puanlar arasındaki Spearman korelasyonu <span id="rho-tmdb"></span>. Camgöbeği çizgi, bir filmin TMDB puanına bakarak benden beklenecek puan. Çoğu film ona yakın duruyor, bazıları hiç durmuyor.</p>
   </div>
   <div class="chart" id="crowd-chart"></div>
@@ -257,12 +262,20 @@ footer p { max-width: 40rem; }
 <section aria-labelledby="h-elif">
   <div class="text">
     <h2 id="h-elif">Elif'le ne kadar aynı fikirdeyiz?</h2>
-    <p>Kız arkadaşım Elif de Letterboxd kullanıyor. İkimizin de puanladığı 153 filmde puanlarımız arasındaki Spearman korelasyonu 0,70; aynı filmlerde TMDB kalabalığıyla benim uyumum 0,47. Filmleri neredeyse aynı sırayla diziyoruz, ama Elif ortalama 0,44 yıldız daha cömert ve bu fark filmin iyi ya da kötü olmasına göre değişmiyor. Fark en küçük, ikimizin de en düşük puan verdiği korku ve bilimkurguda.</p>
+    <p>Kız arkadaşım Elif de Letterboxd kullanıyor. İkimizin de puanladığı <span data-el="n"></span> filmde puanlarımız arasındaki Spearman korelasyonu <span data-el="rho"></span>; aynı filmlerde TMDB'deki çoğunlukla benim uyumum <span data-el="rho_tmdb"></span>. Filmleri neredeyse aynı sırayla diziyoruz, ama Elif ortalama <span data-el="diff"></span> yıldız daha cömert ve bu fark filmin iyi ya da kötü olmasına göre değişmiyor. Fark en küçük, ikimizin de en düşük puan verdiği korku ve bilim kurguda.</p>
     <p class="small">Elif'in izniyle. Ortak filmleri kendimiz seçtik, bir kısmını birlikte izledik; uyum bu yüzden biraz yüksek çıkmış olabilir.</p>
   </div>
-  <div class="elif">
-    <a href="../elif-uyum.png"><img src="../elif-uyum.png?v=1" width="1659" height="723" loading="lazy" alt="Solda benim ve Elif'in puanları, nokta büyüklüğü film sayısı; sağda Bland–Altman grafiği, ortalama fark +0,44 yıldız"></a>
-    <a href="../elif-turler.png"><img src="../elif-turler.png?v=1" width="1251" height="761" loading="lazy" alt="Türlere göre benim ve Elif'in ortalama puanı; Elif neredeyse her türde daha yüksek, fark en küçük korku ve bilimkurguda"></a>
+  <div class="split">
+    <div>
+      <h3>Aynı filme verdiğimiz puanlar</h3>
+      <div class="key"><span class="k-elif">her daire bir puan çifti, büyüklüğü film sayısı</span><span class="k-diag">aynı puan</span></div>
+      <div class="elif-pairs" id="elif-pairs"></div>
+    </div>
+    <div>
+      <h3>Türlere göre ortalamamız</h3>
+      <div class="key"><span class="k-me">ben</span><span class="k-elif">Elif</span></div>
+      <div class="rows" id="elif-genres"></div>
+    </div>
   </div>
 </section>
 
@@ -322,6 +335,7 @@ footer p { max-width: 40rem; }
 <div class="tip" id="tip" role="presentation"></div>
 
 <script src="../data.js?v=2"></script>
+<script src="../elif.js?v=1"></script>
 <script src="../catalog.js?v=1"></script>
 <script>
 (() => {
@@ -475,7 +489,7 @@ footer p { max-width: 40rem; }
   });
   scaleRow(gen, [2.5, 3, 3.5, 4, 4.5], GLO, GHI);
 
-  // kalabalık grafiği
+  // çoğunluk grafiği
   const crowdHost = document.getElementById('crowd-chart');
   crowdHost.dataset.label = 'TMDB puanı ile verdiğim puan. Çoğu film beklenen çizgiye yakın.';
   const drawCrowd = () => scatter(crowdHost, {
@@ -577,8 +591,52 @@ footer p { max-width: 40rem; }
   });
   renderPicks();
 
+  // Elif'le uyum
+  const E = window.ELIF;
+  if (E) {
+    document.querySelectorAll('[data-el]').forEach(sp => {
+      const k = sp.dataset.el; sp.textContent = k === 'n' ? E.n : num(E[k]);
+    });
+    const eg = document.getElementById('elif-genres');
+    const ELO = 3.5, EHI = 4.75;
+    E.genres.forEach(g => {
+      div('lab', eg, `${tr(g.name)}<small>${g.n} film</small>`);
+      const t = div('track', eg);
+      const gp = div('gap', t); gp.style.left = pct(g.me, ELO, EHI); gp.style.width = `calc(${pct(g.el, ELO, EHI)} - ${pct(g.me, ELO, EHI)})`;
+      div('pt', t).style.left = pct(g.me, ELO, EHI);
+      div('pt pe', t).style.left = pct(g.el, ELO, EHI);
+      div('val', eg, (g.el >= g.me ? '+' : '−') + num(Math.abs(g.el - g.me)));
+    });
+    scaleRow(eg, [3.5, 4, 4.5], ELO, EHI);
+  }
+  const pairsHost = document.getElementById('elif-pairs');
+  const drawPairs = () => {
+    if (!E) return;
+    pairsHost.innerHTML = '';
+    const W = Math.min(pairsHost.clientWidth, 480), H = W;
+    const m = { l: 40, r: 10, t: 22, b: 40 };
+    const svg = svgEl('svg', { viewBox: `0 0 ${W} ${H}`, height: H, role: 'img', 'aria-label': "Benim ve Elif'in aynı filmlere verdiği puanlar. Dairelerin çoğu çapraz çizginin hemen üstünde: Elif genellikle yarım ya da bir yıldız fazla veriyor." }, pairsHost);
+    const X = v => m.l + (v - 0.25) / 5 * (W - m.l - m.r);
+    const Y = v => m.t + (5.25 - v) / 5 * (H - m.t - m.b);
+    const ax = svgEl('g', { class: 'axis' }, svg);
+    for (let v = 1; v <= 5; v++) {
+      svgEl('line', { x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v) }, ax);
+      svgEl('text', { x: m.l - 10, y: Y(v) + 4, 'text-anchor': 'end' }, ax).textContent = v;
+      svgEl('text', { x: X(v), y: H - m.b + 20, 'text-anchor': 'middle' }, ax).textContent = v;
+    }
+    svgEl('text', { class: 'ax-title', x: W - m.r, y: H - 4, 'text-anchor': 'end' }, svg).textContent = "benim puanım →";
+    svgEl('text', { class: 'ax-title', x: m.l - 10, y: 12 }, svg).textContent = "↑ Elif'in puanı";
+    svgEl('line', { class: 'diag', x1: X(0.5), y1: Y(0.5), x2: X(5), y2: Y(5) }, svg);
+    const maxN = Math.max(...E.pairs.map(p => p[2]));
+    const rMax = (X(0.5) - X(0)) * 0.52;
+    E.pairs.slice().sort((p, q) => q[2] - p[2]).forEach(([a, b, n]) => {
+      const c = svgEl('circle', { class: 'bub', cx: X(a), cy: Y(b), r: Math.max(2.5, rMax * Math.sqrt(n / maxN)) }, svg);
+      svgEl('title', {}, c).textContent = `Ben ${star(a)}, Elif ${star(b)}: ${n} film`;
+    });
+  };
+
   // çizim ve yeniden boyutlandırma
-  const drawAll = () => { drawHero(); drawCrowd(); };
+  const drawAll = () => { drawHero(); drawCrowd(); drawPairs(); };
   drawAll();
   let rt; let lastW = window.innerWidth;
   window.addEventListener('resize', () => {
