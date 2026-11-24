@@ -177,6 +177,8 @@ footer p { max-width: 40rem; }
 .ares-nums .big { font: 800 3rem/1 "Big Shoulders Display", sans-serif; }
 .ares-nums .pred { background: var(--me); color: #14233a; padding: .1rem .35rem 0; align-self: flex-start; }
 .ares-nums .tmdb { color: var(--crowd); }
+.ares-nums .elp { color: var(--elif); }
+.ares-nums .both { border: 2px solid var(--ink); padding: .1rem .35rem 0; align-self: flex-start; }
 .ares-nums small { font-size: .85rem; color: var(--muted); }
 /* power bi */
 .elif-pairs svg { display: block; width: 100%; max-width: 30rem; overflow: visible; }
@@ -308,6 +310,20 @@ footer p { max-width: 40rem; }
   </div>
 </section>
 
+<section aria-labelledby="h-both">
+  <div class="text">
+    <h2 id="h-both">Birlikte izlesek?</h2>
+    <p>Elif'in puanlarıyla onun için de aynı modeli kurdum. Bir film adı yaz, ikimizin tahmini yan yana gelsin. Elif genelde benden yarım yıldız kadar cömert olduğu için iki puanı doğrudan karşılaştırmıyorum: "ikimiz için" kısmı, filmin her birimizin tahminleri arasında ne kadar üstte durduğuna bakıyor ve ikisinden kötü olanını alıyor.</p>
+    <p class="small">Elif'in modeli de büyük ölçüde TMDB puanına ve filmin yaşına bakıyor; tahmin hatası (RMSE) onda 0,71, bende 0,65. İkimizden birinin puanladığı bir filmde tahmin, o filmi hiç görmemiş bir modelden geliyor.</p>
+  </div>
+  <div class="finder any">
+    <label for="bq">Film adı</label>
+    <input id="bq" type="search" placeholder="Seven Samurai, Amélie, Spirited Away" autocomplete="off">
+    <ul id="bmatch" class="amatch"></ul>
+    <div id="bresult" class="aresult" aria-live="polite"></div>
+  </div>
+</section>
+
 <section aria-labelledby="h-next">
   <div class="text">
     <h2 id="h-next">Sırada ne izlesem?</h2>
@@ -336,7 +352,7 @@ footer p { max-width: 40rem; }
 
 <script src="../data.js?v=2"></script>
 <script src="../elif.js?v=1"></script>
-<script src="../catalog.js?v=1"></script>
+<script src="../catalog.js?v=2"></script>
 <script>
 (() => {
   const D = window.DATA;
@@ -564,6 +580,48 @@ footer p { max-width: 40rem; }
   amatch.addEventListener('click', e => {
     const b = e.target.closest('button');
     if (b) { showFilm(+b.dataset.i); amatch.innerHTML = ''; }
+  });
+
+  // birlikte
+  const bq = document.getElementById('bq');
+  const PM = C.f.filter(x => x.length > 8).map(x => x[2]).sort((a, b) => a - b);
+  const PE = C.f.filter(x => x.length > 8).map(x => x[8]).sort((a, b) => a - b);
+  const topShare = (arr, v) => { let i = 0, j = arr.length; while (i < j) { const m = (i + j) >> 1; if (arr[m] <= v) i = m + 1; else j = m; } return 100 * (arr.length - i) / arr.length; };
+  const bmatch = document.getElementById('bmatch');
+  const bres = document.getElementById('bresult');
+  const showBoth = i => {
+    const [n, y, p, t, gs, me, oof, wl, pe] = C.f[i];
+    const pm = me !== null ? oof : p;
+    // katalogda her birimizin bu filmden daha çok seveceği tahmin edilen filmlerin payı
+    const lo = Math.max(topShare(PM, pm), topShare(PE, pe));
+    const tm = topShare(PM, pm), te = topShare(PE, pe);
+    const notes = [];
+    if (gs.length) notes.push(gs.map(g => tr(C.g[g])).join(', '));
+    if (me !== null) notes.push(`Bu filmi puanladım: {r}`.replace('{r}', star(me)));
+    const verdict = lo <= 10 ? "İkimiz için de iyi bir seçim gibi." : lo <= 30 ? "Olabilir, ama ikimizden biri o kadar sevmeyebilir." : "Başka bir film seçelim.";
+    const gap = tm - te >= 20 ? " Elif buna benden daha sıcak bakar gibi." : te - tm >= 20 ? " Ben buna Elif'ten daha sıcak bakarım gibi." : '';
+    bres.innerHTML = `<div class="ares-title">${esc(n)} <span>(${y})</span></div><div class="ares-nums">` +
+      `<div><span class="big pred">${num(pm, 1)}</span><small>benim tahminim</small></div>` +
+      `<div><span class="big elp">${num(pe, 1)}</span><small>Elif'in tahmini</small></div>` +
+      `<div><span class="big both">İlk %${Math.max(1, Math.round(lo))}</span><small>ikimiz için</small></div></div>` +
+      `<p>${verdict}${gap}</p>` + (notes.length ? `<p class="small">${notes.join('. ')}.</p>` : '');
+  };
+  const searchBoth = () => {
+    const s = low(bq.value.trim());
+    bmatch.innerHTML = '';
+    if (s.length < 2) { bres.innerHTML = ''; return; }
+    const starts = [], has = [];
+    keys.forEach((k, i) => { if (C.f[i].length < 9) return; if (k.startsWith(s)) starts.push(i); else if (k.includes(s)) has.push(i); });
+    const hits = starts.concat(has).slice(0, 8);
+    if (!hits.length) { bres.innerHTML = '<p class="small">Bu adla bir film bulamadım. Çoğu film İngilizce adıyla duruyor.</p>'; return; }
+    if (hits.length === 1 || keys[hits[0]] === s) showBoth(hits[0]); else bres.innerHTML = '';
+    if (hits.length > 1) bmatch.innerHTML = hits.map(i =>
+      `<li><button type="button" data-i="${i}">${esc(C.f[i][0])}<small>${C.f[i][1]}</small></button></li>`).join('');
+  };
+  bq.addEventListener('input', searchBoth);
+  bmatch.addEventListener('click', e => {
+    const b = e.target.closest('button');
+    if (b) { showBoth(+b.dataset.i); bmatch.innerHTML = ''; }
   });
 
   // izleme listesi

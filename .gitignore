@@ -11,6 +11,8 @@ data/raw/
 # full TMDB API responses (large, and TMDB data should not be redistributed in bulk)
 data/processed/tmdb_cache.json
 data/processed/tmdb_catalog.csv
+# Elif's films with TMDB data (from her raw export)
+data/processed/elif_enriched.csv
 
 # Power BI project: local settings and the data cache are machine-specific
 powerbi/en/**/.pbi/localSettings.json

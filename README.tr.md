@@ -128,6 +128,8 @@ Aynı TMDB puanına sahip iki filmden daha az bilinenini daha çok seviyorum. Di
 
 ![Türlere göre](reports/figures/11_elif_turler.png)
 
+**Birlikte ne izlesek?** Aynı Random Forest modelini Elif'in puanladığı 426 filmle de kurdum (tekrarlı 5 katlı çapraz doğrulama: RMSE 0,71, temel çizgi 0,96; benimki 0,65'e karşı 0,91). Elif genelde daha yüksek puan verdiği için iki tahmini doğrudan karşılaştırmıyorum: bir filmin "ikimiz için" skoru, ikimizin tahminleri içindeki iki sırasından kötü olanı. Sitede herhangi bir filmi seçip iki tahmini görebileceğin bir kutu var; ikimizin de izlemediği filmlerin sıralı listesi [`reports/together_recommendations.csv`](reports/together_recommendations.csv) dosyasında. Benim modelim gibi bu da TMDB puanına ve filmin yaşına yaslanıyor, bu yüzden listenin başı çoğunlukla yüksek puanlı klasikler.
+
 ## Sınırlar
 
 - 355 film az. Aralıklar geniş ve modeller arasındaki farklar gürültü seviyesinde.
@@ -145,6 +147,7 @@ Aynı TMDB puanına sahip iki filmden daha az bilinenini daha çok seviyorum. Di
 | `site/index.html` | Statik tek sayfalık site: bulguları anlatan etkileşimli bir veri yazısı (`site/data.js` verisiyle) |
 | `src/build_site.py` | `site/data.js` ve `site/catalog.js` dosyalarını üretiyor (katalog: 5.000 film için modelin tahmini) |
 | `src/build_elif.py` | Sitedeki Elif bölümü için `site/elif.js` dosyasını üretiyor: yalnızca özet (puan çifti sayıları, tür ortalamaları), film film puanları değil |
+| `src/build_together.py` | Elif'in filmlerini TMDB ile eşleştiriyor, onun puanları için model kuruyor ve `reports/together_recommendations.csv` dosyasını yazıyor |
 | `src/fetch_catalog.py` | TMDB'de en çok oy almış 5.000 filmi çekiyor; sitedeki "Herhangi bir film için tahmin" kutusu bunu kullanıyor |
 | `app/streamlit_app.py` | Etkileşimli pano: zevk grafikleri, puan tahmini, izleme listesi sıralaması |
 | `src/export_powerbi.py` | Power BI için yıldız şema tablolarını `data/powerbi/` altına yazıyor |

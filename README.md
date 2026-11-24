@@ -130,6 +130,8 @@ Notebook: [`notebooks/letterboxd_analysis.ipynb`](notebooks/letterboxd_analysis.
 
 ![By genre](reports/figures_en/11_elif_genres.png)
 
+**What should we watch together?** I fit the same Random Forest on Elif's 426 rated films (repeated 5-fold CV: RMSE 0.71, baseline 0.96; mine is 0.65 against 0.91). Because she rates higher overall, the two predictions are not compared directly: a film's score for both of us is the worse of its two ranks among each of our predictions. The site has a box where you pick any film and see both predictions; the full ranked list of films neither of us has seen is in [`reports/together_recommendations.csv`](reports/together_recommendations.csv). As with my own model, it leans on the TMDB rating and age, so the top of the list is mostly highly rated classics.
+
 ## Limitations
 
 - 355 films is not much. Intervals are wide and the differences between models are at the noise level.
@@ -168,6 +170,7 @@ Decimal commas in the screenshots come from the Turkish regional settings of the
 | `src/features.py` | Shared feature building for the model and the dashboard |
 | `src/build_site.py` | Builds `site/data.js` and `site/catalog.js` (predictions for the TMDB catalog) |
 | `src/build_elif.py` | Builds `site/elif.js` for the Elif section: only aggregates (rating-pair counts, genre averages), not her film-by-film ratings |
+| `src/build_together.py` | Matches Elif's films with TMDB, fits a model of her ratings and writes `reports/together_recommendations.csv` |
 | `src/fetch_catalog.py` | Pulls the 5,000 most-voted films from TMDB for the "predict any film" box |
 | `src/export_powerbi.py` | Writes the star-schema tables for Power BI to `data/powerbi/` |
 | `app/streamlit_app.py` | Streamlit dashboard |
