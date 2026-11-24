@@ -1,6 +1,6 @@
 # Letterboxd film zevki: analiz ve puan tahmini
 
-[![355 film, yıla göre puanlar](reports/share/og-tr.png)](https://kutaykabak.github.io/letterboxd-film-taste/tr/)
+[![355 film, yıla göre puanlar](site/og-tr.png)](https://kutaykabak.github.io/letterboxd-film-taste/tr/)
 
 **Canlı sayfa: [kutaykabak.github.io/letterboxd-film-taste/tr](https://kutaykabak.github.io/letterboxd-film-taste/tr/)** (İngilizcesi: [ana sayfa](https://kutaykabak.github.io/letterboxd-film-taste/))
 
@@ -20,6 +20,7 @@ Veri küçük olduğu için bu projede en çok uğraştığım şey, sonuçları
 - Random Forest, XGBoost, LightGBM ve sıralı lojistik regresyon birbirine çok yakın sonuç verdi. Hiçbiri "film yılı + TMDB puanı" ile kurulan iki değişkenli doğrusal modeli, çoklu karşılaştırma düzeltmesinden sonra anlamlı biçimde geçemedi.
 - Sadece dört değişkenli **sıralı lojistik regresyon**, Random Forest'la neredeyse aynı hatayı verdi ve yorumlanabiliyor: TMDB puanı 1 standart sapma artınca daha yüksek puan verme odds'um 5,1 katına çıkıyor.
 - "Sevdim" (4 ve üstü) ile "sevmedim"i ayırmada ROC AUC 0,83 ile 0,84 arası.
+- Kız arkadaşımla filmleri benzer sıralıyoruz (153 ortak filmde Spearman ρ = 0,70, aynı filmlerde benim TMDB ortalamasıyla uyumum 0,47), ama o ortalama 0,44 yıldız daha fazla veriyor.
 
 ## Veri
 
@@ -27,14 +28,15 @@ Veri küçük olduğu için bu projede en çok uğraştığım şey, sonuçları
 |---|---|
 | Letterboxd dışa aktarımı | 358 puanlı film, 479 izlenen film, 249 filmlik izleme listesi, 77 kalp |
 | TMDB API | Tür, süre, dil, ülke, yönetmen, oyuncu, TMDB ortalama puanı, oy sayısı, popülerlik |
+| Elif'in Letterboxd dışa aktarımı (Bölüm 4, izniyle) | 429 puanlı ve 654 izlenen film; 153'ünü ikimiz de puanladık |
 
 727 benzersiz filmden 700'ü TMDB ile eşleşti. Eşleşmeyenlerin çoğu dizi ve bölümdü (Black Mirror bölümleri gibi). Puanladıklarımdan 3'ü bu yüzden analiz dışında kaldı, geriye 355 film kaldı.
 
-Ham Letterboxd verisi kişisel olduğu için depoya eklenmiyor (`.gitignore`).
+Ham Letterboxd verileri (benim ve Elif'in) kişisel olduğu için depoya eklenmiyor (`.gitignore`).
 
 ## 1. Keşifsel analiz ve testler
 
-[`notebooks/02_eda_testler.ipynb`](notebooks/02_eda_testler.ipynb)
+[`notebooks/letterboxd_analizi.ipynb`](notebooks/letterboxd_analizi.ipynb), Bölüm 2
 
 Puanlarım 0,5 ile 5 arasında yarım yarım artan sıralı bir ölçek. O yüzden t testi yerine Kruskal-Wallis, Mann-Whitney U ve Spearman korelasyonu kullandım. Birçok türü aynı anda test ettiğim için p değerlerini Benjamini-Hochberg ile düzelttim. Ortalamalar için güven aralıklarını bootstrap ile hesapladım.
 
@@ -55,7 +57,7 @@ Eski filmlere verdiğim yüksek puanların bir kısmı muhtemelen seçilim: eski
 
 ## 2. Puan tahmini
 
-[`notebooks/03_modelleme.ipynb`](notebooks/03_modelleme.ipynb)
+[`notebooks/letterboxd_analizi.ipynb`](notebooks/letterboxd_analizi.ipynb), Bölüm 3
 
 **Yöntem**
 
@@ -106,6 +108,26 @@ Aynı TMDB puanına sahip iki filmden daha az bilinenini daha çok seviyorum. Di
 
 **İzleme listesi:** modeli tüm verilerle eğitip izleme listemdeki 247 filme uyguladım ([`reports/izleme_listesi_tahminleri.csv`](reports/izleme_listesi_tahminleri.csv)). En üstte Persona, The Seventh Seal, Harakiri ve Wild Strawberries var, en altta Salvation, Megalopolis ve Longlegs.
 
+## 3. Kız arkadaşımla film zevkimiz ne kadar uyuşuyor?
+
+[`notebooks/letterboxd_analizi.ipynb`](notebooks/letterboxd_analizi.ipynb), Bölüm 4. Elif de Letterboxd kullanıyor ve puanlarını projeye eklememe izin verdi. İkimizin de puanladığı 153 film var.
+
+![Uyum](reports/figures/10_elif_uyum.png)
+
+| | Spearman ρ | %95 GA (bootstrap) |
+|---|---|---|
+| Ben – Elif | **0,70** | 0,60 ile 0,78 |
+| Ben – TMDB ortalaması | 0,47 | 0,32 ile 0,60 |
+| Elif – TMDB ortalaması | 0,55 | 0,42 ile 0,66 |
+
+- Bu filmlerde Elif'in puanları benimkilerle kalabalığınkinden daha iyi örtüşüyor: fark +0,23 (eşleşmiş bootstrap %95 GA 0,11 ile 0,36).
+- Elif daha cömert. Aynı filmlere ortalama 0,44 yıldız fazla veriyor (Wilcoxon p < 0,001; 95 filmde o yüksek, 13'te ben, 45'te eşitiz). Bland–Altman grafiğinde fark filmin puan düzeyine göre değişmiyor, yani sabit bir kayma: aynı sıra, farklı yıldızlar.
+- Birebir anlaşma orta düzeyde: filmlerin %29'unda aynı puan, %71'inde en fazla yarım yıldız fark var, karesel ağırlıklı Cohen kappası 0,62.
+- Fark en küçük korku ve bilimkurguda, yani ikimizin de en düşük puan verdiği türlerde. İkimiz de eski filmlere daha yüksek puan veriyoruz (benim için ρ = -0,39, Elif için -0,41).
+- Ortak filmler rastgele değil: hepsini izlemeyi biz seçtik, bir kısmını birlikte izledik. Bu yüzden uyum biraz şişkin çıkmış olabilir.
+
+![Türlere göre](reports/figures/11_elif_turler.png)
+
 ## Sınırlar
 
 - 355 film az. Aralıklar geniş ve modeller arasındaki farklar gürültü seviyesinde.
@@ -118,11 +140,8 @@ Aynı TMDB puanına sahip iki filmden daha az bilinenini daha çok seviyorum. Di
 | Yol | İçerik |
 |---|---|
 | `src/tmdb_enrich.py` | Letterboxd filmlerini TMDB ile eşleştirip zenginleştiriyor |
-| `notebooks/letterboxd_analizi.ipynb` | Aşağıdaki üç not defterinin tek dosyada birleşmiş hali, baştan sona çalıştırılabilir |
+| `notebooks/letterboxd_analizi.ipynb` | Tüm analiz tek dosyada: veri temizliği, keşifsel analiz, puan tahmini ve Elif'le uyum; baştan sona çalıştırılabilir |
 | `notebooks/letterboxd_analysis.ipynb` | Birleşik not defterinin İngilizce sürümü (açıklamalar, grafikler ve çıktılar İngilizce; grafikler `reports/figures_en/` altına) |
-| `notebooks/01_temizlik.ipynb` | Birleştirme, öznitelikler, analiz tablosu |
-| `notebooks/02_eda_testler.ipynb` | Keşifsel analiz ve istatistiksel testler |
-| `notebooks/03_modelleme.ipynb` | Tahmin modelleri, iç içe çapraz doğrulama, izleme listesi |
 | `site/index.html` | Statik tek sayfalık site: bulguları anlatan etkileşimli bir veri yazısı (`site/data.js` verisiyle) |
 | `src/build_site.py` | `site/data.js` ve `site/catalog.js` dosyalarını üretiyor (katalog: 5.000 film için modelin tahmini) |
 | `src/fetch_catalog.py` | TMDB'de en çok oy almış 5.000 filmi çekiyor; sitedeki "Herhangi bir film için tahmin" kutusu bunu kullanıyor |
@@ -130,7 +149,6 @@ Aynı TMDB puanına sahip iki filmden daha az bilinenini daha çok seviyorum. Di
 | `src/export_powerbi.py` | Power BI için yıldız şema tablolarını `data/powerbi/` altına yazıyor |
 | `src/features.py` | Pano ve model için ortak özellik üretimi |
 | `reports/figures/` | Grafikler |
-| `reports/share/` | LinkedIn görselleri, kaydırmalı PDF ve paylaşım metinleri (`share.html` ve `render_share.ps1` ile üretiliyor) |
 | `data/processed/` | TMDB ile zenginleştirilmiş veri |
 
 ## Çalıştırma

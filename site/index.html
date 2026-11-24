@@ -178,6 +178,9 @@ footer p { max-width: 40rem; }
 .ares-nums .tmdb { color: var(--crowd); }
 .ares-nums small { font-size: .85rem; color: var(--muted); }
 /* power bi */
+.elif { display: grid; grid-template-columns: 1.55fr 1fr; gap: 1.2rem; margin-top: 1.4rem; max-width: 64rem; align-items: start; }
+.elif img { display: block; width: 100%; height: auto; background: #fff; border: 1px solid var(--rule); }
+@media (max-width: 760px) { .elif { grid-template-columns: 1fr; } }
 .pbi { display: block; margin-top: 1.4rem; max-width: 64rem; }
 .pbi img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
 .pbi-links a { color: var(--ink); text-underline-offset: 3px; }
@@ -249,6 +252,18 @@ footer p { max-width: 40rem; }
     </div>
   </div>
   <div class="key"><span class="k-crowd">expected</span><span class="k-me">my rating</span></div>
+</section>
+
+<section aria-labelledby="h-elif">
+  <div class="text">
+    <h2 id="h-elif">How much do Elif and I agree?</h2>
+    <p>My girlfriend Elif uses Letterboxd too. On the 153 films we have both rated, the Spearman correlation between our ratings is 0.70; on the same films my agreement with the TMDB crowd is 0.47. We put films in almost the same order, but Elif is 0.44 stars more generous on average, and the gap doesn't depend on how good the film is. It is smallest for horror and science fiction, the two genres we both rate lowest.</p>
+    <p class="small">Shared with Elif's permission. We chose these films ourselves and watched some together, so the agreement may be a little inflated.</p>
+  </div>
+  <div class="elif">
+    <a href="elif-agreement.png"><img src="elif-agreement.png?v=1" width="1659" height="723" loading="lazy" alt="Left: my ratings against Elif's, dot size is the number of films; right: Bland–Altman plot, mean difference +0.44 stars"></a>
+    <a href="elif-genres.png"><img src="elif-genres.png?v=1" width="1251" height="761" loading="lazy" alt="Average rating by genre for me and Elif; Elif is higher in almost every genre, the gap is smallest for horror and science fiction"></a>
+  </div>
 </section>
 
 <section aria-labelledby="h-model">

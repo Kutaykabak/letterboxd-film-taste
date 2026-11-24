@@ -1,6 +1,6 @@
 # What my Letterboxd ratings say about my taste
 
-[![355 films, rated by year](reports/share/og.png)](https://kutaykabak.github.io/letterboxd-film-taste/)
+[![355 films, rated by year](site/og.png)](https://kutaykabak.github.io/letterboxd-film-taste/)
 
 **Live page: [kutaykabak.github.io/letterboxd-film-taste](https://kutaykabak.github.io/letterboxd-film-taste/)**
 
@@ -21,6 +21,7 @@ The dataset is small, so most of the work went into not overstating the results:
 - Random Forest, XGBoost, LightGBM and ordinal logistic regression end up very close to each other. After a multiple-comparison correction, none of them beats a two-variable linear model (release year + TMDB rating) by a significant margin.
 - A four-variable **ordinal logistic regression** gets nearly the same error as Random Forest and can be interpreted: one standard deviation more TMDB rating multiplies the odds of me giving a higher rating by 5.1.
 - Separating films I loved (4+ stars) from the rest: ROC AUC 0.83 to 0.84.
+- My girlfriend and I rank films alike (Spearman ρ = 0.70 on 153 shared films, higher than my 0.47 with the TMDB average on the same films), but she gives 0.44 stars more on average.
 
 ## Data
 
@@ -28,10 +29,11 @@ The dataset is small, so most of the work went into not overstating the results:
 |---|---|
 | Letterboxd export | 358 rated films, 479 watched films, a 249-film watchlist, 77 liked films |
 | TMDB API | Genres, runtime, language, country, director, cast, TMDB average rating, vote count, popularity |
+| Elif's Letterboxd export (Part 4, with her permission) | 429 rated and 654 watched films; 153 rated by both of us |
 
 700 of 727 unique films matched on TMDB. Most of the misses were TV series and episodes (Black Mirror episodes, for example), which is why 3 of my rated titles drop out and 355 films remain.
 
-The raw Letterboxd export is personal and is not part of this repository (`.gitignore`).
+The raw Letterboxd exports (mine and Elif's) are personal and are not part of this repository (`.gitignore`).
 
 ## 1. Exploratory analysis and tests
 
@@ -108,6 +110,26 @@ Of two films with the same TMDB rating, I like the less-known one more. Language
 
 **Watchlist:** I fit the model on all 355 films and ranked the 247 films on my watchlist ([`reports/watchlist_predictions.csv`](reports/watchlist_predictions.csv)). Persona, The Seventh Seal, Harakiri and Wild Strawberries come out on top; Salvation, Megalopolis and Longlegs at the bottom.
 
+## 3. How well does my taste match my girlfriend's?
+
+Notebook: [`notebooks/letterboxd_analysis.ipynb`](notebooks/letterboxd_analysis.ipynb), Part 4. My girlfriend Elif also uses Letterboxd and agreed to have her ratings included. We have both rated 153 of the same films.
+
+![Agreement](reports/figures_en/10_elif_agreement.png)
+
+| | Spearman ρ | 95% CI (bootstrap) |
+|---|---|---|
+| Me vs. Elif | **0.70** | 0.60 to 0.78 |
+| Me vs. TMDB average | 0.47 | 0.32 to 0.60 |
+| Elif vs. TMDB average | 0.55 | 0.42 to 0.66 |
+
+- On these films Elif's ratings track mine better than the crowd's do: the difference is +0.23 (paired bootstrap 95% CI 0.11 to 0.36).
+- She is more generous. She rates the same films 0.44 stars higher on average (Wilcoxon p < 0.001; she is higher on 95 films, I am on 13, 45 are equal). The Bland–Altman plot shows the gap does not depend on how good the film is, so it is a constant shift: same order, different stars.
+- Exact agreement is moderate: same rating on 29% of films, within half a star on 71%, quadratic-weighted Cohen's kappa 0.62.
+- The gap is smallest for horror and science fiction, the two genres we both rate lowest. We both prefer older films (ρ = -0.39 for me, -0.41 for her).
+- The shared films are not random: we chose to watch them and some we watched together, so agreement may be a little inflated.
+
+![By genre](reports/figures_en/11_elif_genres.png)
+
 ## Limitations
 
 - 355 films is not much. Intervals are wide and the differences between models are at the noise level.
@@ -142,7 +164,6 @@ Decimal commas in the screenshots come from the Turkish regional settings of the
 |---|---|
 | `notebooks/letterboxd_analysis.ipynb` | Full analysis in English, runs top to bottom |
 | `notebooks/letterboxd_analizi.ipynb` | The same analysis in Turkish |
-| `notebooks/01_temizlik.ipynb`, `02_eda_testler.ipynb`, `03_modelleme.ipynb` | The Turkish analysis split into three parts |
 | `src/tmdb_enrich.py` | Matches Letterboxd films to TMDB and pulls metadata |
 | `src/features.py` | Shared feature building for the model and the dashboard |
 | `src/build_site.py` | Builds `site/data.js` and `site/catalog.js` (predictions for the TMDB catalog) |
@@ -152,7 +173,6 @@ Decimal commas in the screenshots come from the Turkish regional settings of the
 | `site/` | Static interactive page |
 | `powerbi/` | Power BI reports (Turkish and English), Power Query code, colour theme |
 | `reports/` | Figures (`figures_en/` in English) and watchlist predictions |
-| `reports/share/` | Social images and the LinkedIn carousel, made from `share.html` with `render_share.ps1` |
 
 ## How to run
 

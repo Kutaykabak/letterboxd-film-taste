@@ -178,6 +178,9 @@ footer p { max-width: 40rem; }
 .ares-nums .tmdb { color: var(--crowd); }
 .ares-nums small { font-size: .85rem; color: var(--muted); }
 /* power bi */
+.elif { display: grid; grid-template-columns: 1.55fr 1fr; gap: 1.2rem; margin-top: 1.4rem; max-width: 64rem; align-items: start; }
+.elif img { display: block; width: 100%; height: auto; background: #fff; border: 1px solid var(--rule); }
+@media (max-width: 760px) { .elif { grid-template-columns: 1fr; } }
 .pbi { display: block; margin-top: 1.4rem; max-width: 64rem; }
 .pbi img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
 .pbi-links a { color: var(--ink); text-underline-offset: 3px; }
@@ -249,6 +252,18 @@ footer p { max-width: 40rem; }
     </div>
   </div>
   <div class="key"><span class="k-crowd">beklenen</span><span class="k-me">verdiğim</span></div>
+</section>
+
+<section aria-labelledby="h-elif">
+  <div class="text">
+    <h2 id="h-elif">Elif'le ne kadar aynı fikirdeyiz?</h2>
+    <p>Kız arkadaşım Elif de Letterboxd kullanıyor. İkimizin de puanladığı 153 filmde puanlarımız arasındaki Spearman korelasyonu 0,70; aynı filmlerde TMDB kalabalığıyla benim uyumum 0,47. Filmleri neredeyse aynı sırayla diziyoruz, ama Elif ortalama 0,44 yıldız daha cömert ve bu fark filmin iyi ya da kötü olmasına göre değişmiyor. Fark en küçük, ikimizin de en düşük puan verdiği korku ve bilimkurguda.</p>
+    <p class="small">Elif'in izniyle. Ortak filmleri kendimiz seçtik, bir kısmını birlikte izledik; uyum bu yüzden biraz yüksek çıkmış olabilir.</p>
+  </div>
+  <div class="elif">
+    <a href="../elif-uyum.png"><img src="../elif-uyum.png?v=1" width="1659" height="723" loading="lazy" alt="Solda benim ve Elif'in puanları, nokta büyüklüğü film sayısı; sağda Bland–Altman grafiği, ortalama fark +0,44 yıldız"></a>
+    <a href="../elif-turler.png"><img src="../elif-turler.png?v=1" width="1251" height="761" loading="lazy" alt="Türlere göre benim ve Elif'in ortalama puanı; Elif neredeyse her türde daha yüksek, fark en küçük korku ve bilimkurguda"></a>
+  </div>
 </section>
 
 <section aria-labelledby="h-model">
